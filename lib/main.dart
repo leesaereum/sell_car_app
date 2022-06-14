@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Color.fromARGB(255, 4, 31, 56),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
+        primaryColor: const Color.fromARGB(255, 4, 31, 56),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       debugShowCheckedModeBanner: false,
       home: const Home(),
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SELL CAR'),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
         child: Column(
