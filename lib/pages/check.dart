@@ -40,19 +40,19 @@ class _CheckHomeState extends State<CheckHome>
           Tab(
             icon: Icon(
               Icons.looks_one,
-              color: Colors.blueGrey,
+              color: Color.fromARGB(255, 4, 31, 56),
             ),
           ),
           Tab(
             icon: Icon(
               Icons.looks_two,
-              color: Colors.blueGrey,
+              color: Color.fromARGB(255, 4, 31, 56),
             ),
           ),
           Tab(
             icon: Icon(
               Icons.looks_3,
-              color: Colors.blueGrey,
+              color: Color.fromARGB(255, 4, 31, 56),
             ),
           ),
         ],
