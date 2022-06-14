@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/check.dart';
-import 'package:sell_car_app/pages/checkbrand.dart';
 import 'package:sell_car_app/pages/community.dart';
 import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/pages/mylist.dart';
