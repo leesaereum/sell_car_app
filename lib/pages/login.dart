@@ -9,8 +9,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
   TextEditingController id = TextEditingController();
   TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -35,14 +37,17 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.fromLTRB(30, 50, 30, 10),
                   child: TextField(
                     controller: id,
-                    decoration: const InputDecoration(labelText: 'ID'),
+                    decoration: const InputDecoration(labelText: 'Please insert your Id'),
+                    keyboardType :TextInputType.text,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(30, 10, 30, 50),
                   child: TextField(
                     controller: password,
-                    decoration: const InputDecoration(labelText: 'PASSWORD'),
+                    decoration: const InputDecoration(labelText: 'Please insert your password'),
+                    keyboardType :TextInputType.text,
+                    obscureText: true,       //비번 입력시 안 보이게 
                   ),
                 ),
                 ElevatedButton(
