@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/signin.dart';
 
 class Login extends StatefulWidget {
@@ -49,7 +47,7 @@ class _LoginState extends State<Login> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 4, 31, 56)),
+                      primary: const Color.fromARGB(255, 33, 98, 159)),
                   onPressed: () {},
                   child: const Text(
                     ' LOGIN ',
