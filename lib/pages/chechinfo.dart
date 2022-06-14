@@ -24,6 +24,7 @@ class _CheckInfoState extends State<CheckInfo> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('SELL CAR'),
+          backgroundColor: const Color.fromARGB(255, 4, 31, 56),
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -80,6 +81,8 @@ class _CheckInfoState extends State<CheckInfo> {
                   ),
                 ),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: const Color.fromARGB(255, 4, 31, 56)),
                     onPressed: () {
                       Navigator.pop(context);
                       Navigator.push(

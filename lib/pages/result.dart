@@ -17,6 +17,7 @@ class _ResultState extends State<Result> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SELL CAR'),
+        backgroundColor: Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
         child: Column(
@@ -27,6 +28,8 @@ class _ResultState extends State<Result> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromARGB(255, 4, 31, 56)),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(
@@ -37,6 +40,8 @@ class _ResultState extends State<Result> {
                 },
                 child: const Text('CHECK AGAIN')),
             ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromARGB(255, 4, 31, 56)),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(

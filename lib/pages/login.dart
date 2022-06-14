@@ -20,6 +20,7 @@ class _LoginState extends State<Login> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('SELL CAR'),
+          backgroundColor: Color.fromARGB(255, 4, 31, 56),
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -47,6 +48,8 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: const Color.fromARGB(255, 4, 31, 56)),
                   onPressed: () {},
                   child: const Text(
                     ' LOGIN ',
@@ -55,6 +58,8 @@ class _LoginState extends State<Login> {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: const Color.fromARGB(255, 4, 31, 56)),
                     onPressed: () {
                       Navigator.push(
                           context,

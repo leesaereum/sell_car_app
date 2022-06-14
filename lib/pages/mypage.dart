@@ -23,6 +23,7 @@ class _MypageState extends State<Mypage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('SELL CAR'),
+          backgroundColor: Color.fromARGB(255, 4, 31, 56),
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
