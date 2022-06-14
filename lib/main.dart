@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primaryColor: const Color.fromARGB(255, 4, 31, 56),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       debugShowCheckedModeBanner: false,
       home: const Home(),
@@ -40,6 +41,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SELL CAR'),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
         child: Column(
@@ -53,6 +55,8 @@ class _HomeState extends State<Home> {
               height: 50,
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: const Color.fromARGB(255, 4, 31, 56)),
               onPressed: () {
                 if (Static.id.isEmpty) {
                   Navigator.push(
@@ -78,7 +82,7 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.zero,
           children: [
             Container(
-              color: Colors.blueGrey,
+              color: Color.fromARGB(255, 2, 26, 48),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -107,7 +111,11 @@ class _HomeState extends State<Home> {
                       ));
                 },
                 leading: const CircleAvatar(
-                  child: Icon(Icons.person),
+                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
                 ),
                 title: const Text('MYPAGE'),
               ),
@@ -123,7 +131,11 @@ class _HomeState extends State<Home> {
                       ));
                 },
                 leading: const CircleAvatar(
-                  child: Icon(Icons.list),
+                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
+                  child: Icon(
+                    Icons.list,
+                    color: Colors.white,
+                  ),
                 ),
                 title: const Text('MYLIST'),
               ),
@@ -139,7 +151,11 @@ class _HomeState extends State<Home> {
                       ));
                 },
                 leading: const CircleAvatar(
-                  child: Icon(Icons.library_books),
+                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
+                  child: Icon(
+                    Icons.library_books,
+                    color: Colors.white,
+                  ),
                 ),
                 title: const Text('COMMUNITY'),
               ),
@@ -155,7 +171,11 @@ class _HomeState extends State<Home> {
                       ));
                 },
                 leading: const CircleAvatar(
-                  child: Icon(Icons.lightbulb),
+                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
+                  child: Icon(
+                    Icons.lightbulb,
+                    color: Colors.white,
+                  ),
                 ),
                 title: const Text('TIPS'),
               ),

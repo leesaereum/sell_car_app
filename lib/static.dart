@@ -1,4 +1,4 @@
 class Static {
-  static String id = "a";
+  static String id = "";
   static String nickname = "Guest";
 }

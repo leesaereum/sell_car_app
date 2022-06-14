@@ -15,6 +15,7 @@ class _MylistState extends State<Mylist> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('SELL CAR'),
+          backgroundColor: Color.fromARGB(255, 4, 31, 56),
         ),
         body: Center(
             child: Column(children: [

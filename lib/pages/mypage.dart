@@ -23,6 +23,7 @@ class _MypageState extends State<Mypage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('SELL CAR'),
+          backgroundColor: const Color.fromARGB(255, 4, 31, 56),
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -60,6 +61,8 @@ class _MypageState extends State<Mypage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Color.fromARGB(255, 4, 31, 56)),
                         onPressed: () {},
                         child: const Text(
                           'REVISE',
@@ -67,6 +70,8 @@ class _MypageState extends State<Mypage> {
                         )),
                     const SizedBox(width: 50),
                     ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Color.fromARGB(255, 4, 31, 56)),
                         onPressed: () {},
                         child: const Text(
                           'RESIGN',

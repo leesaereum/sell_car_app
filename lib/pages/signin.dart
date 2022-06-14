@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -21,6 +19,7 @@ class _SigninState extends State<Signin> {
         child: Scaffold(
           appBar: AppBar(
             title: const Text('SELL CAR'),
+            backgroundColor: Color.fromARGB(255, 4, 31, 56),
           ),
           body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -63,6 +62,8 @@ class _SigninState extends State<Signin> {
                     ),
                   ),
                   ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: const Color.fromARGB(255, 4, 31, 56)),
                       onPressed: () {},
                       child: const Text(
                         'COMPLETE',
