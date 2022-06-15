@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Community extends StatefulWidget {
   const Community({Key? key}) : super(key: key);
@@ -19,7 +17,12 @@ class _CommunityState extends State<Community> {
       ),
       body: Center(
         child: Column(
-          children: [],
+          children: [
+            const Text(
+              'COMMINITY',
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );

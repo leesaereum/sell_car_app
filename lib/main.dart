@@ -6,6 +6,7 @@ import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/pages/mypage.dart';
 import 'package:sell_car_app/pages/tips.dart';
 import 'package:sell_car_app/static.dart';
+import 'package:sell_car_app/tab.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      home: const Tabs(),
     );
   }
 }
