@@ -38,13 +38,13 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
         tabs: const [
           Tab(
             icon: Icon(
-              Icons.looks_one,
+              Icons.directions_car_filled,
               color: Color.fromARGB(255, 4, 31, 56),
             ),
           ),
           Tab(
             icon: Icon(
-              Icons.looks_two,
+              Icons.library_books,
               color: Color.fromARGB(255, 4, 31, 56),
             ),
           ),
