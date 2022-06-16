@@ -11,6 +11,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController id = TextEditingController();
   TextEditingController password = TextEditingController();
+  bool invisible = true;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -39,15 +40,29 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 10, 30, 50),
+                  padding: const EdgeInsets.fromLTRB(30, 20, 30, 50),
                   child: TextField(
                     controller: password,
-                    decoration: const InputDecoration(labelText: 'PASSWORD'),
+                    obscureText: invisible,
+                    decoration: InputDecoration(
+                      labelText: 'PASSWORD',
+                      hintText: 'ENTER NEW PASSWORD',
+                      suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              invisible = !invisible;
+                            });
+                          },
+                          child: Icon(invisible
+                              ? Icons.visibility
+                              : Icons.visibility_off)),
+                    ),
+                    keyboardType: TextInputType.text,
                   ),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 33, 98, 159)),
+                      primary: const Color.fromARGB(255, 4, 31, 56)),
                   onPressed: () {},
                   child: const Text(
                     ' LOGIN ',
