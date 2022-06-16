@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/community.dart';
+import 'package:sell_car_app/pages/google_login.dart';
 import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/pages/mypage.dart';
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SELL CAR'),
+        title: Image.asset("../images/sellcar.png",width: 180,),
         backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
@@ -62,7 +63,8 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login(),
+                        //구글 로그인 
+                        builder: (context) => const GoogleLogin(),
                       ));
                 } else {
                   Navigator.push(
