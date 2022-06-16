@@ -158,7 +158,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                           ),
                           Text(
                             'WELCOME TO SELL CAR!\n'
-                            'PELESE LOGIN :)',
+                            'PLEASE LOGIN :)',
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
