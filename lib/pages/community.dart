@@ -16,101 +16,97 @@ class _CommunityState extends State<Community> {
 
   @override
   void initState() {
-    comList.add(ComList(nick: '${Static.nickname}', content: "test"));
+    comList
+        .add(ComList(nick: '${Static.nickname}', content: '${Static.content}'));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SELL CAR'),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
-        actions: [
-          IconButton(
-              onPressed: (() {
-                Navigator.pushNamed(
-                  context, '/Addcommunity').then((value) => rebuildData()
-                  );
-              }),
-              icon: const Icon(Icons.add)),
-        ],
-      ),
-      body: Center(
-        child: ListView.builder(
-            itemCount: comList.length,
-            itemBuilder: (context, position) {
-              return GestureDetector(
-                onTap: () {
-                  Static.content = comList[position].content;
-                  Static.nickname = comList[position].nick;
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Detailcommunity(),
-                    ),
-                  );
-                },
-                child: Card(
-                  color: Colors.grey[350],
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 250, 0),
-                            child: Text(
-                              "${Static.nickname}",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: ListView.builder(
+              itemCount: comList.length,
+              itemBuilder: (context, position) {
+                return GestureDetector(
+                  onTap: () {
+                    Static.content = comList[position].content;
+                    Static.nickname = comList[position].nick;
+                  },
+                  child: Card(
+                    color: Colors.grey[350],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 5, 260, 0),
+                              child: Text(
+                                "${Static.nickname}",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
-                            child: SizedBox(
-                              height: 40,
-                              width: 250,
-                              child: Flexible(
-                                child: RichText(
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  text: TextSpan(
-                                    text:
-                                       comList[position].content,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+                              child: SizedBox(
+                                height: 40,
+                                width: 250,
+                                child: Flexible(
+                                  child: RichText(
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                    text: TextSpan(
+                                      text: comList[position].content,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                        child: const Text("DATE"),
-                      )
-                    ],
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                          child: const Text("DATE"),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.fromLTRB(0,0,20,0),
+        child: FloatingActionButton(
+          backgroundColor: Color.fromARGB(255, 4, 31, 56),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const Addcommunity(),
+            ),
+          ),
+          
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
 
   // Functions
-  rebuildData(){
+  rebuildData() {
     setState(() {
-      if(Static.action){
-        comList.add(
-          ComList(nick: Static.nickname, content: Static.content)
-        );
+      if (Static.action) {
+        comList.add(ComList(nick: Static.nickname, content: Static.content));
         Static.action = false;
       }
     });

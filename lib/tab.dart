@@ -108,26 +108,6 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Community(),
-                      ));
-                },
-                leading: const CircleAvatar(
-                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
-                  child: Icon(
-                    Icons.chat_outlined,
-                    color: Colors.white,
-                  ),
-                ),
-                title: const Text('COMMUNITY'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-              child: ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
                         builder: (context) => const Mylist(),
                       ));
                 },

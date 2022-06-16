@@ -25,39 +25,54 @@ class _AddcommunityState extends State<Addcommunity> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('SELL CAR'),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Column(
-            children: [
-              TextField(
-                controller: nickController,
-                readOnly: true,
-              ),
-              TextField(
-                controller: contentController,
-                decoration: InputDecoration(
-                    labelText: 'Input content',
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey))),
-                keyboardType: TextInputType.text,
-                maxLines: 5,
-              ),
-              TextButton(
-                  onPressed: (() {
-                      if (contentController.text.isEmpty) {
-                        Static.content = contentController.text;
-                        Static.action = true;
-                      }
-                    Navigator.pop(context);
-                  }),
-                  child: const Text("Upload")),
-            ],
+    return GestureDetector(
+      onTap: ()=>FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('SELL CAR'),
+          backgroundColor: Color.fromARGB(255, 4, 31, 56),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Center(
+            child: Column(
+              children: [
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Text('NICKNAME : ${Static.nickname}',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                TextField(
+                  controller: contentController,
+                  decoration: InputDecoration(
+                      labelText: 'Input content',
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey))),
+                  keyboardType: TextInputType.text,
+                  //maxLines: 5,
+                ),
+                TextFormField(
+                  
+                ),
+                TextButton(
+                    onPressed: (() {
+                        if (contentController.text.isEmpty) {
+                          Static.content = contentController.text;
+                          Static.action = true;
+                          ComList(nick: nickController.text, 
+                          content: contentController.text);
+                        }
+                      Navigator.pop(context);
+                    }),
+                    child: const Text("Upload")),
+              ],
+            ),
           ),
         ),
       ),
