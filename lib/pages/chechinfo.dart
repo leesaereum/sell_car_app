@@ -20,10 +20,6 @@ class _CheckInfoState extends State<CheckInfo> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('SELL CAR'),
-          backgroundColor: const Color.fromARGB(255, 4, 31, 56),
-        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Center(
@@ -86,7 +82,14 @@ class _CheckInfoState extends State<CheckInfo> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Result(),
+                            builder: (context) => Result(
+                              inputAge: int.parse(age.text), 
+                              inputMileage: int.parse(mileage.text), 
+                              inputMpg: mpg.text, 
+                              inputEngineSize: enginesize.text, 
+                              inputFueltype: fueltype.text, 
+                              inputTransmission: transmission.text
+                            )
                           ));
                     },
                     child: const Text(
