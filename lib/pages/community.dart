@@ -34,6 +34,8 @@ class _CommunityState extends State<Community> {
                   onTap: () {
                     Static.content = comList[position].content;
                     Static.nickname = comList[position].nick;
+                    Navigator.push(context, 
+                    MaterialPageRoute(builder: (context) => Detailcommunity()));
                   },
                   child: Card(
                     color: Colors.grey[350],

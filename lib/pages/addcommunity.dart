@@ -29,7 +29,7 @@ class _AddcommunityState extends State<Addcommunity> {
       onTap: ()=>FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('SELL CAR'),
+          title: Image.asset("./images/sellcar.png",width: 180,),
           backgroundColor: Color.fromARGB(255, 4, 31, 56),
         ),
         body: Padding(
@@ -54,7 +54,7 @@ class _AddcommunityState extends State<Addcommunity> {
                       labelText: 'Input content',
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey))),
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.multiline,
                   //maxLines: 5,
                 ),
                 TextFormField(
