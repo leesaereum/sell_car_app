@@ -55,10 +55,8 @@ class _AddcommunityState extends State<Addcommunity> {
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey))),
                   keyboardType: TextInputType.multiline,
-                  //maxLines: 5,
-                ),
-                TextFormField(
-                  
+                  maxLines: 5,
+                  maxLength: 50,
                 ),
                 TextButton(
                     onPressed: (() {
