@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sell_car_app/pages/addcommunity.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/community.dart';
 import 'package:sell_car_app/pages/login.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/Addcommunity':(context) => const Addcommunity(),
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: const Color.fromARGB(255, 4, 31, 56),

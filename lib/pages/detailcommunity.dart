@@ -30,14 +30,10 @@ class _DetailcommunityState extends State<Detailcommunity> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 300, 8),
-              child: Text("Writer : ${Static.nickname}"),
-            ),
-            const Text(
-                "My car's price was predicted to be 15000 pound on SELL CAR. "
-                "If you are intered in my car, Please contact the below number.  "
-                "My number is 05-345-1244"),
+            Text("Writer : ${Static.nickname}"),
+            Text(
+                '${Static.content}'
+                ),
             Padding(
               padding: const EdgeInsets.fromLTRB(300, 0, 0, 8),
               child: const Text("DATE : "),

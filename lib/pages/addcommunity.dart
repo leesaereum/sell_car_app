@@ -13,7 +13,6 @@ class Addcommunity extends StatefulWidget {
 }
 
 class _AddcommunityState extends State<Addcommunity> {
-
   late TextEditingController nickController;
   late TextEditingController contentController;
 
@@ -28,9 +27,9 @@ class _AddcommunityState extends State<Addcommunity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('SELL CAR'),
-          backgroundColor: Color.fromARGB(255, 4, 31, 56),
-        ),
+        title: const Text('SELL CAR'),
+        backgroundColor: Color.fromARGB(255, 4, 31, 56),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Center(
@@ -43,26 +42,21 @@ class _AddcommunityState extends State<Addcommunity> {
               TextField(
                 controller: contentController,
                 decoration: InputDecoration(
-                  labelText: 'Input content',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey
-                    )
-                  )
-                  ),
+                    labelText: 'Input content',
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey))),
                 keyboardType: TextInputType.text,
                 maxLines: 5,
               ),
               TextButton(
-                onPressed: (() {
-                  if(contentController.text.isEmpty){
-                    Static.content = contentController.text;
-                    Static.action = true;
-                  }
-                  Navigator.pop(context);
-                }), 
-                child: const Text("Upload")
-                ),
+                  onPressed: (() {
+                      if (contentController.text.isEmpty) {
+                        Static.content = contentController.text;
+                        Static.action = true;
+                      }
+                    Navigator.pop(context);
+                  }),
+                  child: const Text("Upload")),
             ],
           ),
         ),
