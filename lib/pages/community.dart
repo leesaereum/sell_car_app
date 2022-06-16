@@ -31,40 +31,72 @@ class _CommunityState extends State<Community> {
           ],
         ),
       body: Center(
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: (() {
-                 Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Detailcommunity(),
-                      ));
-              }),
-              child: Card(
-                color: Colors.grey[350],
-                child: Row(
-                  children: [
-                    Text(
-                      "${Static.nickname}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: (() {
+                   Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Detailcommunity(),
+                        ));
+                }),
+                child: Card(
+                  color: Colors.grey[350],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 250, 0),
+                            child: Text(
+                              "${Static.nickname}",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+                            child: SizedBox(
+                              height: 40,
+                              width: 250,
+                              child: Flexible(
+                                child: RichText(
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                  text: TextSpan(
+                                    text: "My car's price was predicted to be 15000 pound on SELL CAR. "
+                "If you are intered in my car, Please contact the below number.  "
+                "My number is 05-345-1244",
+                                  style:  TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(
-                      width: 80,
-                    ),
-                    const Text("Title is in here",
-                    style: TextStyle(
-                      fontSize: 25
-                    ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                        child: const Text("DATE"),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
