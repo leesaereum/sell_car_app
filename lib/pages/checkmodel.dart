@@ -14,50 +14,45 @@ class _CheckModelState extends State<CheckModel> {
   List<String> carImg = [];
   @override
   void initState() {
-    print(Static.brand);
     switch (Static.brand) {
       case 'Audi':
         carName.add('A3');
-        carName.add('A4');
-        carName.add('Q3');
         carImg.add('images/Audi_A3.png');
+        carName.add('A4');
         carImg.add('images/Audi_A4.png');
+        carName.add('Q3');
         carImg.add('images/Audi_Q3.png');
         break;
       case 'Ford':
         carName.add('FIESTA');
-
-        carName.add('FOCUS');
-        carName.add('KUGA');
         carImg.add('images/ford_fiesta3.webp');
+        carName.add('FOCUS');
         carImg.add('images/ford_focus.png');
+        carName.add('KUGA');
         carImg.add('images/ford_kuga.png');
         break;
       case 'Vw':
         carName.add('GOLF');
-
-        carName.add('POLO');
-        carName.add('TIGUAN');
         carImg.add('images/vw_golf.png');
+        carName.add('POLO');
         carImg.add('images/vw_polo.png');
+        carName.add('TIGUAN');
         carImg.add('images/vw_tiguan.png');
         break;
       case 'Benz':
         carName.add('A CLASS');
-
-        carName.add('C CLASS');
-        carName.add('E CLASS');
         carImg.add('images/benz_Aclass.png');
+        carName.add('C CLASS');
         carImg.add('images/benz_Cclass.png');
+        carName.add('E CLASS');
         carImg.add('images/benz_Eclass.png');
         break;
       case 'Bmw':
         carName.add('1 SERIES');
-
-        carName.add('2 SERIES');
-        carName.add('3 SERIES');
         carImg.add('images/bmw_1series.png');
+        carName.add('2 SERIES');
         carImg.add('images/bmw_2series.png');
+        carName.add('3 SERIES');
         carImg.add('images/bmw_3series.png');
         break;
     }
@@ -97,6 +92,7 @@ class _CheckModelState extends State<CheckModel> {
                 height: 150,
                 child: Column(
                   children: [
+                    const SizedBox(height: 10),
                     Image.asset(
                       carImg[0],
                       height: 100,
@@ -130,6 +126,7 @@ class _CheckModelState extends State<CheckModel> {
                 height: 150,
                 child: Column(
                   children: [
+                    const SizedBox(height: 10),
                     Image.asset(
                       carImg[1],
                       height: 100,
@@ -163,6 +160,7 @@ class _CheckModelState extends State<CheckModel> {
                 height: 150,
                 child: Column(
                   children: [
+                    const SizedBox(height: 10),
                     Image.asset(
                       carImg[2],
                       height: 100,
