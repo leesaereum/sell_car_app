@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:sell_car_app/pages/result.dart';
 import 'package:sell_car_app/static.dart';
 
@@ -591,7 +590,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                 ),
                             ),
                         transmission.length == 2
-                            ? SizedBox(
+                            ? const SizedBox(
                                 height: 40,
                                 width: 0,
                               )

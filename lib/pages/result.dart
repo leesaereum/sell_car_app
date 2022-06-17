@@ -66,7 +66,7 @@ class _ResultState extends State<Result> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text('THE PRICE OF YOUR CAR IS PREDICTED TO BE $range. ARE YOU GOING BACK TO MAIN?',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20
               ),
               ),
@@ -116,36 +116,6 @@ class _ResultState extends State<Result> {
                       ));
                 },
                 child: const Text(' ADD TO LIST ')),
-            // ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //         fixedSize: const Size(130, 10),
-            //         primary: const Color.fromARGB(255, 4, 31, 56)),
-            //     onPressed: () {
-            //       // print(widget.inputAge);
-            //       // print(widget.inputMileage);
-            //       // print(widget.inputMpg);
-            //       // print(widget.inputEngineSize);
-            //       // print(widget.inputFueltype);
-            //       // print(widget.inputTransmission);
-            //       // print(Static.model);
-            //       irisPredict();
-            //     },
-            //     child: const Text('Test')),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(130, 10),
-                    primary: const Color.fromARGB(255, 4, 31, 56)),
-                onPressed: () {
-                  print(widget.inputAge);
-                  print(widget.inputMileage);
-                  print(widget.inputMpg);
-                  print(widget.inputEngineSize);
-                  print(widget.inputFueltype);
-                  print(widget.inputTransmission);
-                  print(Static.model);
-                  // irisPredict();
-                },
-                child: const Text('Test Name')),
           ],
         ),
       ),

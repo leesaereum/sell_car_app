@@ -14,7 +14,7 @@ class _CheckModelState extends State<CheckModel> {
   List<String> carImg = [];
   @override
   void initState() {
-    switch(Static.brand){
+    switch (Static.brand) {
       case 'Audi':
         carName.add('A3');
         carImg.add('images/Audi_A3.png');
@@ -65,7 +65,9 @@ class _CheckModelState extends State<CheckModel> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 20,),
+            const SizedBox(
+              height: 10,
+            ),
             const Text(
               'CHOOSE MODEL',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -74,7 +76,9 @@ class _CheckModelState extends State<CheckModel> {
               Static.brand.toUpperCase(),
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(
+              height: 10,
+            ),
             GestureDetector(
               onTap: () {
                 setState(() {
@@ -83,26 +87,29 @@ class _CheckModelState extends State<CheckModel> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                  color: Static.model == carName[0].toLowerCase()
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                      color: Static.model == carName[0].toLowerCase()
+                          ? Colors.amber
+                          : Color.fromARGB(255, 4, 31, 56),
+                      width: 3,
+                    )),
                 width: 350,
                 height: 150,
                 child: Column(
                   children: [
-                    const SizedBox(height:10),
-                    Image.asset(carImg[0],
-                    height: 100,),
-                    const SizedBox(height:10),
-                    Text(carName[0],
-                    style: const TextStyle(fontSize: 20),)
+                    const SizedBox(height: 10),
+                    Image.asset(
+                      carImg[0],
+                      height: 100,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      carName[0],
+                      style: const TextStyle(fontSize: 20),
+                    )
                   ],
                 ),
-                
               ),
             ),
             const SizedBox(height: 10),
@@ -114,23 +121,27 @@ class _CheckModelState extends State<CheckModel> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                  color: Static.model == carName[1].toLowerCase()
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                      color: Static.model == carName[1].toLowerCase()
+                          ? Colors.amber
+                          : Color.fromARGB(255, 4, 31, 56),
+                      width: 3,
+                    )),
                 width: 350,
                 height: 150,
-                                child: Column(
+                child: Column(
                   children: [
-                    const SizedBox(height:10),
-                    Image.asset(carImg[1],
-                    height: 100,),
-                    const SizedBox(height:10),
-                    Text(carName[1],
-                    style: const TextStyle(fontSize: 20),)
+                    const SizedBox(height: 10),
+                    Image.asset(
+                      carImg[1],
+                      height: 100,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      carName[1],
+                      style: const TextStyle(fontSize: 20),
+                    )
                   ],
                 ),
               ),
@@ -144,30 +155,34 @@ class _CheckModelState extends State<CheckModel> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                  color: Static.model == carName[2].toLowerCase()
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                      color: Static.model == carName[2].toLowerCase()
+                          ? Colors.amber
+                          : Color.fromARGB(255, 4, 31, 56),
+                      width: 3,
+                    )),
                 width: 350,
                 height: 150,
-                                child: Column(
+                child: Column(
                   children: [
-                    const SizedBox(height:10),
-                    Image.asset(carImg[2],
-                    height: 100,),
-                    const SizedBox(height:10),
-                    Text(carName[2],
-                    style: const TextStyle(fontSize: 20),)
+                    const SizedBox(height: 10),
+                    Image.asset(
+                      carImg[2],
+                      height: 100,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      carName[2],
+                      style: const TextStyle(fontSize: 20),
+                    )
                   ],
                 ),
               ),
             ),
             const SizedBox(height: 10),
             PrimaryButton(
-              onPressed : Static.model!=''?widget.onNext:_function(),
+              onPressed: Static.model != '' ? widget.onNext : nomodel(),
               text: 'NEXT',
             ),
           ],
@@ -203,6 +218,4 @@ class PrimaryButton extends StatelessWidget {
   }
 }
 
-_function(){
-  print('hello');
-}
+nomodel() {}
