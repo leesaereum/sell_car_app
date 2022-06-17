@@ -8,9 +8,9 @@ import 'package:http/http.dart' as http;
 
 class Chart extends StatefulWidget {
   final int inputAge;
-  final dynamic inputMileage;
-  final dynamic inputMpg;
-  final dynamic inputEngineSize;
+  final int inputMileage;
+  final double inputMpg;
+  final double inputEngineSize;
   final String inputFueltype;
   final String inputTransmission;
 
@@ -55,52 +55,54 @@ class _ChartState extends State<Chart> {
             width: 180,
           )),
       body: Center(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-
-            // Dropdown Button
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "CHOOSE CHART : ",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  width: 30,
-                ),
-                DropdownButton(
-                  value: _selectedValue,
-                  items: _valueList.map(
-                    (value) {
-                      return DropdownMenuItem(
-                        value: value,
-                        child: Text(value),
-                      );
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+        
+              // Dropdown Button
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "CHOOSE CHART : ",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  DropdownButton(
+                    value: _selectedValue,
+                    items: _valueList.map(
+                      (value) {
+                        return DropdownMenuItem(
+                          value: value,
+                          child: Text(value),
+                        );
+                      },
+                    ).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedValue = value as String;
+                        jsonData = [];
+                        data = [];
+                        getJsonData(_selectedValue);
+                      });
                     },
-                  ).toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedValue = value as String;
-                      jsonData = [];
-                      data = [];
-                      getJsonData(_selectedValue);
-                    });
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            // Chart
-            jsonData.isEmpty
-                ? const Text("Choose Chart")
-                : DeveloperChart(data: data, chartType: 'bar')
-          ],
+                  ),
+                ],
+              ),
+              // Chart
+              jsonData.isEmpty
+                  ? const Text("Choose Chart")
+                  : DeveloperChart(data: data, chartType: 'bar'),
+              jsonData.isEmpty
+                  ? const Text("Choose Chart")
+                  : DeveloperChart(data: data, chartType: 'bar')
+            ],
+          ),
         ),
       ),
     );
