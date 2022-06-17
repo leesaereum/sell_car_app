@@ -67,7 +67,9 @@ class _AddcommunityState extends State<Addcommunity> {
                   decoration: InputDecoration(
                       labelText: 'Input title',
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey))),
+                          borderSide: BorderSide(color: Colors.blue,width: 3),
+                          ),
+                          ),
                   keyboardType: TextInputType.text,
                   maxLength: 10,
                 ),
@@ -85,9 +87,7 @@ class _AddcommunityState extends State<Addcommunity> {
                     onPressed: (() {
                       title = titleController.text;
                       content = contentController.text;
-                      Static.action = true;
-
-                      Navigator.pop(context);
+                      addAction();
                     }),
                     child: const Text("Upload")),
               ],
@@ -100,17 +100,20 @@ class _AddcommunityState extends State<Addcommunity> {
 
   addAction() async {
     var url = Uri.parse(
-        'http://localhost:8080/Flutter/sell_car/boardmain.jsp?nickname=$nickname&title=$title&content=$content');
+        'http://localhost:8080/Flutter/sell_car/addboard.jsp?user=${Static.id}&title=$title&content=$content');
     var response = await http.get(url);
 
     setState(() {
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
       result = dataConvertedJSON["result"];
 
+      print("0");
       if (result == "OK") {
         _showDialog(context);
+        print("1");
       } else {
         _errorSnackBar(context);
+        print("2");
       }
     });
   }
