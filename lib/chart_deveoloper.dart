@@ -4,8 +4,9 @@ import 'package:sell_car_app/chart_series.dart';
 
 class DeveloperChart extends StatelessWidget {
   final List<DeveloperSeries> data; 
+  final String chartType; 
 
-  const DeveloperChart({Key? key, required this.data}) : super(key: key);
+  const DeveloperChart({Key? key, required this.data, required this.chartType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +38,10 @@ class DeveloperChart extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Expanded(child: charts.BarChart(
+                Expanded(
+                  child: charts.BarChart(
                   series,
-                  animationDuration: const Duration(seconds: 3),
+                  animationDuration: const Duration(seconds: 1),
                   animate: true,
                 ),
                 ),

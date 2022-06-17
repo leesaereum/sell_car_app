@@ -33,38 +33,15 @@ class _ChartState extends State<Chart> {
   final String model = Static.model; // 모델명
   final _valueList = ['Age', 'FuelType', 'Transmission']; // DropDownButton List
   String _selectedValue = 'Age'; // DrowDown 선택값
-  final List jsonData = []; // db jsondata 리스트
+  late List jsonData = []; // db jsondata 리스트
   String jspUrl = ""; // db 가져오는 jsp url 주소
-  final List<DeveloperSeries> data = []; // 차트 그릴 때 쓰는 data 리스트
+  late List<DeveloperSeries> data = []; // 차트 그릴 때 쓰는 data 리스트
 
   @override
   void initState() {
-    super.initState();
-
-    // 차트 그리는 data 리스트 채우기
-    data.add(
-      DeveloperSeries(
-        feature: widget.inputAge,
-        target: price,
-        chartColor: charts.ColorUtil.fromDartColor(Colors.green),
-      ),
-    );
-
-    data.add(
-      DeveloperSeries(
-        feature: widget.inputAge + 5,
-        target: price,
-        chartColor: charts.ColorUtil.fromDartColor(Colors.red),
-      ),
-    );
-
-    data.add(
-      DeveloperSeries(
-        feature: widget.inputAge + 10,
-        target: price,
-        chartColor: charts.ColorUtil.fromDartColor(Colors.green),
-      ),
-    );
+    super.initState(); 
+    jsonData = []; 
+    data = []; 
   }
 
 // 화면 그림
@@ -88,7 +65,10 @@ class _ChartState extends State<Chart> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("CHOOSE CHART : "),
+                const Text(
+                  "CHOOSE CHART : ",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 const SizedBox(
                   width: 30,
                 ),
@@ -105,7 +85,8 @@ class _ChartState extends State<Chart> {
                   onChanged: (value) {
                     setState(() {
                       _selectedValue = value as String;
-
+                      jsonData = []; 
+                      data = [];
                       getJsonData(_selectedValue);
                     });
                   },
@@ -117,8 +98,8 @@ class _ChartState extends State<Chart> {
             ),
             // Chart
             jsonData.isEmpty
-                ? const Text("NO DATA")
-                : DeveloperChart(data: data),
+                ? const Text("Choose Chart")
+                : DeveloperChart(data: data, chartType: 'bar')
           ],
         ),
       ),
@@ -128,11 +109,14 @@ class _ChartState extends State<Chart> {
 // Functions
   Future<bool> getJsonData(String selectedValue) async {
     if (selectedValue == 'Age') {
-      jspUrl = 'http://localhost:8080/Flutter/query_age_price.jsp?model=$model';
+      jspUrl =
+          'http://localhost:8080/Flutter/sell_car/query_age_price.jsp?model=$model';
     } else if (selectedValue == 'Transmission') {
-      jspUrl = 'http://localhost:8080/Flutter/query_transmission_price.jsp?model=$model';
+      jspUrl =
+          'http://localhost:8080/Flutter/sell_car/query_transmission_price.jsp?model=$model';
     } else if (selectedValue == 'FuelType') {
-      jspUrl = 'http://localhost:8080/Flutter/query_fueltype_price.jsp?model=$model';
+      jspUrl =
+          'http://localhost:8080/Flutter/sell_car/query_fueltype_price.jsp?model=$model';
     }
     var url = Uri.parse(jspUrl);
     var response = await http.get(url);
@@ -140,9 +124,55 @@ class _ChartState extends State<Chart> {
     setState(() {
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
       // - 키 값 이용해서 안쪽 데이터에 접근
-      List result = dataConvertedJSON['results'];
+      List result = dataConvertedJSON['result'];
       jsonData.addAll(result);
+      chartData(selectedValue);
     });
     return true;
+  }
+
+  // db에서 가져온 데이터로 차트 그릴 data 리스트 만들기 
+  chartData(selectedValue) {
+  
+    if (selectedValue == 'Age') {
+       for (int i = 0; i < jsonData.length; i++) {
+      data.add(
+        DeveloperSeries(
+          feature: jsonData[i]['value'],
+          target: double.parse(jsonData[i]['price']),
+          chartColor: (int.parse(jsonData[i]['value']) == widget.inputAge) 
+          ? charts.ColorUtil.fromDartColor(Colors.red) 
+          : charts.ColorUtil.fromDartColor(Colors.grey) ,
+        ),
+      );
+    }
+    } else if (selectedValue == 'Transmission') {
+       for (int i = 0; i < jsonData.length; i++) {
+      data.add(
+        DeveloperSeries(
+          feature: jsonData[i]['value'],
+          target: double.parse(jsonData[i]['price']),
+          chartColor: (jsonData[i]['value'] == widget.inputTransmission) 
+          ? charts.ColorUtil.fromDartColor(Colors.red) 
+          : charts.ColorUtil.fromDartColor(Colors.grey) ,
+        ),
+      );
+    }
+    } else if (selectedValue == 'FuelType') {
+       for (int i = 0; i < jsonData.length; i++) {
+      data.add(
+        DeveloperSeries(
+          feature: jsonData[i]['value'],
+          target: double.parse(jsonData[i]['price']),
+          chartColor: (jsonData[i]['value'] == widget.inputFueltype) 
+          ? charts.ColorUtil.fromDartColor(Colors.red) 
+          : charts.ColorUtil.fromDartColor(Colors.grey) ,
+        ),
+      );
+    }
+    }
+
+
+   
   }
 } // End

@@ -25,107 +25,128 @@ class _CheckBrandState extends State<CheckBrand> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.brand = 'Audi';
+                Static.brand = 'Audi';
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(
-                  color: Static.brand == "Audi"
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color:Static.brand == "Audi"?Colors.amber:Color.fromARGB(255, 4, 31, 56),
+                    width: 3,
+                    )
+                ),
                 width: 350,
                 height: 80,
-                child: Image.asset('images/audiLogo.png'),
+                child: 
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset('images/audiLogo.png'),
+                  ),
               ),
-            ),
-            const SizedBox(height: 10),
+            ),const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.brand = 'Ford';
+                Static.brand = 'Ford';
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(
-                  color: Static.brand == "Ford"
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color:Static.brand == "Ford"?Colors.amber:Color.fromARGB(255, 4, 31, 56),
+                    width: 3,
+                    )
+                ),
                 width: 350,
                 height: 80,
-                child: Image.asset('images/fordLogo.png'),
+                child: 
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset('images/fordLogo.png'
+                    ),
+                  ),
               ),
-            ),
-            const SizedBox(height: 10),
+            ),const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.brand = 'Vw';
+                Static.brand = 'Vw';
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(
-                  color: Static.brand == "Vw"
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color:Static.brand == "Vw"?Colors.amber:Color.fromARGB(255, 4, 31, 56),
+                    width: 3,
+                    )
+                ),
                 width: 350,
                 height: 80,
-                child: Image.asset('images/volkswagenLogo.png'),
+                child: 
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(110, 0, 110, 0),
+                    child: Image.asset('images/volkswagenLogo.png',
+                    fit: BoxFit.fitWidth,),
+                  ),
               ),
-            ),
-            const SizedBox(height: 10),
+            ),const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.brand = 'Benz';
+                Static.brand = 'Benz';
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(
-                  color: Static.brand == "Benz"
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color:Static.brand == "Benz"?Colors.amber:Color.fromARGB(255, 4, 31, 56),
+                    width: 3,
+                    )
+                ),
                 width: 350,
                 height: 80,
-                child: Image.asset('images/benzLogo.png'),
+                child: 
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(110, 0, 110, 0),
+                    child: Image.asset('images/benzLogo.png',
+                    fit: BoxFit.fitWidth,),
+                  ),
               ),
-            ),
-            const SizedBox(height: 10),
+            ),const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.brand = 'Bmw';
+                Static.brand = 'Bmw';
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(
-                  color: Static.brand == "Bmw"
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color:Static.brand == "Bmw"?Colors.amber:Color.fromARGB(255, 4, 31, 56),
+                    
+                    width: 3,
+                    
+                    )
+                ),
                 width: 350,
                 height: 80,
-                child: Image.asset('images/bmwLogo.png'),
+                child: 
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(95, 0, 95, 0),
+                    child: Image.asset('images/bmwLogo.png',
+                    fit: BoxFit.fitWidth,),
+                  ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height:30),
             PrimaryButton(
-              onPressed: widget.onNext,
-              text: 'NEXT',
-            ),
+              onPressed : Static.brand!=''?widget.onNext:_function(),
+              text:'NEXT',),
           ],
         ),
       ),
@@ -144,8 +165,9 @@ class PrimaryButton extends StatelessWidget {
       height: 48,
       width: 100,
       child: ElevatedButton(
-        style:
-            ElevatedButton.styleFrom(primary: Color.fromARGB(255, 4, 31, 56)),
+        style: ElevatedButton.styleFrom(
+          primary: Color.fromARGB(255, 4, 31, 56)
+        ),
         onPressed: onPressed,
         child: Text(
           text,
@@ -157,4 +179,8 @@ class PrimaryButton extends StatelessWidget {
       ),
     );
   }
+}
+
+_function(){
+  print('hello');
 }
