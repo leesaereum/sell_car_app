@@ -50,7 +50,7 @@ class _CommunityState extends State<Community> {
                                     content: comList[index]['content'],
                                     createAt: comList[index]['createAt'],
                                     nickname: comList[index]['nickname'],
-                                )));
+                                ))).then((value) => rebuildData());
                       },
                       child: Card(
                         color: Colors.grey[350],
