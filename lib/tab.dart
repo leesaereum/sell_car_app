@@ -35,7 +35,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SELL CAR'),
+        title: Image.asset('images/sellcar.png', width: 180),
         backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: TabBarView(

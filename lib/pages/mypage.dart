@@ -24,7 +24,7 @@ class _MypageState extends State<Mypage> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('SELL CAR'),
+          title: Image.asset('images/sellcar.png', width: 180),
           backgroundColor: const Color.fromARGB(255, 4, 31, 56),
         ),
         body: SingleChildScrollView(
@@ -75,13 +75,13 @@ class _MypageState extends State<Mypage> {
                     keyboardType: TextInputType.text,
                   ),
                 ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 4, 31, 56),),
+                          primary: Color.fromARGB(255, 4, 31, 56),
+                        ),
                         onPressed: () {},
                         child: const Text(
                           'MODIFY',
