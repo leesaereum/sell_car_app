@@ -1,17 +1,32 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
-
   @override
   State<Signin> createState() => _SigninState();
 }
 
 class _SigninState extends State<Signin> {
+//
+String name ="";
+String email ="";
+String url ="";
+
+
+ //   
   TextEditingController id = TextEditingController();
   TextEditingController nickname = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController checkpassword = TextEditingController();
+ 
+ @override
+  void initState() {
+    super.initState();
+
+  }
+ 
+ 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,6 +47,8 @@ class _SigninState extends State<Signin> {
                     'SIGN-IN',
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                   ),
+                  
+
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 50, 30, 10),
                     child: TextField(
