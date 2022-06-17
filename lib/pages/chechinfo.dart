@@ -82,15 +82,13 @@ class _CheckInfoState extends State<CheckInfo> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Result(
-                              inputAge: int.parse(age.text), 
-                              inputMileage: int.parse(mileage.text), 
-                              inputMpg: mpg.text, 
-                              inputEngineSize: enginesize.text, 
-                              inputFueltype: fueltype.text, 
-                              inputTransmission: transmission.text
-                            )
-                          ));
+                              builder: (context) => Result(
+                                  inputAge: int.parse(age.text),
+                                  inputMileage: int.parse(mileage.text),
+                                  inputMpg: mpg.text,
+                                  inputEngineSize: enginesize.text,
+                                  inputFueltype: fueltype.text,
+                                  inputTransmission: transmission.text)));
                     },
                     child: const Text(
                       'RESULT',

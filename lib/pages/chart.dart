@@ -39,9 +39,9 @@ class _ChartState extends State<Chart> {
 
   @override
   void initState() {
-    super.initState(); 
-    jsonData = []; 
-    data = []; 
+    super.initState();
+    jsonData = [];
+    data = [];
   }
 
 // 화면 그림
@@ -85,7 +85,7 @@ class _ChartState extends State<Chart> {
                   onChanged: (value) {
                     setState(() {
                       _selectedValue = value as String;
-                      jsonData = []; 
+                      jsonData = [];
                       data = [];
                       getJsonData(_selectedValue);
                     });
@@ -131,48 +131,44 @@ class _ChartState extends State<Chart> {
     return true;
   }
 
-  // db에서 가져온 데이터로 차트 그릴 data 리스트 만들기 
+  // db에서 가져온 데이터로 차트 그릴 data 리스트 만들기
   chartData(selectedValue) {
-  
     if (selectedValue == 'Age') {
-       for (int i = 0; i < jsonData.length; i++) {
-      data.add(
-        DeveloperSeries(
-          feature: jsonData[i]['value'],
-          target: double.parse(jsonData[i]['price']),
-          chartColor: (int.parse(jsonData[i]['value']) == widget.inputAge) 
-          ? charts.ColorUtil.fromDartColor(Colors.red) 
-          : charts.ColorUtil.fromDartColor(Colors.grey) ,
-        ),
-      );
-    }
+      for (int i = 0; i < jsonData.length; i++) {
+        data.add(
+          DeveloperSeries(
+            feature: jsonData[i]['value'],
+            target: double.parse(jsonData[i]['price']),
+            chartColor: (int.parse(jsonData[i]['value']) == widget.inputAge)
+                ? charts.ColorUtil.fromDartColor(Colors.red)
+                : charts.ColorUtil.fromDartColor(Colors.grey),
+          ),
+        );
+      }
     } else if (selectedValue == 'Transmission') {
-       for (int i = 0; i < jsonData.length; i++) {
-      data.add(
-        DeveloperSeries(
-          feature: jsonData[i]['value'],
-          target: double.parse(jsonData[i]['price']),
-          chartColor: (jsonData[i]['value'] == widget.inputTransmission) 
-          ? charts.ColorUtil.fromDartColor(Colors.red) 
-          : charts.ColorUtil.fromDartColor(Colors.grey) ,
-        ),
-      );
-    }
+      for (int i = 0; i < jsonData.length; i++) {
+        data.add(
+          DeveloperSeries(
+            feature: jsonData[i]['value'],
+            target: double.parse(jsonData[i]['price']),
+            chartColor: (jsonData[i]['value'] == widget.inputTransmission)
+                ? charts.ColorUtil.fromDartColor(Colors.red)
+                : charts.ColorUtil.fromDartColor(Colors.grey),
+          ),
+        );
+      }
     } else if (selectedValue == 'FuelType') {
-       for (int i = 0; i < jsonData.length; i++) {
-      data.add(
-        DeveloperSeries(
-          feature: jsonData[i]['value'],
-          target: double.parse(jsonData[i]['price']),
-          chartColor: (jsonData[i]['value'] == widget.inputFueltype) 
-          ? charts.ColorUtil.fromDartColor(Colors.red) 
-          : charts.ColorUtil.fromDartColor(Colors.grey) ,
-        ),
-      );
+      for (int i = 0; i < jsonData.length; i++) {
+        data.add(
+          DeveloperSeries(
+            feature: jsonData[i]['value'],
+            target: double.parse(jsonData[i]['price']),
+            chartColor: (jsonData[i]['value'] == widget.inputFueltype)
+                ? charts.ColorUtil.fromDartColor(Colors.red)
+                : charts.ColorUtil.fromDartColor(Colors.grey),
+          ),
+        );
+      }
     }
-    }
-
-
-   
   }
 } // End
