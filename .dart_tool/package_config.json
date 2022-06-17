@@ -26,6 +26,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "charts_common",
+      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/charts_common-0.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "charts_flutter",
+      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/charts_flutter-0.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0",
       "packageUri": "lib/",
@@ -39,7 +51,7 @@
     },
     {
       "name": "cupertino_icons",
-      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.5",
+      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -80,10 +92,22 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/lints-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "logging",
+      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "matcher",
@@ -106,12 +130,6 @@
     {
       "name": "path",
       "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "plugin_platform_interface",
-      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -170,37 +188,13 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "webview_flutter",
-      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-3.0.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "webview_flutter_android",
-      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_android-2.8.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "webview_flutter_platform_interface",
-      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_platform_interface-1.9.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "webview_flutter_wkwebview",
-      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_wkwebview-2.8.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "sell_car_app",
+      "name": "water_drinking_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-17T03:33:16.810172Z",
+  "generated": "2022-06-17T07:03:53.048407Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }

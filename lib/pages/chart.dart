@@ -1,5 +1,5 @@
 import 'dart:convert';
-import "package:charts_flutter/flutter.dart" as charts;
+import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/chart_deveoloper.dart';
 import 'package:sell_car_app/chart_series.dart';
