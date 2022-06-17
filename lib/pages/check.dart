@@ -27,7 +27,7 @@ class _CheckHomeState extends State<CheckHome>
               Tab(
                 icon: Icon(
                   Icons.looks_one,
-                  color:Colors.white,
+                  color: Colors.white,
                 ),
                 text: 'BRAND',
               ),
@@ -43,7 +43,7 @@ class _CheckHomeState extends State<CheckHome>
                   Icons.looks_3,
                   color: Colors.white,
                 ),
-                text: 'DETAILS',
+                text: 'INFORMATION',
               ),
             ],
           ),

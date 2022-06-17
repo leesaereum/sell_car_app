@@ -158,7 +158,6 @@ class _CheckModelState extends State<CheckModel> {
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: Static.model == carName[2].toLowerCase()
-
                           ? Colors.amber
                           : Color.fromARGB(255, 4, 31, 56),
                       width: 3,
@@ -219,6 +218,4 @@ class PrimaryButton extends StatelessWidget {
   }
 }
 
-
 nomodel() {}
-

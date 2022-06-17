@@ -1,11 +1,11 @@
-import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:charts_flutter/flutter.dart' as charts; 
 
 class DeveloperSeries {
-  late var feature;
-  late var target;
-  late charts.Color chartColor;
+  late var feature; 
+  late var target; 
+  late charts.Color chartColor; 
 
-  DeveloperSeries({
+  DeveloperSeries ({
     required this.feature,
     required this.target,
     required this.chartColor,

@@ -664,7 +664,6 @@ class _CheckInfoState extends State<CheckInfo> {
                                         transmissionName,
                                     errorValue: errorValue)));
                       }
-
                     },
                     child: const Text(
                       'RESULT',

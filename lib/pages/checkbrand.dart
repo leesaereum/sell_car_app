@@ -160,7 +160,6 @@ class _CheckBrandState extends State<CheckBrand> {
             const SizedBox(height: 30),
             PrimaryButton(
               onPressed: Static.brand != '' ? widget.onNext : nobrand(),
-
               text: 'NEXT',
             ),
           ],
@@ -195,6 +194,5 @@ class PrimaryButton extends StatelessWidget {
     );
   }
 }
-
 
 nobrand() {}
