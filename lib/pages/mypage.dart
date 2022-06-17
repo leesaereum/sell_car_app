@@ -80,11 +80,10 @@ class _MypageState extends State<Mypage> {
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(255, 4, 31, 56),
-                        ),
+                            primary: Color.fromARGB(255, 4, 31, 56)),
                         onPressed: () {},
                         child: const Text(
-                          'MODIFY',
+                          'REVISE',
                           style: TextStyle(fontSize: 20),
                         )),
                     const SizedBox(width: 50),

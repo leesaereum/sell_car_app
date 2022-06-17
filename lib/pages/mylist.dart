@@ -11,6 +11,7 @@ class Mylist extends StatefulWidget {
 
 class _MylistState extends State<Mylist> {
   late List mylist;
+
   @override
   void initState() {
     super.initState();
@@ -20,46 +21,45 @@ class _MylistState extends State<Mylist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('images/sellcar.png', width: 180),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            const Text(
-              'MY LIST',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            mylist.isEmpty
-                ? Column(
-                    children: const [
-                      SizedBox(height: 250),
-                      Text(
-                        'YOUR LIST IS EMPTY'
-                        '\n ADD YOUR LIST',
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30),
-                      ),
-                    ],
-                  )
-                : ListView.builder(
-                    itemCount: mylist.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                          child: Column(
-                        children: [
-                          const Text('BRAND :'),
-                          Text('${mylist[index]['brand']}'),
-                        ],
-                      ));
-                    })
-          ],
+        appBar: AppBar(
+          title: Image.asset('images/sellcar.png', width: 180),
+          backgroundColor: Color.fromARGB(255, 4, 31, 56),
         ),
-      ),
-    );
+        body: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              const Text(
+                'MY LIST',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              mylist.isEmpty
+                  ? Column(
+                      children: const [
+                        SizedBox(height: 250),
+                        Text(
+                          'YOUR LIST IS EMPTY'
+                          '\n ADD YOUR LIST',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30),
+                        ),
+                      ],
+                    )
+                  : ListView.builder(
+                      itemCount: mylist.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                            child: Column(
+                          children: [
+                            const Text('BRAND :'),
+                            Text('${mylist[index]['brand']}'),
+                          ],
+                        ));
+                      })
+            ],
+          ),
+        ));
   }
 }
