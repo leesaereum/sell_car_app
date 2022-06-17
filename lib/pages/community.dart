@@ -40,6 +40,7 @@ class _CommunityState extends State<Community> {
                         Static.content = comList[index]['content'];
                         Static.nickname = comList[index]['nickname'];
                         Static.title = comList[index]['title'];
+                        Static.createDate = comList[index]['createAt'].toString(); 
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -120,14 +121,10 @@ class _CommunityState extends State<Community> {
     var url =
         Uri.parse('http://localhost:8080/Flutter/sell_car/boardmain.jsp');
     var response = await http.get(url);
-    print("result: "+ response.body);
     setState(() {
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-      print(1);
       List result = dataConvertedJSON['results'];
-      print(2);
       comList.addAll(result);
-      print(3);
     });
 
     return true;
