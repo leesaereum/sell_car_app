@@ -14,84 +14,50 @@ class _CheckModelState extends State<CheckModel> {
   List<String> carImg = [];
   @override
   void initState() {
-<<<<<<< HEAD
+    print(Static.brand);
     switch (Static.brand) {
       case 'Audi':
         carName.add('A3');
-        carImg.add('images/Audi_A3.png');
-        carName.add('A4');
-        carImg.add('images/Audi_A4.png');
-        carName.add('Q3');
-=======
-    print(Static.brand);
-    switch(Static.brand){
-      case 'Audi':
-        carName.add('A3');
         carName.add('A4');
         carName.add('Q3');
         carImg.add('images/Audi_A3.png');
         carImg.add('images/Audi_A4.png');
->>>>>>> origin/chanjin
         carImg.add('images/Audi_Q3.png');
         break;
       case 'Ford':
         carName.add('FIESTA');
-<<<<<<< HEAD
-        carImg.add('images/ford_fiesta3.webp');
-        carName.add('FOCUS');
-        carImg.add('images/ford_focus.png');
-        carName.add('KUGA');
-=======
+
         carName.add('FOCUS');
         carName.add('KUGA');
         carImg.add('images/ford_fiesta3.webp');
         carImg.add('images/ford_focus.png');
->>>>>>> origin/chanjin
         carImg.add('images/ford_kuga.png');
         break;
       case 'Vw':
         carName.add('GOLF');
-<<<<<<< HEAD
-        carImg.add('images/vw_golf.png');
-        carName.add('POLO');
-        carImg.add('images/vw_polo.png');
-        carName.add('TIGUAN');
-=======
+
         carName.add('POLO');
         carName.add('TIGUAN');
         carImg.add('images/vw_golf.png');
         carImg.add('images/vw_polo.png');
->>>>>>> origin/chanjin
         carImg.add('images/vw_tiguan.png');
         break;
       case 'Benz':
         carName.add('A CLASS');
-<<<<<<< HEAD
-        carImg.add('images/benz_Aclass.png');
-        carName.add('C CLASS');
-        carImg.add('images/benz_Cclass.png');
-        carName.add('E CLASS');
-=======
+
         carName.add('C CLASS');
         carName.add('E CLASS');
         carImg.add('images/benz_Aclass.png');
         carImg.add('images/benz_Cclass.png');
->>>>>>> origin/chanjin
         carImg.add('images/benz_Eclass.png');
         break;
       case 'Bmw':
         carName.add('1 SERIES');
-<<<<<<< HEAD
-        carImg.add('images/bmw_1series.png');
-        carName.add('2 SERIES');
-        carImg.add('images/bmw_2series.png');
-        carName.add('3 SERIES');
-=======
+
         carName.add('2 SERIES');
         carName.add('3 SERIES');
         carImg.add('images/bmw_1series.png');
         carImg.add('images/bmw_2series.png');
->>>>>>> origin/chanjin
         carImg.add('images/bmw_3series.png');
         break;
     }
@@ -122,25 +88,15 @@ class _CheckModelState extends State<CheckModel> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-<<<<<<< HEAD
                       color: Static.model == carName[0]
                           ? Colors.amber
                           : Color.fromARGB(255, 4, 31, 56),
                       width: 3,
                     )),
-=======
-                  color: Static.model == carName[0]
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
->>>>>>> origin/chanjin
                 width: 350,
                 height: 150,
                 child: Column(
                   children: [
-<<<<<<< HEAD
-                    const SizedBox(height: 10),
                     Image.asset(
                       carImg[0],
                       height: 100,
@@ -152,16 +108,6 @@ class _CheckModelState extends State<CheckModel> {
                     )
                   ],
                 ),
-=======
-                    Image.asset(carImg[0],
-                    height: 100,),
-                    const SizedBox(height:10),
-                    Text(carName[0],
-                    style: const TextStyle(fontSize: 20),)
-                  ],
-                ),
-                
->>>>>>> origin/chanjin
               ),
             ),
             const SizedBox(height: 10),
@@ -175,7 +121,6 @@ class _CheckModelState extends State<CheckModel> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-<<<<<<< HEAD
                       color: Static.model == carName[1]
                           ? Colors.amber
                           : Color.fromARGB(255, 4, 31, 56),
@@ -185,7 +130,6 @@ class _CheckModelState extends State<CheckModel> {
                 height: 150,
                 child: Column(
                   children: [
-                    const SizedBox(height: 10),
                     Image.asset(
                       carImg[1],
                       height: 100,
@@ -195,22 +139,6 @@ class _CheckModelState extends State<CheckModel> {
                       carName[1],
                       style: const TextStyle(fontSize: 20),
                     )
-=======
-                  color: Static.model == carName[1]
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
-                width: 350,
-                height: 150,
-                                child: Column(
-                  children: [
-                    Image.asset(carImg[1],
-                    height: 100,),
-                    const SizedBox(height:10),
-                    Text(carName[1],
-                    style: const TextStyle(fontSize: 20),)
->>>>>>> origin/chanjin
                   ],
                 ),
               ),
@@ -226,7 +154,6 @@ class _CheckModelState extends State<CheckModel> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-<<<<<<< HEAD
                       color: Static.model == carName[2]
                           ? Colors.amber
                           : Color.fromARGB(255, 4, 31, 56),
@@ -236,7 +163,6 @@ class _CheckModelState extends State<CheckModel> {
                 height: 150,
                 child: Column(
                   children: [
-                    const SizedBox(height: 10),
                     Image.asset(
                       carImg[2],
                       height: 100,
@@ -246,22 +172,6 @@ class _CheckModelState extends State<CheckModel> {
                       carName[2],
                       style: const TextStyle(fontSize: 20),
                     )
-=======
-                  color: Static.model == carName[2]
-                      ? Colors.amber
-                      : Color.fromARGB(255, 4, 31, 56),
-                  width: 3,
-                )),
-                width: 350,
-                height: 150,
-                                child: Column(
-                  children: [
-                    Image.asset(carImg[2],
-                    height: 100,),
-                    const SizedBox(height:10),
-                    Text(carName[2],
-                    style: const TextStyle(fontSize: 20),)
->>>>>>> origin/chanjin
                   ],
                 ),
               ),
