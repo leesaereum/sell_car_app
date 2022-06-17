@@ -37,23 +37,22 @@ class _CommunityState extends State<Community> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Static.content = comList[index].content;
-                        Static.nickname = comList[index].nick;
+                        Static.content = comList[index]['content'];
+                        Static.nickname = comList[index]['nickname'];
+                        Static.title = comList[index]['title'];
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Detailcommunity()));
+                                builder: (context) => const Detailcommunity()));
                       },
                       child: Card(
                         color: Colors.grey[350],
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Column(
                               children: [
                                 Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 5, 260, 0),
+                                  padding: const EdgeInsets.fromLTRB(0,3,180,3),
                                   child: Text(
                                     comList[index]['nickname'],
                                     style: TextStyle(
@@ -62,12 +61,11 @@ class _CommunityState extends State<Community> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 50, 0),
-                                  child: SizedBox(
-                                    height: 40,
-                                    width: 250,
+                                SizedBox(
+                                  height: 40,
+                                  width: 250,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(12, 3, 180, 3),
                                     child: Flexible(
                                       child: RichText(
                                         overflow: TextOverflow.ellipsis,
@@ -86,8 +84,13 @@ class _CommunityState extends State<Community> {
                               ].toList(),
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                              child: comList[index]['createAt'],
+                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: Column(
+                                children: [
+                                  Text(comList[index]['createAt'].toString().substring(0,10)),
+                                  Text(comList[index]['createAt'].toString().substring(11,16))
+                                ],
+                              ),
                             )
                           ],
                         ),
@@ -120,8 +123,11 @@ class _CommunityState extends State<Community> {
     print("result: "+ response.body);
     setState(() {
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+      print(1);
       List result = dataConvertedJSON['results'];
+      print(2);
       comList.addAll(result);
+      print(3);
     });
 
     return true;
