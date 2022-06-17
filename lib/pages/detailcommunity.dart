@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/static.dart';
+// import 'package:comment_box/comment/comment.dart';
 
 class Detailcommunity extends StatefulWidget {
   const Detailcommunity({Key? key}) : super(key: key);

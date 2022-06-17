@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/addcommunity.dart';
 import 'package:sell_car_app/pages/communityList.dart';
 import 'package:sell_car_app/pages/detailcommunity.dart';
 import 'package:sell_car_app/static.dart';
+import 'package:http/http.dart' as http;
 
 class Community extends StatefulWidget {
   const Community({Key? key}) : super(key: key);
@@ -12,12 +15,12 @@ class Community extends StatefulWidget {
 }
 
 class _CommunityState extends State<Community> {
-  List<ComList> comList = [];
+  late List comList;
 
   @override
   void initState() {
-    comList
-        .add(ComList(nick: '${Static.nickname}', content: '${Static.content}'));
+    comList = [];
+    getJSONData();
     super.initState();
   }
 
@@ -27,68 +30,74 @@ class _CommunityState extends State<Community> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: ListView.builder(
-              itemCount: comList.length,
-              itemBuilder: (context, position) {
-                return GestureDetector(
-                  onTap: () {
-                    Static.content = comList[position].content;
-                    Static.nickname = comList[position].nick;
-                    Navigator.push(context, 
-                    MaterialPageRoute(builder: (context) => Detailcommunity()));
-                  },
-                  child: Card(
-                    color: Colors.grey[350],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
+          child: comList.isEmpty
+              ? const Text('No Data here')
+              : ListView.builder(
+                  itemCount: comList.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Static.content = comList[index].content;
+                        Static.nickname = comList[index].nick;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Detailcommunity()));
+                      },
+                      child: Card(
+                        color: Colors.grey[350],
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 5, 260, 0),
-                              child: Text(
-                                "${Static.nickname}",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
+                            Column(
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 5, 260, 0),
+                                  child: Text(
+                                    comList[index]['nickname'],
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
-                              child: SizedBox(
-                                height: 40,
-                                width: 250,
-                                child: Flexible(
-                                  child: RichText(
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    text: TextSpan(
-                                      text: comList[position].content,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15,
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 0, 50, 0),
+                                  child: SizedBox(
+                                    height: 40,
+                                    width: 250,
+                                    child: Flexible(
+                                      child: RichText(
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        text: TextSpan(
+                                          text: comList[index]['title'],
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
+                              ].toList(),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                              child: comList[index]['createAt'],
+                            )
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                          child: const Text("DATE"),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              }),
+                      ),
+                    );
+                  }),
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.fromLTRB(0,0,20,0),
+        padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
         child: FloatingActionButton(
           backgroundColor: Color.fromARGB(255, 4, 31, 56),
           onPressed: () => Navigator.push(
@@ -96,8 +105,7 @@ class _CommunityState extends State<Community> {
             MaterialPageRoute(
               builder: (context) => const Addcommunity(),
             ),
-          ),
-          
+          ).then((value) => rebuildData()),
           child: const Icon(Icons.add),
         ),
       ),
@@ -105,12 +113,24 @@ class _CommunityState extends State<Community> {
   }
 
   // Functions
+    getJSONData() async {
+    var url =
+        Uri.parse('http://localhost:8080/Flutter/sell_car/boardmain.jsp');
+    var response = await http.get(url);
+    print("result: "+ response.body);
+    setState(() {
+      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+      List result = dataConvertedJSON['results'];
+      comList.addAll(result);
+    });
+
+    return true;
+  }
+
   rebuildData() {
     setState(() {
-      if (Static.action) {
-        comList.add(ComList(nick: Static.nickname, content: Static.content));
-        Static.action = false;
-      }
+      comList = [];
+      getJSONData();
     });
   }
 }
