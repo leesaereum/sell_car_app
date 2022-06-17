@@ -10,6 +10,13 @@ class CheckBrand extends StatefulWidget {
 }
 
 class _CheckBrandState extends State<CheckBrand> {
+
+  @override
+  void initState() {
+    super.initState();
+    Static.brand='';
+    Static.model='';
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
