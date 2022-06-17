@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/static.dart';
+import 'package:sell_car_app/tab.dart';
 
 class Mypage extends StatefulWidget {
   const Mypage({Key? key}) : super(key: key);
@@ -91,15 +92,22 @@ class _MypageState extends State<Mypage> {
                         style: ElevatedButton.styleFrom(
                             primary: Color.fromARGB(255, 4, 31, 56)),
                         onPressed: () {
+                          setState(() {
+                            Static.id = "";
+                            Static.nickname = "";
+                          });
                           Navigator.pop(context);
                           Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
+                                builder: (context) => const Tabs(),
+                              ));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
                                 builder: (context) => const Login(),
                               ));
-                          Static.id = "";
-                          Static.nickname = "";
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(
                             content: Text('COMPLETE TO LOGOUT'),
