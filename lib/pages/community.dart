@@ -44,7 +44,13 @@ class _CommunityState extends State<Community> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Detailcommunity()));
+                                builder: (context) => Detailcommunity(
+                                    pnum: comList[index]['pnum'],
+                                    title: comList[index]['title'],
+                                    content: comList[index]['content'],
+                                    createAt: comList[index]['createAt'],
+                                    nickname: comList[index]['nickname'],
+                                )));
                       },
                       child: Card(
                         color: Colors.grey[350],

@@ -1,12 +1,27 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/modifycommunity.dart';
 import 'package:sell_car_app/static.dart';
+import 'package:http/http.dart' as http;
+
 // import 'package:comment_box/comment/comment.dart';
 
 class Detailcommunity extends StatefulWidget {
-  const Detailcommunity({Key? key}) : super(key: key);
+  final int pnum;
+  final String title;
+  final String content;
+  final String createAt;
+  final String nickname;
+  const Detailcommunity({Key? key,
+      required this.pnum,
+      required this.title,
+      required this.content,
+      required this.createAt,
+      required this.nickname,
+  }) : super(key: key);
 
   @override
   State<Detailcommunity> createState() => _DetailcommunityState();
@@ -14,6 +29,7 @@ class Detailcommunity extends StatefulWidget {
 
 class _DetailcommunityState extends State<Detailcommunity> {
   late TextEditingController commentController;
+  late String result;
 
   @override
   void initState() {
@@ -153,6 +169,18 @@ class _DetailcommunityState extends State<Detailcommunity> {
     commentController.clear();
   }
 
+  deleteAction() async{
+    var url = Uri.parse('http://localhost:8080/Flutter/sell_car/deleteboard.jsp?pnum=${widget.pnum}');
+    var response = await http.get(url);
+    
+    setState(() {
+     var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+     result = dataConvertedJSON['result'];
+    });
+  }
+
+
+
   _showDialog(BuildContext context) {
     showDialog(
         context: context,
@@ -166,7 +194,9 @@ class _DetailcommunityState extends State<Detailcommunity> {
                 children: [
                   TextButton(
                     onPressed: () {
-                      //
+                      deleteAction();
+                      Navigator.of(context).pop();
+                      Navigator.pop(context);
                     },
                     child: const Text('YES'),
                   ),
@@ -175,7 +205,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
                   ),
                   TextButton(
                     onPressed: () {
-                     //
+                     Navigator.of(context).pop();
                     },
                     child: const Text('NO',style: TextStyle(color: Colors.red)),
                   ),

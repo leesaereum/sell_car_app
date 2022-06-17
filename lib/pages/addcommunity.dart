@@ -107,13 +107,10 @@ class _AddcommunityState extends State<Addcommunity> {
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
       result = dataConvertedJSON["result"];
 
-      print("0");
       if (result == "OK") {
         _showDialog(context);
-        print("1");
       } else {
         _errorSnackBar(context);
-        print("2");
       }
     });
   }
@@ -123,15 +120,15 @@ class _AddcommunityState extends State<Addcommunity> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('입력 결과'),
-            content: const Text('입력이 완료되었습니다'),
+            title: const Text('RESULT'),
+            content: const Text('COMPLETE ADDING NEW DATAS'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                   Navigator.pop(context);
                 },
-                child: const Text('종료'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -141,7 +138,7 @@ class _AddcommunityState extends State<Addcommunity> {
   _errorSnackBar(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('정보 입력에 문제가 발생하였습니다'),
+        content: Text('HAVA A PROBLEM ON ADDING NEW DATAS'),
         duration: Duration(seconds: 2),
         backgroundColor: Colors.red,
       ),
