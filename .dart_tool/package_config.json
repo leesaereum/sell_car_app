@@ -69,19 +69,19 @@
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.1",
+      "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.18.0",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0",
+      "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.1",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4",
+      "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.5",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -212,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "simple_gesture_detector",
+      "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/Users/82109/flutter_windows_3.0.1-stable/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -296,7 +302,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-17T00:09:38.200Z",
+  "generated": "2022-06-18T02:20:43.097169Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }
