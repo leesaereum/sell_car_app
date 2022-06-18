@@ -11,6 +11,41 @@ class GoogleLogin extends StatefulWidget {
 
 class _GoogleLoginState extends State<GoogleLogin> {
   final _formkey =GlobalKey<FormState>();
+
+  //...
+  //firebaseauth 인증 필수 클래스 
+     FirebaseAuth auth =FirebaseAuth.instance;
+   GoogleSignIn googleSignIn = GoogleSignIn();
+  
+  // //구글 로그인 화면 나타남 
+  // //로그인한 유저 정보 받아냄 
+ GoogleSignInAccount account = await googleSignIn.signIn();
+ GoogleSignInAuthentication authentication = await account.authentication;
+
+
+  // //googleauth provider를 통해 최종인증한 유저 정보 가져오기 
+  AuthCredential credential = GoogleAuthProvider.getCredential(
+       idToken : authentication.idToken,
+       accessToken : authentication.accessToken
+     );
+     
+     AuthResult authResult = await auth.signInWithCredential(credential);
+     FirebaseUser user = authResult.user;
+//서버 통신시 
+//FirebaseAuth auth = FirebaseAuth.instance;
+//FirebaseUser user = await auth.getCurrentUser();
+
+//IdTokenResult idTokenResult = await user.getIdToken();
+
+
+
+
+
+  ///...
+
+
+
+
   //firebase auth
   late String _password;
   late String _email;
@@ -100,11 +135,12 @@ class _GoogleLoginState extends State<GoogleLogin> {
               RaisedButton(child: Text("LOGIN"),
                 onPressed: () async{
                 final form = _formkey.currentState;
-                form.save();
-                if(form.validate()) {
-                  var result =await Provider.of<AuthService>(context);
+                //form.save();
+                //if(form.validate()) {
+                  //var result =await Provider.of<AuthService>(context);
                 }
-              },)
+              //},
+              )
             ],
           ),
         ),
@@ -114,28 +150,6 @@ class _GoogleLoginState extends State<GoogleLogin> {
   //functions
   
 
-  //firebaseauth 인증 필수 클래스 
-  //   FirebaseAuth auth =FirebaseAuth.instance;
-  //   GoogleSignIn googleSignIn = GoogleSignIn();
   
-  // //구글 로그인 화면 나타남 
-  // //로그인한 유저 정보 받아냄 
-  // GoogleSignInAccount account = await googleSignIn.signIn();
-  // GoogleSignInAuthentication authentication = await account.authentication;
-
-
-  // //googleauth provider를 통해 최종인증한 유저 정보 가져오기 
-  //   AuthCredential credential = GoogleAuthProvider.getCredential(
-  //     idToken : authentication.idToken,
-  //     accessToken : authentication.accessToken
-  //   );
-     
-  //   AuthResult authResult = await auth.signInWithCredential(credential);
-  //   FirebaseUser user = authResult.user;
-//서버 통신시 
-//FirebaseAuth auth = FirebaseAuth.instance;
-//FirebaseUser user = await auth.getCurrentUser();
-
-//IdTokenResult idTokenResult = await user.getIdToken();
 
 } //end 
