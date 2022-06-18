@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/community.dart';
-import 'package:sell_car_app/pages/home.dart';
+import 'package:sell_car_app/pages/google_login.dart';
+import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/pages/mypage.dart';
 import 'package:sell_car_app/pages/tips.dart';
-import 'package:sell_car_app/provider/google_sign_in.dart';
 import 'package:sell_car_app/static.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-Future main() async {
-  //firebase google login 
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(const MyApp());
 }
 
@@ -21,20 +16,18 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>  ChangeNotifierProvider(
-      create: (context) => GoogleSignInProvider(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primaryColor: const Color.fromARGB(255, 4, 31, 56),
-          backgroundColor: const Color.fromARGB(255, 4, 31, 56),
-        ),
-        debugShowCheckedModeBanner: false,
-        home: const Home(),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: const Color.fromARGB(255, 4, 31, 56),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
+      debugShowCheckedModeBanner: false,
+      home: const Home(),
     );
   }
-
+}
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -48,7 +41,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("images/sellcar.png",width: 180,),
+        title: Image.asset("../images/sellcar.png",width: 180,),
         backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
@@ -71,7 +64,7 @@ class _HomeState extends State<Home> {
                       context,
                       MaterialPageRoute(
                         //구글 로그인 
-                        builder: (context) => const Login(),
+                        builder: (context) => const GoogleLogin(),
                       ));
                 } else {
                   Navigator.push(
@@ -91,7 +84,7 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.zero,
           children: [
             Container(
-              color: const Color.fromARGB(255, 2, 26, 48),
+              color: Color.fromARGB(255, 2, 26, 48),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
