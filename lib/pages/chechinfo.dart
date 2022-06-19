@@ -85,8 +85,9 @@ class _CheckInfoState extends State<CheckInfo> {
                               builder: (context) => Result(
                                   inputAge: int.parse(age.text),
                                   inputMileage: int.parse(mileage.text),
-                                  inputMpg: mpg.text,
-                                  inputEngineSize: enginesize.text,
+                                  inputMpg: double.parse(mpg.text),
+                                  inputEngineSize:
+                                      double.parse(enginesize.text),
                                   inputFueltype: fueltype.text,
                                   inputTransmission: transmission.text)));
                     },

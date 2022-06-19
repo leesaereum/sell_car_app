@@ -2,12 +2,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/chart_series.dart';
 
-class DeveloperChart extends StatelessWidget {
+class BarChartDeveloper extends StatelessWidget {
   final List<DeveloperSeries> data;
-  final String chartType;
 
-  const DeveloperChart({Key? key, required this.data, required this.chartType})
-      : super(key: key);
+  const BarChartDeveloper({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
