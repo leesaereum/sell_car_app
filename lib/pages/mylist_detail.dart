@@ -205,6 +205,7 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
                             inputAge: int.parse(age),
                             inputMileage: int.parse(mileage),
                             inputFueltype: fueltype,
+                            predictedprice: ((int.parse(price1) + int.parse(price2)) / 2).round(),
                             inputTransmission: transmission)));
               },
               child: const Text(

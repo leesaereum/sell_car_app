@@ -44,6 +44,7 @@ class _CheckHomeState extends State<CheckHome>
                   color: Colors.white,
                 ),
                 text: 'DETAILS',
+
               ),
             ],
           ),
