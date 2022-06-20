@@ -44,6 +44,7 @@ class _ResultState extends State<Result> {
   String pred = '';
   String range = '';
   double price = 0;
+  int predicted = 0;
   TextEditingController title = TextEditingController();
 
   @override
@@ -109,7 +110,8 @@ class _ResultState extends State<Result> {
                             inputAge: widget.inputAge,
                             inputMileage: widget.inputMileage,
                             inputFueltype: widget.inputFueltype,
-                            inputTransmission: widget.inputTransmission),
+                            inputTransmission: widget.inputTransmission,
+                            predictedprice: predicted,),
                       ));
                 },
                 child: const Text('SEE CHARTS')),
@@ -431,6 +433,7 @@ class _ResultState extends State<Result> {
       setState(() {
         pred = result;
         price = double.parse(pred);
+        predicted = double.parse(pred).round();
         range =
             '£${(double.parse(pred) - widget.errorValue).round()}~£${(double.parse(pred) + widget.errorValue).round()}';
       });

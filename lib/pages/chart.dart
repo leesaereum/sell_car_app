@@ -13,25 +13,17 @@ import 'package:http/http.dart' as http;
 class Chart extends StatefulWidget {
   final int inputAge;
   final int inputMileage;
-<<<<<<< HEAD
-=======
-  //final double inputMpg;
-  //final double inputEngineSize;
->>>>>>> main
   final String inputFueltype;
   final String inputTransmission;
+  final int predictedprice; 
 
   const Chart({
     Key? key,
     required this.inputAge,
     required this.inputMileage,
-<<<<<<< HEAD
-=======
-    //required this.inputMpg,
-    //required this.inputEngineSize,
->>>>>>> main
     required this.inputFueltype,
     required this.inputTransmission,
+    required this.predictedprice,
   }) : super(key: key);
 
   @override
@@ -39,7 +31,6 @@ class Chart extends StatefulWidget {
 }
 
 class _ChartState extends State<Chart> {
-  final int predictedprice = 17000; // 임시로 만든 예측 가격 값
   final String model = Static.model; // 모델명
   final _valueList = [
     'MILEAGE',
@@ -249,7 +240,7 @@ class _ChartState extends State<Chart> {
       yourpricedata.add(
         DeveloperSeries(
           feature: widget.inputMileage,
-          target: predictedprice,
+          target: widget.predictedprice,
           chartColor: charts.ColorUtil.fromDartColor(Colors.red),
         ),
       );

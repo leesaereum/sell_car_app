@@ -204,12 +204,8 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
                         builder: (context) => Chart(
                             inputAge: int.parse(age),
                             inputMileage: int.parse(mileage),
-<<<<<<< HEAD
-=======
-                            //inputMpg: double.parse(mpg),
-                            //inputEngineSize: double.parse(enginesize),
->>>>>>> main
                             inputFueltype: fueltype,
+                            predictedprice: ((int.parse(price1) + int.parse(price2)) / 2).round(),
                             inputTransmission: transmission)));
               },
               child: const Text(
