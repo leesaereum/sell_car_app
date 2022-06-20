@@ -66,7 +66,9 @@ class _ResultState extends State<Result> {
               'RESULT',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
@@ -105,8 +107,8 @@ class _ResultState extends State<Result> {
                         builder: (context) => Chart(
                             inputAge: widget.inputAge,
                             inputMileage: widget.inputMileage,
-                            inputMpg: widget.inputMpg,
-                            inputEngineSize: widget.inputEngineSize,
+                            //inputMpg: widget.inputMpg,
+                            //inputEngineSize: widget.inputEngineSize,
                             inputFueltype: widget.inputFueltype,
                             inputTransmission: widget.inputTransmission),
                       ));
@@ -441,7 +443,7 @@ class _ResultState extends State<Result> {
     bool error = true;
 
     var url = Uri.parse(
-        "http://localhost:8080/Flutter/sellcar_mylist_insert.jsp?inputId=${Static.id}&inputTitle=${title.text}&inputPrice=${price.round()}&inputBrand=" +
+        "http://localhost:8080/Flutter/sell_car/sellcar_mylist_insert.jsp?inputId=${Static.id}&inputTitle=${title.text}&inputPrice=${price.round()}&inputBrand=" +
             "${Static.brand}&inputModel=${Static.model}&inputAge=${widget.inputAge}&inputMileage=${widget.inputMileage}&inputMpg=${widget.inputMpg}&inputEngineSize=" +
             "${widget.inputEngineSize}&inputFueltype=${widget.inputFueltype}&inputTransmission=${widget.inputTransmission}&inputError=${widget.errorValue}");
     var response = await http.get(url);
