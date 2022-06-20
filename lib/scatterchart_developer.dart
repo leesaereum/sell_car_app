@@ -4,20 +4,33 @@ import 'package:sell_car_app/chart_series.dart';
 
 class ScatterChartDeveloper extends StatelessWidget {
   final List<DeveloperSeries> data;
+  final List<DeveloperSeries> yourpricedata;
   final int minMileage;
   final int maxMileage;
   const ScatterChartDeveloper(
       {Key? key,
       required this.data,
       required this.minMileage,
-      required this.maxMileage})
+      required this.maxMileage,
+      required this.yourpricedata})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final customTickFormatter =
+        charts.BasicNumericTickFormatterSpec(((measure) => '£$measure'));
     List<charts.Series<DeveloperSeries, num>> series = [
       charts.Series(
-          id: "developers",
+          id: "Your Price",
+          data: yourpricedata,
+          domainFn: (DeveloperSeries series, _) => series.feature,
+          // y-axis
+          measureFn: (DeveloperSeries series, _) => series.target,
+          // individual color
+          colorFn: (DeveloperSeries series, _) =>
+              charts.MaterialPalette.red.shadeDefault),
+      charts.Series(
+          id: "Others",
           data: data,
           // x-axis
           domainFn: (DeveloperSeries series, _) => series.feature,
@@ -30,22 +43,25 @@ class ScatterChartDeveloper extends StatelessWidget {
     return SizedBox(
       height: 500,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(6.0),
         child: Card(
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(5.0),
             child: Column(
               children: [
                 const Text(
                   'Price by Mileage',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 18,
                   ),
                 ),
                 Expanded(
                   child: charts.ScatterPlotChart(
                     series,
                     animationDuration: const Duration(seconds: 1),
+                    primaryMeasureAxis: charts.NumericAxisSpec(
+                        tickFormatterSpec: customTickFormatter),
                     domainAxis: charts.NumericAxisSpec(
                       tickProviderSpec:
                           const charts.BasicNumericTickProviderSpec(
@@ -53,6 +69,17 @@ class ScatterChartDeveloper extends StatelessWidget {
                       viewport: charts.NumericExtents(minMileage, maxMileage),
                     ),
                     animate: true,
+                    behaviors: [
+                      charts.ChartTitle(
+                        '',
+                        subTitle: 'Mileage(mile)',
+                        behaviorPosition: charts.BehaviorPosition.bottom,
+                        titleOutsideJustification:
+                            charts.OutsideJustification.middleDrawArea,
+                      ),
+                      charts.SeriesLegend(
+                          position: charts.BehaviorPosition.bottom),
+                    ],
                   ),
                 )
               ],
@@ -63,3 +90,4 @@ class ScatterChartDeveloper extends StatelessWidget {
     );
   }
 }
+

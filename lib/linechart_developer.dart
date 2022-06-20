@@ -16,6 +16,8 @@ class LineChartDeveloper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customTickFormatter =
+        charts.BasicNumericTickFormatterSpec(((measure) => '£$measure'));
     List<charts.Series<DeveloperSeries, num>> series = [
       charts.Series(
           id: "developers",
@@ -27,22 +29,25 @@ class LineChartDeveloper extends StatelessWidget {
     return SizedBox(
       height: 500,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: Card(
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(6.0),
             child: Column(
               children: [
                 const Text(
-                  'Average Price',
+                  'Average Price by Car Age',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 18,
                   ),
                 ),
                 Expanded(
                   child: charts.LineChart(
                     series,
                     animationDuration: const Duration(seconds: 1),
+                    primaryMeasureAxis: charts.NumericAxisSpec(
+                        tickFormatterSpec: customTickFormatter),
                     domainAxis: charts.NumericAxisSpec(
                       tickProviderSpec:
                           const charts.BasicNumericTickProviderSpec(
@@ -50,6 +55,15 @@ class LineChartDeveloper extends StatelessWidget {
                       viewport: charts.NumericExtents(minAge, maxAge),
                     ),
                     animate: true,
+                    behaviors: [
+                      charts.ChartTitle('',
+                      subTitle: 'Car Age',
+                      behaviorPosition: charts.BehaviorPosition.bottom,
+                      titleOutsideJustification: charts.OutsideJustification.middleDrawArea,
+                      
+                      ),
+                    ],
+                    defaultRenderer: charts.LineRendererConfig(includePoints: true),
                   ),
                 )
               ],
