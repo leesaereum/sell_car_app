@@ -169,3 +169,5 @@ $RECYCLE.BIN/
 .dart_tool/package_config_subset
 .flutter-plugins-dependencies
 .packages
+.flutter-plugins-dependencies
+.packages
