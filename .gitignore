@@ -209,3 +209,9 @@ ios/Runner/Info.plist
 macos/Podfile.lock
 macos/Runner.xcodeproj/project.pbxproj
 macos/Runner.xcworkspace/contents.xcworkspacedata
+.dart_tool/package_config.json
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/ios/Debug-iphonesimulator/Runner.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+ios/Podfile.lock

@@ -1,18 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/addcommunity.dart';
 import 'package:sell_car_app/pages/check.dart';
-<<<<<<< HEAD
 import 'package:sell_car_app/pages/login.dart';
-=======
-import 'package:sell_car_app/pages/community.dart';
-import 'package:sell_car_app/pages/communityList.dart';
-import 'package:sell_car_app/pages/detailcommunity.dart';
-import 'package:sell_car_app/pages/login.dart';
-import 'package:sell_car_app/pages/modifycommunity.dart';
-import 'package:sell_car_app/pages/mylist.dart';
-import 'package:sell_car_app/pages/mypage.dart';
-import 'package:sell_car_app/pages/tips.dart';
->>>>>>> yejin
 import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
 
@@ -27,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/Addcommunity':(context) => const Addcommunity(),
+        '/Addcommunity': (context) => const Addcommunity(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(

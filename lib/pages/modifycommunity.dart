@@ -1,11 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:sell_car_app/pages/community.dart';
-import 'package:sell_car_app/pages/detailcommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
 
@@ -43,99 +37,105 @@ class _ModifycommunityState extends State<Modifycommunity> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Image.asset(
-          "./images/sellcar.png",
-          width: 180,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Image.asset(
+            "./images/sellcar.png",
+            width: 180,
+          ),
+          backgroundColor: Color.fromARGB(255, 4, 31, 56),
         ),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
-      ),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
-          child: Center(
-            child: Column(
-              children: [
-                TextField(
-                  controller: nickController,
-                  readOnly: true,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 3,
-                        color: Colors.blue,
-                      ),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 3,
-                          color: Colors.blue,
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+            child: Center(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "NICKNAME :${Static.nickname}",
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                        borderRadius: BorderRadius.circular(15)),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  controller: titleController,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 3,
-                        color: Colors.blue,
-                      ),
-                      borderRadius: BorderRadius.circular(15),
+                      ],
                     ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 3,
-                          color: Colors.blue,
-                        ),
-                        borderRadius: BorderRadius.circular(15)),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  controller: contentController,
-                  maxLength: 50,
-                  maxLines: 5,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 3,
-                        color: Colors.blue,
+                  // TextField(
+                  //   controller: nickController,
+                  //   readOnly: true,
+                  //   decoration: InputDecoration(
+                  //     enabledBorder: OutlineInputBorder(
+                  //       borderSide:
+                  //           const BorderSide(width: 2, color: Colors.grey),
+                  //       borderRadius: BorderRadius.circular(15),
+                  //     ),
+                  //     focusedBorder: OutlineInputBorder(
+                  //       borderSide: const BorderSide(
+                  //           width: 2, color: Color.fromARGB(255, 4, 31, 56)),
+                  //       borderRadius: BorderRadius.circular(15),
+                  //     ),
+                  //   ),
+                  // ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    controller: titleController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    focusedBorder: OutlineInputBorder(
+                      focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          width: 3,
-                          color: Colors.blue,
-                        ),
-                        borderRadius: BorderRadius.circular(15)),
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextButton(
-                    onPressed: (() {
-                      Static.title = titleController.text;
-                      Static.content = contentController.text;
-                      updateAction();
-                      historyAction();
-                      hisChangeAction();
-                    }),
-                    child: const Text('COMPLETE')),
-              ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    controller: contentController,
+                    maxLength: 50,
+                    maxLines: 5,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextButton(
+                      onPressed: (() {
+                        Static.title = titleController.text;
+                        Static.content = contentController.text;
+                        updateAction();
+                        historyAction();
+                        hisChangeAction();
+                      }),
+                      child: const Text('COMPLETE')),
+                ],
+              ),
             ),
           ),
         ),
@@ -161,8 +161,9 @@ class _ModifycommunityState extends State<Modifycommunity> {
     });
   }
 
-  historyAction() async{
-    var url1 = Uri.parse('http://localhost:8080/Flutter/sell_car/updateboard.jsp?pnum=${widget.pnum}');
+  historyAction() async {
+    var url1 = Uri.parse(
+        'http://localhost:8080/Flutter/sell_car/updateboard.jsp?pnum=${widget.pnum}');
     var response1 = await http.get(url1);
     setState(() {
       var dataConvertedJSON1 = json.decode(utf8.decode(response1.bodyBytes));
@@ -177,8 +178,9 @@ class _ModifycommunityState extends State<Modifycommunity> {
     });
   }
 
-  hisChangeAction() async{
-    var url1 = Uri.parse('http://localhost:8080/Flutter/sell_car/hischange.jsp?pnum=${widget.pnum}');
+  hisChangeAction() async {
+    var url1 = Uri.parse(
+        'http://localhost:8080/Flutter/sell_car/hischange.jsp?pnum=${widget.pnum}');
     var response1 = await http.get(url1);
     setState(() {
       var dataConvertedJSON1 = json.decode(utf8.decode(response1.bodyBytes));
@@ -202,22 +204,22 @@ class _ModifycommunityState extends State<Modifycommunity> {
             content: const Text('Complet modifying'),
             actions: [
               TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                }, 
-                child: const Text('To Community')
-                ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('To Community')),
             ],
           );
         });
   }
-  _errorSnackBar(BuildContext context){
+
+  _errorSnackBar(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Can not road updated datas'),
         duration: Duration(seconds: 2),
         backgroundColor: Colors.red,
-        ),
+      ),
     );
   }
 }

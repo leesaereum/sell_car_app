@@ -27,14 +27,6 @@ class _CommunityState extends State<Community> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-      body: Center(
-        child: Column(
-          children: [
-            const Text(
-              'COMMUNITY',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-=======
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
@@ -48,28 +40,30 @@ class _CommunityState extends State<Community> {
                         Static.content = comList[index]['content'];
                         Static.nickname = comList[index]['nickname'];
                         Static.title = comList[index]['title'];
-                        Static.createDate = comList[index]['createAt'].toString(); 
-                        //Static.deleteDate = comList[index]['deleteAt'].toString(); 
+                        Static.createDate =
+                            comList[index]['createAt'].toString();
+                        //Static.deleteDate = comList[index]['deleteAt'].toString();
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Detailcommunity(
-                                    pnum: comList[index]['pnum'],
-                                    title: comList[index]['title'],
-                                    content: comList[index]['content'],
-                                    createAt: comList[index]['createAt'],
-                                    nickname: comList[index]['nickname'],
-                                ))).then((value) => rebuildData());
+                                      pnum: comList[index]['pnum'],
+                                      title: comList[index]['title'],
+                                      content: comList[index]['content'],
+                                      createAt: comList[index]['createAt'],
+                                      nickname: comList[index]['nickname'],
+                                    ))).then((value) => rebuildData());
                       },
                       child: Card(
-                        color: Colors.grey[350],
+                        //color: Colors.grey[350],
                         child: Row(
                           children: [
                             //if(comList[index]['deleteAt'].isEmpty)
                             Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.fromLTRB(0,3,180,3),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 10, 180, 3),
                                   child: Text(
                                     comList[index]['nickname'],
                                     style: TextStyle(
@@ -79,10 +73,11 @@ class _CommunityState extends State<Community> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 40,
+                                  height: 60,
                                   width: 250,
                                   child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(12, 3, 180, 3),
+                                    padding: const EdgeInsets.fromLTRB(
+                                        12, 3, 120, 13),
                                     child: Flexible(
                                       child: RichText(
                                         overflow: TextOverflow.ellipsis,
@@ -91,7 +86,7 @@ class _CommunityState extends State<Community> {
                                           text: comList[index]['title'],
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 15,
+                                            fontSize: 30,
                                           ),
                                         ),
                                       ),
@@ -104,8 +99,12 @@ class _CommunityState extends State<Community> {
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                               child: Column(
                                 children: [
-                                  Text(comList[index]['createAt'].toString().substring(0,10)),
-                                  Text(comList[index]['createAt'].toString().substring(11,16))
+                                  Text(comList[index]['createAt']
+                                      .toString()
+                                      .substring(0, 10)),
+                                  Text(comList[index]['createAt']
+                                      .toString()
+                                      .substring(11, 16))
                                 ],
                               ),
                             )
@@ -124,7 +123,6 @@ class _CommunityState extends State<Community> {
             context,
             MaterialPageRoute(
               builder: (context) => const Addcommunity(),
->>>>>>> yejin
             ),
           ).then((value) => rebuildData()),
           child: const Icon(Icons.add),
@@ -134,15 +132,14 @@ class _CommunityState extends State<Community> {
   }
 
   // Functions
-    getJSONData() async {
-    var url =
-        Uri.parse('http://localhost:8080/Flutter/sell_car/boardmain.jsp');
+  getJSONData() async {
+    var url = Uri.parse('http://localhost:8080/Flutter/sell_car/boardmain.jsp');
     var response = await http.get(url);
     setState(() {
-      if(response.body.isNotEmpty){
-      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-      List result = dataConvertedJSON['results'];
-      comList.addAll(result);
+      if (response.body.isNotEmpty) {
+        var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+        List result = dataConvertedJSON['results'];
+        comList.addAll(result);
       }
     });
 

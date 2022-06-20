@@ -83,10 +83,10 @@ class _DetailcommunityState extends State<Detailcommunity> {
                               children: [
                                 Text("  Writer : ${Static.nickname}"),
                                 const SizedBox(
-                                  width: 130,
+                                  width: 100,
                                 ),
                                 Text(
-                                    'DATE : ${Static.createDate.toString().substring(0, 13)}\n'
+                                    'DATE : ${Static.createDate.toString().substring(0, 11)}\n'
                                     '                      ${Static.createDate.toString().substring(11, 19)}',
                                     textAlign: TextAlign.right),
                               ],
@@ -206,9 +206,9 @@ class _DetailcommunityState extends State<Detailcommunity> {
                   trailing: TextButton(
                     onPressed: (() {
                       //
-                    }), 
+                    }),
                     child: const Text("REPLY"),
-                    ),
+                  ),
                 ),
               ),
             ],
@@ -218,7 +218,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
     );
   }
 
-  _commentLists() async{
+  _commentLists() async {
     var url = Uri.parse(
         'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}');
     var response = await http.get(url);
