@@ -183,3 +183,6 @@ ios/Podfile.lock
 .dart_tool/package_config_subset
 .flutter-plugins-dependencies
 .packages
+.dart_tool/package_config.json
+.flutter-plugins-dependencies
+.packages
