@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:sell_car_app/pages/chart.dart';
+import 'package:sell_car_app/pages/result.dart';
+import 'package:sell_car_app/static.dart';
 
 class Mylist_Detail extends StatefulWidget {
   final String list_num;
@@ -191,7 +194,20 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
               style: ElevatedButton.styleFrom(
                   primary: Color.fromARGB(255, 4, 31, 56),
                   fixedSize: Size(250, 50)),
-              onPressed: () {},
+              onPressed: () {
+                Static.brand = brand;
+                Static.model = model;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Chart(
+                            inputAge: int.parse(age),
+                            inputMileage: int.parse(mileage),
+                            inputMpg: double.parse(mpg),
+                            inputEngineSize: double.parse(enginesize),
+                            inputFueltype: fueltype,
+                            inputTransmission: transmission)));
+              },
               child: const Text(
                 'GO TO SEE CHART',
                 style: TextStyle(fontSize: 20),

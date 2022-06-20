@@ -57,8 +57,9 @@ class _HomeState extends State<Home> {
                       MaterialPageRoute(
                         builder: (context) => const Login(),
                       ));
-                 } 
-                else {
+                } else {
+                  Static.brand = "";
+                  Static.model = "";
                   Navigator.push(
                       context,
                       MaterialPageRoute(

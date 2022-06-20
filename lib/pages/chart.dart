@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 class Chart extends StatefulWidget {
   final int inputAge;
-  final dynamic inputMileage;
+  final int inputMileage;
   final dynamic inputMpg;
   final dynamic inputEngineSize;
   final String inputFueltype;
