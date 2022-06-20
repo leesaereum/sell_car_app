@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+import 'package:sell_car_app/pages/siginingeneral.dart';
 import 'package:sell_car_app/provider/google_sign_in.dart';
 
   class Login extends StatefulWidget {
@@ -38,6 +39,8 @@ Future<UserCredential> signInWithGoogle() async {
 
   TextEditingController idController = TextEditingController();
   TextEditingController pwController = TextEditingController();
+    //유효성 검사 
+  GlobalKey<FormState> formkey =GlobalKey<FormState>();
 
 
   @override
@@ -61,6 +64,7 @@ Future<UserCredential> signInWithGoogle() async {
           child: SingleChildScrollView(
             padding: EdgeInsets.all(20.0),
             child: Form(
+              key: formkey,
               child: Column(
                 children: <Widget> [
                   const Text("Welcome to SELL CAR ",
@@ -132,9 +136,9 @@ Future<UserCredential> signInWithGoogle() async {
                   const SizedBox(height: 70.0,),
                   ElevatedButton.icon(
                     onPressed: () {
-                      final provider = Provider.of<GoogleSignInProvider>(context,listen:false);
-                      provider.googleLogin();
-                      //
+                      Navigator.push(context, 
+                      MaterialPageRoute(builder: 
+                      (context) => const SignIn(),));
                     },
                     icon: const Icon(Icons.email_rounded,
                     size: 32,

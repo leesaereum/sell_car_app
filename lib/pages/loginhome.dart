@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sell_car_app/pages/home.dart';
-import 'package:sell_car_app/pages/mypage.dart';
+import 'package:sell_car_app/pages/checkbrand.dart';
+import 'package:sell_car_app/pages/login.dart';
 
 class LoginHome extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class LoginHome extends StatelessWidget {
           return Center(child: CircularProgressIndicator());
         } else if(snapshot.hasData) {
           //로그인 완료 후 가는 페이지 
-          return Mypage();
+          return CheckBrand();
         } else if (snapshot.hasError) {
           return Center(child: Text("Something went wrong!"));
         } else{
