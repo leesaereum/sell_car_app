@@ -7,4 +7,5 @@ class Static {
   static String createDate = "";
   static String deleteDate = "";
   static int pnum = 1;
+  static int phNum = 1;
 }

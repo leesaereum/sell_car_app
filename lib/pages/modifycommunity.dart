@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/community.dart';
+import 'package:sell_car_app/pages/detailcommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
 
@@ -131,6 +132,7 @@ class _ModifycommunityState extends State<Modifycommunity> {
                       Static.content = contentController.text;
                       updateAction();
                       historyAction();
+                      hisChangeAction();
                     }),
                     child: const Text('COMPLETE')),
               ],
@@ -160,7 +162,23 @@ class _ModifycommunityState extends State<Modifycommunity> {
   }
 
   historyAction() async{
-    var url1 = Uri.parse('http://localhost:8080/Flutter/sell_car/updateboard.jsp?phNum=${widget.pnum}&phNum=${widget.pnum}');
+    var url1 = Uri.parse('http://localhost:8080/Flutter/sell_car/updateboard.jsp?pnum=${widget.pnum}');
+    var response1 = await http.get(url1);
+    setState(() {
+      var dataConvertedJSON1 = json.decode(utf8.decode(response1.bodyBytes));
+
+      result1 = dataConvertedJSON1["result"];
+
+      if (result1 == "OK") {
+        _showDialog(context);
+      } else {
+        _errorSnackBar(context);
+      }
+    });
+  }
+
+  hisChangeAction() async{
+    var url1 = Uri.parse('http://localhost:8080/Flutter/sell_car/hischange.jsp?pnum=${widget.pnum}');
     var response1 = await http.get(url1);
     setState(() {
       var dataConvertedJSON1 = json.decode(utf8.decode(response1.bodyBytes));
@@ -186,7 +204,6 @@ class _ModifycommunityState extends State<Modifycommunity> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Community()));
                 }, 
                 child: const Text('To Community')
                 ),
