@@ -13,11 +13,7 @@ import 'package:http/http.dart' as http;
 class Chart extends StatefulWidget {
   final int inputAge;
   final int inputMileage;
-<<<<<<< HEAD
-=======
-  //final double inputMpg;
-  //final double inputEngineSize;
->>>>>>> main
+
   final String inputFueltype;
   final String inputTransmission;
 
@@ -25,11 +21,6 @@ class Chart extends StatefulWidget {
     Key? key,
     required this.inputAge,
     required this.inputMileage,
-<<<<<<< HEAD
-=======
-    //required this.inputMpg,
-    //required this.inputEngineSize,
->>>>>>> main
     required this.inputFueltype,
     required this.inputTransmission,
   }) : super(key: key);

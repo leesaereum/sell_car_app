@@ -43,11 +43,7 @@ class _CheckHomeState extends State<CheckHome>
                   Icons.looks_3,
                   color: Colors.white,
                 ),
-<<<<<<< HEAD
                 text: 'DETAILS',
-=======
-                text: 'DETAIL',
->>>>>>> main
               ),
             ],
           ),
