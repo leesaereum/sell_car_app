@@ -14,12 +14,12 @@ class _CheckInfoState extends State<CheckInfo> {
   List<String> transmission = [];
   String fuelName = '';
   String transmissionName = '';
-  late double minAge;
-  late double minMileage;
+  late int minAge;
+  late int minMileage;
   late double minMpg;
   late double minEngineSize;
-  late double maxAge;
-  late double maxMileage;
+  late int maxAge;
+  late int maxMileage;
   late double maxMpg;
   late double maxEngineSize;
   late double errorValue;
@@ -289,13 +289,13 @@ class _CheckInfoState extends State<CheckInfo> {
                     decoration: InputDecoration(
                       labelText: 'INPUT AGE ($minAge~$maxAge)',
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            width: 3, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
@@ -310,13 +310,13 @@ class _CheckInfoState extends State<CheckInfo> {
                     decoration: InputDecoration(
                       labelText: 'INPUT MILEAGE ($minMileage~$maxMileage)',
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            width: 3, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
@@ -331,13 +331,13 @@ class _CheckInfoState extends State<CheckInfo> {
                     decoration: InputDecoration(
                       labelText: 'INPUT MPG ($minMpg~$maxMpg)',
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            width: 3, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
@@ -353,13 +353,13 @@ class _CheckInfoState extends State<CheckInfo> {
                       labelText:
                           'INPUT ENGINESIZE ($minEngineSize~$maxEngineSize)',
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            width: 3, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
