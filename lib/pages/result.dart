@@ -585,5 +585,3 @@ class _ResultState extends State<Result> {
     );
   }
 } // end
-
-

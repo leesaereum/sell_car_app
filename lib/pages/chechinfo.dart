@@ -398,7 +398,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: fuelName == fueltype[0]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 165,
@@ -418,7 +418,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: fuelName == fueltype[0]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 110,
@@ -439,7 +439,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: fuelName == fueltype[1]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 165,
@@ -459,7 +459,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: fuelName == fueltype[1]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 110,
@@ -484,7 +484,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: fuelName == fueltype[2]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 110,
@@ -524,7 +524,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: transmissionName == transmission[0]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 165,
@@ -544,7 +544,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: transmissionName == transmission[0]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 110,
@@ -565,7 +565,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: transmissionName == transmission[1]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 165,
@@ -585,7 +585,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: transmissionName == transmission[1]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 110,
@@ -610,7 +610,7 @@ class _CheckInfoState extends State<CheckInfo> {
                                       color: transmissionName == transmission[2]
                                           ? Colors.amber
                                           : Color.fromARGB(255, 4, 31, 56),
-                                      width: 3,
+                                      width: 2,
                                     )),
                                     height: 40,
                                     width: 110,

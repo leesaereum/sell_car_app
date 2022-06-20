@@ -48,9 +48,19 @@ class _MypageState extends State<Mypage> {
                   padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
                   child: TextField(
                     controller: nickname,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'NICKNAME',
                       hintText: 'ENTER NEW NICKNAME',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                     ),
                   ),
                 ),
@@ -63,15 +73,27 @@ class _MypageState extends State<Mypage> {
                       labelText: 'PASSWORD',
                       hintText: 'ENTER NEW PASSWORD',
                       helperText: 'NO MORE THAN 8 CHARACTERS',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            width: 2, color: Color.fromARGB(255, 4, 31, 56)),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                       suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              invisible = !invisible;
-                            });
-                          },
-                          child: Icon(invisible
-                              ? Icons.visibility
-                              : Icons.visibility_off)),
+                        onTap: () {
+                          setState(() {
+                            invisible = !invisible;
+                          });
+                        },
+                        child: Icon(
+                          invisible ? Icons.visibility : Icons.visibility_off,
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
                     keyboardType: TextInputType.text,
                   ),

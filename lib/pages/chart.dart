@@ -13,6 +13,11 @@ import 'package:http/http.dart' as http;
 class Chart extends StatefulWidget {
   final int inputAge;
   final int inputMileage;
+<<<<<<< HEAD
+=======
+  //final double inputMpg;
+  //final double inputEngineSize;
+>>>>>>> main
   final String inputFueltype;
   final String inputTransmission;
 
@@ -20,6 +25,11 @@ class Chart extends StatefulWidget {
     Key? key,
     required this.inputAge,
     required this.inputMileage,
+<<<<<<< HEAD
+=======
+    //required this.inputMpg,
+    //required this.inputEngineSize,
+>>>>>>> main
     required this.inputFueltype,
     required this.inputTransmission,
   }) : super(key: key);
@@ -49,7 +59,6 @@ class _ChartState extends State<Chart> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     jsonData = [];
     pricedata = [];
@@ -62,12 +71,16 @@ class _ChartState extends State<Chart> {
     buildChart(selectedValue);
   }
 
+// 화면 그림
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Bar Chart"),
-      ),
+          backgroundColor: const Color.fromARGB(255, 4, 31, 56),
+          title: Image.asset(
+            "images/sellcar.png",
+            width: 180,
+          )),
       body: Center(
         child: SingleChildScrollView(
           child: Column(

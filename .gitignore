@@ -169,8 +169,13 @@ $RECYCLE.BIN/
 .dart_tool/package_config_subset
 .flutter-plugins-dependencies
 .packages
+<<<<<<< HEAD
 .dart_tool/package_config.json
 .dart_tool/package_config_subset
 .flutter-plugins-dependencies
 .packages
 ios/Podfile.lock
+=======
+.flutter-plugins-dependencies
+.packages
+>>>>>>> main

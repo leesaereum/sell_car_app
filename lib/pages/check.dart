@@ -43,7 +43,11 @@ class _CheckHomeState extends State<CheckHome>
                   Icons.looks_3,
                   color: Colors.white,
                 ),
+<<<<<<< HEAD
                 text: 'DETAILS',
+=======
+                text: 'DETAIL',
+>>>>>>> main
               ),
             ],
           ),
@@ -54,14 +58,12 @@ class _CheckHomeState extends State<CheckHome>
         controller: _controller,
         children: [
           CheckBrand(
-            onNext :()=>
-             _controller.index = 1,
+            onNext: () => _controller.index = 1,
           ),
           CheckModel(
             onNext: () => _controller.index = 2,
           ),
-          CheckInfo(
-          ),
+          CheckInfo(),
         ],
       ),
     );
