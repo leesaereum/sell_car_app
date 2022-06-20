@@ -74,7 +74,7 @@ class _CheckModelState extends State<CheckModel> {
             ),
             Text(
               Static.brand.toUpperCase(),
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 10,
@@ -106,7 +106,7 @@ class _CheckModelState extends State<CheckModel> {
                     const SizedBox(height: 10),
                     Text(
                       carName[0],
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -140,7 +140,7 @@ class _CheckModelState extends State<CheckModel> {
                     const SizedBox(height: 10),
                     Text(
                       carName[1],
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -174,7 +174,7 @@ class _CheckModelState extends State<CheckModel> {
                     const SizedBox(height: 10),
                     Text(
                       carName[2],
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                     )
                   ],
                 ),

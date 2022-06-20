@@ -61,11 +61,12 @@ class _ResultState extends State<Result> {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(height: 50),
             const Text(
               'RESULT',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
@@ -73,9 +74,12 @@ class _ResultState extends State<Result> {
                 style: const TextStyle(fontSize: 20),
               ),
             ),
+            const SizedBox(
+              height: 50,
+            ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(130, 10),
+                    fixedSize: const Size(200, 50),
                     primary: const Color.fromARGB(255, 4, 31, 56)),
                 onPressed: () {
                   Navigator.pop(context);
@@ -86,9 +90,12 @@ class _ResultState extends State<Result> {
                       ));
                 },
                 child: const Text('CHECK AGAIN')),
+            const SizedBox(
+              height: 30,
+            ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(130, 10),
+                    fixedSize: const Size(200, 50),
                     primary: const Color.fromARGB(255, 4, 31, 56)),
                 onPressed: () {
                   Navigator.pop(context);
@@ -105,9 +112,12 @@ class _ResultState extends State<Result> {
                       ));
                 },
                 child: const Text('SEE CHARTS')),
+            const SizedBox(
+              height: 30,
+            ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(130, 10),
+                    fixedSize: const Size(200, 50),
                     primary: const Color.fromARGB(255, 4, 31, 56)),
                 onPressed: () {
                   _showDialog(context);
@@ -431,8 +441,9 @@ class _ResultState extends State<Result> {
     bool error = true;
 
     var url = Uri.parse(
-        "http://localhost:8080/Flutter/sellcar_mylist_insert.jsp?inputId=${Static.id}&inputTitle=${title.text}&inputPrice=${price.round()}&inputBrand=${Static.brand}&inputModel=${Static.model}&inputAge=" +
-            "${widget.inputAge}&inputMileage=${widget.inputMileage}&inputMpg=${widget.inputMpg}&inputEngineSize=${widget.inputEngineSize}&inputFueltype=${widget.inputFueltype}&inputTransmission=${widget.inputTransmission}");
+        "http://localhost:8080/Flutter/sellcar_mylist_insert.jsp?inputId=${Static.id}&inputTitle=${title.text}&inputPrice=${price.round()}&inputBrand=" +
+            "${Static.brand}&inputModel=${Static.model}&inputAge=${widget.inputAge}&inputMileage=${widget.inputMileage}&inputMpg=${widget.inputMpg}&inputEngineSize=" +
+            "${widget.inputEngineSize}&inputFueltype=${widget.inputFueltype}&inputTransmission=${widget.inputTransmission}&inputError=${widget.errorValue}");
     var response = await http.get(url);
 
     setState(() {
@@ -474,7 +485,9 @@ class _ResultState extends State<Result> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -488,9 +501,8 @@ class _ResultState extends State<Result> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(100, 10),
+                            fixedSize: const Size(100, 10),
                             primary: const Color.fromARGB(255, 4, 31, 56)),
-                            
                         child: const Text('ADD'),
                       ),
                       const SizedBox(
@@ -501,11 +513,9 @@ class _ResultState extends State<Result> {
                           Navigator.of(ctx).pop();
                         },
                         style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(100, 10),
+                            fixedSize: const Size(100, 10),
                             primary: const Color.fromARGB(255, 4, 31, 56)),
-                            
                         child: const Text('CANCEL'),
-                        
                       ),
                     ],
                   ),
@@ -523,7 +533,7 @@ class _ResultState extends State<Result> {
           return AlertDialog(
             title: const Text('ALERT'),
             content: const Text(
-                'LIST HAS BEEN ADDED.DO YOU WANT TO GO TO THE MYLIST?'),
+                'LIST HAS BEEN ADDED. DO YOU WANT TO GO TO THE MYLIST?'),
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -536,7 +546,7 @@ class _ResultState extends State<Result> {
                           MaterialPageRoute(builder: (ctx) => Mylist()));
                     },
                     style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(100, 10),
+                        fixedSize: const Size(100, 10),
                         primary: const Color.fromARGB(255, 4, 31, 56)),
                     child: const Text('OK'),
                   ),
@@ -549,7 +559,7 @@ class _ResultState extends State<Result> {
                       Navigator.of(ctx).pop();
                     },
                     style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(100, 10),
+                        fixedSize: const Size(100, 10),
                         primary: const Color.fromARGB(255, 4, 31, 56)),
                     child: const Text('CANCEL'),
                   ),

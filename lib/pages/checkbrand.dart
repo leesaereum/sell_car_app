@@ -26,7 +26,7 @@ class _CheckBrandState extends State<CheckBrand> {
             const SizedBox(height: 20),
             const Text(
               'CHOOSE BRAND',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 30),
             GestureDetector(

@@ -276,8 +276,12 @@ class _CheckInfoState extends State<CheckInfo> {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
+                const Text(
+              'INSERT INFO',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
@@ -368,234 +372,251 @@ class _CheckInfoState extends State<CheckInfo> {
                 ),
                 Column(
                   children: [
-                    const Text('FUELTYPE'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        fueltype.length == 2
-                            ? GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    fuelName = fueltype[0];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                    color: fuelName == fueltype[0]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 165,
-                                  child: Center(child: Text(fueltype[0])),
+                    const Text('FUELTYPE',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          fueltype.length == 2
+                              ? GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      fuelName = fueltype[0];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                      color: fuelName == fueltype[0]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 165,
+                                    child: Center(child: Text(fueltype[0])),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      fuelName = fueltype[0];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(3),
+                                        border: Border.all(
+                                      color: fuelName == fueltype[0]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 110,
+                                    child: Center(child: Text(fueltype[0])),
+                                  ),
                                 ),
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    fuelName = fueltype[0];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(3),
-                                      border: Border.all(
-                                    color: fuelName == fueltype[0]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 110,
-                                  child: Center(child: Text(fueltype[0])),
+                          fueltype.length == 2
+                              ? GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      fuelName = fueltype[1];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                      color: fuelName == fueltype[1]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 165,
+                                    child: Center(child: Text(fueltype[1])),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      fuelName = fueltype[1];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(3),
+                                        border: Border.all(
+                                      color: fuelName == fueltype[1]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 110,
+                                    child: Center(child: Text(fueltype[1])),
+                                  ),
                                 ),
-                              ),
-                        fueltype.length == 2
-                            ? GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    fuelName = fueltype[1];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                    color: fuelName == fueltype[1]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
+                          fueltype.length == 2
+                              ? const SizedBox(
                                   height: 40,
-                                  width: 165,
-                                  child: Center(child: Text(fueltype[1])),
+                                  width: 0,
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      fuelName = fueltype[2];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(3),
+                                        border: Border.all(
+                                      color: fuelName == fueltype[2]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 110,
+                                    child: Center(child: Text(fueltype[2])),
+                                  ),
                                 ),
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    fuelName = fueltype[1];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(3),
-                                      border: Border.all(
-                                    color: fuelName == fueltype[1]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 110,
-                                  child: Center(child: Text(fueltype[1])),
-                                ),
-                              ),
-                        fueltype.length == 2
-                            ? const SizedBox(
-                                height: 40,
-                                width: 0,
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    fuelName = fueltype[2];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(3),
-                                      border: Border.all(
-                                    color: fuelName == fueltype[2]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 110,
-                                  child: Center(child: Text(fueltype[2])),
-                                ),
-                              ),
-                      ],
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       width: 50,
                     ),
-                    const Text('TRANSMISSION'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        transmission.length == 2
-                            ? GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    transmissionName = transmission[0];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                    color: transmissionName == transmission[0]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 165,
-                                  child: Center(child: Text(transmission[0])),
+                    const Text('TRANSMISSION',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
+                    // const SizedBox(height: 20,),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          transmission.length == 2
+                              ? GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      transmissionName = transmission[0];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                      color: transmissionName == transmission[0]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 165,
+                                    child: Center(child: Text(transmission[0])),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      transmissionName = transmission[0];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(3),
+                                        border: Border.all(
+                                      color: transmissionName == transmission[0]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 110,
+                                    child: Center(child: Text(transmission[0])),
+                                  ),
                                 ),
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    transmissionName = transmission[0];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(3),
-                                      border: Border.all(
-                                    color: transmissionName == transmission[0]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 110,
-                                  child: Center(child: Text(transmission[0])),
+                          transmission.length == 2
+                              ? GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      transmissionName = transmission[1];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                      color: transmissionName == transmission[1]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 165,
+                                    child: Center(child: Text(transmission[1])),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      transmissionName = transmission[1];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(3),
+                                        border: Border.all(
+                                      color: transmissionName == transmission[1]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 110,
+                                    child: Center(child: Text(transmission[1])),
+                                  ),
                                 ),
-                              ),
-                        transmission.length == 2
-                            ? GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    transmissionName = transmission[1];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                    color: transmissionName == transmission[1]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
+                          transmission.length == 2
+                              ? const SizedBox(
                                   height: 40,
-                                  width: 165,
-                                  child: Center(child: Text(transmission[1])),
+                                  width: 0,
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      transmissionName = transmission[2];
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        // borderRadius: BorderRadius.circular(3),
+                                        border: Border.all(
+                                      color: transmissionName == transmission[2]
+                                          ? Colors.amber
+                                          : Color.fromARGB(255, 4, 31, 56),
+                                      width: 3,
+                                    )),
+                                    height: 40,
+                                    width: 110,
+                                    child: Center(child: Text(transmission[2])),
+                                  ),
                                 ),
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    transmissionName = transmission[1];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(3),
-                                      border: Border.all(
-                                    color: transmissionName == transmission[1]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 110,
-                                  child: Center(child: Text(transmission[1])),
-                                ),
-                              ),
-                        transmission.length == 2
-                            ? const SizedBox(
-                                height: 40,
-                                width: 0,
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    transmissionName = transmission[2];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      // borderRadius: BorderRadius.circular(3),
-                                      border: Border.all(
-                                    color: transmissionName == transmission[2]
-                                        ? Colors.amber
-                                        : Color.fromARGB(255, 4, 31, 56),
-                                    width: 3,
-                                  )),
-                                  height: 40,
-                                  width: 110,
-                                  child: Center(child: Text(transmission[2])),
-                                ),
-                              ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -604,6 +625,7 @@ class _CheckInfoState extends State<CheckInfo> {
                 ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(150, 50),
                         primary: const Color.fromARGB(255, 4, 31, 56)),
                     onPressed: () {
                       if (age.text.trim().isEmpty ||
