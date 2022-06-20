@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/community.dart';
-import 'package:sell_car_app/pages/google_login.dart';
+import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/pages/mypage.dart';
 import 'package:sell_car_app/pages/tips.dart';

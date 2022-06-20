@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/checkbrand.dart';
-import 'package:sell_car_app/pages/google_login.dart';
+import 'package:sell_car_app/pages/login.dart';
 
 class LoginHome extends StatelessWidget {
   @override
