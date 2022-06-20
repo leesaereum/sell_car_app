@@ -14,7 +14,7 @@ class _CheckBrandState extends State<CheckBrand> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SELL CAR'),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
         child: Column(
@@ -28,7 +28,7 @@ class _CheckBrandState extends State<CheckBrand> {
               onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CheckModel(),
+                    builder: (context) => const CheckModel(),
                   )),
               child: Card(child: Image.asset('images/car.gif')),
             )

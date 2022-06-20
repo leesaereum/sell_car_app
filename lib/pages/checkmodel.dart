@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/chechinfo.dart';
 
 class CheckModel extends StatefulWidget {
@@ -16,7 +14,7 @@ class _CheckModelState extends State<CheckModel> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SELL CAR'),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
         child: Column(
@@ -30,7 +28,7 @@ class _CheckModelState extends State<CheckModel> {
               onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CheckInfo(),
+                    builder: (context) => const CheckInfo(),
                   )),
               child: Card(child: Image.asset('images/car.gif')),
             ),

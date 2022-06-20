@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/mylist.dart';
 
@@ -17,7 +15,7 @@ class _ResultState extends State<Result> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SELL CAR'),
-        backgroundColor: Color.fromARGB(255, 4, 31, 56),
+        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: Center(
         child: Column(
