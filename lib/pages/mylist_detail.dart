@@ -19,7 +19,8 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
   String title = "";
   String brand = "";
   String model = "";
-  String price = "";
+  String price1 = "";
+  String price2 = "";
   String age = "";
   String mileage = "";
   String mpg = "";
@@ -81,7 +82,7 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
                           ),
                           SizedBox(height: 15),
                           Text(
-                            "PRICE",
+                            "PRICE\n",
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.grey,
@@ -155,7 +156,7 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
                               style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 13),
-                          Text(price,
+                          Text("$price1\n ~ $price2",
                               style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 13),
@@ -227,7 +228,12 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
       title = mylist[0]['list_title'];
       brand = mylist[0]['list_brand'];
       model = mylist[0]['list_model'];
-      price = mylist[0]['list_price'];
+      price1 = (double.parse(mylist[0]['list_price']) -
+              double.parse(mylist[0]['list_error']))
+          .toString();
+      price2 = (double.parse(mylist[0]['list_price']) +
+              double.parse(mylist[0]['list_error']))
+          .toString();
       mileage = mylist[0]['list_mileage'];
       mpg = mylist[0]['list_mpg'];
       enginesize = mylist[0]['list_enginesize'];
