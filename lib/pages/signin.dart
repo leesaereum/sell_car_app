@@ -12,7 +12,6 @@ class _SigninState extends State<Signin> {
   TextEditingController nickname = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController checkpassword = TextEditingController();
-  bool invisible = true;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -48,27 +47,12 @@ class _SigninState extends State<Signin> {
                     ),
                   ),
                   Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 20, 30, 50),
-                  child: TextField(
-                    controller: password,
-                    obscureText: invisible,
-                    decoration: InputDecoration(
-                      labelText: 'PASSWORD',
-                      hintText: 'ENTER NEW PASSWORD',
-                      helperText: 'NO MORE THAN 8 CHARACTERS',
-                      suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              invisible = !invisible;
-                            });
-                          },
-                          child: Icon(invisible
-                              ? Icons.visibility
-                              : Icons.visibility_off)),
+                    padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    child: TextField(
+                      controller: password,
+                      decoration: const InputDecoration(labelText: 'PASSWORD'),
                     ),
-                    keyboardType: TextInputType.text,
                   ),
-                ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 10, 30, 50),
                     child: TextField(

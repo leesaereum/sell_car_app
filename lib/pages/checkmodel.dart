@@ -65,25 +65,31 @@ class _CheckModelState extends State<CheckModel> {
       body: Center(
         child: Column(
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             const Text(
               'CHOOSE MODEL',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Text(
-              Static.brand,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              Static.brand.toUpperCase(),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.model = carName[0];
+                  Static.model = carName[0].toLowerCase();
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Static.model == carName[0]
+                      color: Static.model == carName[0].toLowerCase()
                           ? Colors.amber
                           : Color.fromARGB(255, 4, 31, 56),
                       width: 3,
@@ -100,7 +106,7 @@ class _CheckModelState extends State<CheckModel> {
                     const SizedBox(height: 10),
                     Text(
                       carName[0],
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -110,14 +116,14 @@ class _CheckModelState extends State<CheckModel> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.model = carName[1];
+                  Static.model = carName[1].toLowerCase();
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Static.model == carName[1]
+                      color: Static.model == carName[1].toLowerCase()
                           ? Colors.amber
                           : Color.fromARGB(255, 4, 31, 56),
                       width: 3,
@@ -134,7 +140,7 @@ class _CheckModelState extends State<CheckModel> {
                     const SizedBox(height: 10),
                     Text(
                       carName[1],
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -144,14 +150,14 @@ class _CheckModelState extends State<CheckModel> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Static.model = carName[2];
+                  Static.model = carName[2].toLowerCase();
                 });
               },
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Static.model == carName[2]
+                      color: Static.model == carName[2].toLowerCase()
                           ? Colors.amber
                           : Color.fromARGB(255, 4, 31, 56),
                       width: 3,
@@ -168,7 +174,7 @@ class _CheckModelState extends State<CheckModel> {
                     const SizedBox(height: 10),
                     Text(
                       carName[2],
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -176,7 +182,7 @@ class _CheckModelState extends State<CheckModel> {
             ),
             const SizedBox(height: 10),
             PrimaryButton(
-              onPressed: Static.model != '' ? widget.onNext : _function(),
+              onPressed: Static.model != '' ? widget.onNext : nomodel(),
               text: 'NEXT',
             ),
           ],
@@ -212,6 +218,4 @@ class PrimaryButton extends StatelessWidget {
   }
 }
 
-_function() {
-  print('hello');
-}
+nomodel() {}

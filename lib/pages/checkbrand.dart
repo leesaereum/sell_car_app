@@ -11,6 +11,13 @@ class CheckBrand extends StatefulWidget {
 
 class _CheckBrandState extends State<CheckBrand> {
   @override
+  void initState() {
+    super.initState();
+    Static.brand = '';
+    Static.model = '';
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -19,7 +26,7 @@ class _CheckBrandState extends State<CheckBrand> {
             const SizedBox(height: 20),
             const Text(
               'CHOOSE BRAND',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 30),
             GestureDetector(
@@ -152,7 +159,7 @@ class _CheckBrandState extends State<CheckBrand> {
             ),
             const SizedBox(height: 30),
             PrimaryButton(
-              onPressed: Static.brand != '' ? widget.onNext : _function(),
+              onPressed: Static.brand != '' ? widget.onNext : nobrand(),
               text: 'NEXT',
             ),
           ],
@@ -188,6 +195,4 @@ class PrimaryButton extends StatelessWidget {
   }
 }
 
-_function() {
-  print('hello');
-}
+nobrand() {}
