@@ -80,6 +80,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "horizontal_card_pager",
+      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/horizontal_card_pager-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "http",
       "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4",
       "packageUri": "lib/",
@@ -224,7 +230,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-20T07:21:44.425694Z",
+  "generated": "2022-06-20T07:24:44.430336Z",
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }

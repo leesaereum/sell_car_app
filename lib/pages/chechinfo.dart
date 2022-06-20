@@ -78,7 +78,7 @@ class _CheckInfoState extends State<CheckInfo> {
         fuelName = fueltype[0];
         transmissionName = transmission[0];
         break;
-        //ford
+      //ford
       case 'fiesta':
         minAge = 1;
         maxAge = 12;
@@ -124,7 +124,7 @@ class _CheckInfoState extends State<CheckInfo> {
         fuelName = fueltype[0];
         transmissionName = transmission[0];
         break;
-        //vw
+      //vw
       case 'golf':
         minAge = 1;
         maxAge = 20;
@@ -135,7 +135,7 @@ class _CheckInfoState extends State<CheckInfo> {
         minEngineSize = 0;
         maxEngineSize = 2;
         errorValue = 999;
-        fueltype = ['diesel', 'petrol','hybrid'];
+        fueltype = ['diesel', 'petrol', 'hybrid'];
         transmission = ['automatic', 'manual', 'semi-auto'];
         fuelName = fueltype[0];
         transmissionName = transmission[0];
@@ -170,7 +170,7 @@ class _CheckInfoState extends State<CheckInfo> {
         fuelName = fueltype[0];
         transmissionName = transmission[0];
         break;
-        //benz
+      //benz
       case 'a class':
         minAge = 1;
         maxAge = 8;
@@ -196,7 +196,7 @@ class _CheckInfoState extends State<CheckInfo> {
         minEngineSize = 1.5;
         maxEngineSize = 6.2;
         errorValue = 4887;
-        fueltype = ['diesel', 'petrol','hybrid'];
+        fueltype = ['diesel', 'petrol', 'hybrid'];
         transmission = ['automatic', 'manual', 'semi-auto'];
         fuelName = fueltype[0];
         transmissionName = transmission[0];
@@ -211,12 +211,12 @@ class _CheckInfoState extends State<CheckInfo> {
         minEngineSize = 0;
         maxEngineSize = 3;
         errorValue = 3062;
-        fueltype = ['diesel', 'petrol','hybrid'];
+        fueltype = ['diesel', 'petrol', 'hybrid'];
         transmission = ['automatic', 'manual', 'semi-auto'];
         fuelName = fueltype[0];
         transmissionName = transmission[0];
         break;
-        //bmw
+      //bmw
       case '1 series':
         minAge = 1;
         maxAge = 12;
@@ -279,9 +279,9 @@ class _CheckInfoState extends State<CheckInfo> {
                   height: 20,
                 ),
                 const Text(
-              'INSERT INFO',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
+                  'INSERT INFO',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: TextField(
@@ -372,11 +372,12 @@ class _CheckInfoState extends State<CheckInfo> {
                 ),
                 Column(
                   children: [
-                    const Text('FUELTYPE',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    const Text(
+                      'FUELTYPE',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -496,11 +497,12 @@ class _CheckInfoState extends State<CheckInfo> {
                     const SizedBox(
                       width: 50,
                     ),
-                    const Text('TRANSMISSION',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    const Text(
+                      'TRANSMISSION',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     // const SizedBox(height: 20,),
                     Padding(
@@ -625,7 +627,7 @@ class _CheckInfoState extends State<CheckInfo> {
                 ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(150, 50),
+                        fixedSize: const Size(150, 50),
                         primary: const Color.fromARGB(255, 4, 31, 56)),
                     onPressed: () {
                       if (age.text.trim().isEmpty ||
