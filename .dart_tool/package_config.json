@@ -200,6 +200,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "vertical_card_pager",
+      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/vertical_card_pager-1.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "webview_flutter",
       "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-3.0.4",
       "packageUri": "lib/",
@@ -230,7 +236,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-20T07:24:44.430336Z",
+  "generated": "2022-06-20T09:28:43.493142Z",
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }

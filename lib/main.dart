@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/check.dart';
-import 'package:sell_car_app/pages/community.dart';
 import 'package:sell_car_app/pages/login.dart';
-import 'package:sell_car_app/pages/mylist.dart';
-import 'package:sell_car_app/pages/mypage.dart';
-import 'package:sell_car_app/pages/tips.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
 
@@ -61,12 +57,11 @@ class _HomeState extends State<Home> {
                       MaterialPageRoute(
                         builder: (context) => const Login(),
                       ));
-                 } 
-                else {
+                } else {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CheckHome(),
+                        builder: (context) => CheckHome(),
                       ));
                 }
               },

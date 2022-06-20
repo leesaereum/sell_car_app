@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   charts_flutter: ^0.12.0
   http: ^0.13.4
+  vertical_card_pager: ^1.5.0
   horizontal_card_pager: ^0.3.0
 
 dev_dependencies:
@@ -77,10 +78,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: "Bevan"
+      fonts:
+        - asset: fonts/Bevan-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
