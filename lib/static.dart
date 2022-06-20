@@ -8,4 +8,6 @@ class Static {
   static String deleteDate = "";
   static int pnum = 1;
   static int phNum = 1;
+  static String comment = "";
+  static int cnum = 1;
 }

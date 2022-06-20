@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/modifycommunity.dart';
@@ -16,15 +17,15 @@ class Detailcommunity extends StatefulWidget {
   final String createAt;
   //final String deleteAt;
   final String nickname;
-  const Detailcommunity({Key? key,
-      required this.pnum,
-      required this.title,
-      required this.content,
-      required this.createAt,
-      //required this.deleteAt,
-      required this.nickname,
+  const Detailcommunity({
+    Key? key,
+    required this.pnum,
+    required this.title,
+    required this.content,
+    required this.createAt,
+    //required this.deleteAt,
+    required this.nickname,
   }) : super(key: key);
-
 
   @override
   State<Detailcommunity> createState() => _DetailcommunityState();
@@ -33,10 +34,15 @@ class Detailcommunity extends StatefulWidget {
 class _DetailcommunityState extends State<Detailcommunity> {
   late TextEditingController commentController;
   late String result;
- 
+
+  late List commentList;
+  late int cnum;
+
   @override
   void initState() {
+    commentList = [];
     commentController = TextEditingController();
+    commentMain();
     super.initState();
   }
 
@@ -59,12 +65,13 @@ class _DetailcommunityState extends State<Detailcommunity> {
             children: [
               Container(
                 width: 400,
-                height: 200,
+                height: 150,
                 decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(width: 1.5,color: Color.fromARGB(255, 4, 31, 56)),
-                    ),
+                  border: Border(
+                    bottom: BorderSide(
+                        width: 1.5, color: Color.fromARGB(255, 4, 31, 56)),
                   ),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -81,17 +88,16 @@ class _DetailcommunityState extends State<Detailcommunity> {
                                 ),
                                 Text(
                                     'DATE : ${Static.createDate.toString().substring(0, 13)}\n'
-                                   
                                     '                      ${Static.createDate.toString().substring(11, 19)}',
-                                    textAlign: TextAlign.right
-                                ),
+                                    textAlign: TextAlign.right),
                               ],
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Text('${Static.content}',
-                            textAlign: TextAlign.left,
+                            Text(
+                              '${Static.content}',
+                              textAlign: TextAlign.left,
                             ),
                           ],
                         ),
@@ -104,28 +110,33 @@ class _DetailcommunityState extends State<Detailcommunity> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: (() {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => Modifycommunity(
-                          pnum: widget.pnum,
-                          nickname: widget.nickname,
-                          title: widget.title,
-                          content: widget.content,
-                        ),));
-                    }), 
-                    child: const Text("MODIFY")
-                    ),
+                      onPressed: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Modifycommunity(
+                                pnum: widget.pnum,
+                                nickname: widget.nickname,
+                                title: widget.title,
+                                content: widget.content,
+                              ),
+                            ));
+                      }),
+                      child: const Text("MODIFY")),
                   TextButton(
-                    onPressed: (() {
-                     _showDialog(context);
-                    }), 
-                    child: const Text("DELETE",style: TextStyle(color: Colors.red),)
-                    ),
+                      onPressed: (() {
+                        _showDialog(context);
+                      }),
+                      child: const Text(
+                        "DELETE",
+                        style: TextStyle(color: Colors.red),
+                      )),
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
+              _commentBox(),
               _builTextComposer()
             ],
           ),
@@ -143,26 +154,29 @@ class _DetailcommunityState extends State<Detailcommunity> {
               controller: commentController,
               keyboardType: TextInputType.text,
               onSubmitted: _handleSumitted,
-              decoration: InputDecoration(labelText: "Input comment",
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 3,
-                  color: Colors.blue),
+              decoration: InputDecoration(
+                labelText: "Input comment",
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: Colors.blue),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 3,
-                    color: Colors.red,
-                  ),
-                  borderRadius: BorderRadius.circular(15)
-                ),
-              ),
+                    borderSide: BorderSide(
+                      width: 3,
+                      color: Colors.red,
+                    ),
+                    borderRadius: BorderRadius.circular(15)),
               ),
             ),
+          ),
           Container(
             child: IconButton(
-              onPressed: () => _handleSumitted(commentController.text),
+              onPressed: () {
+                _handleSumitted(commentController.text);
+                setState(() {
+                  Static.comment = commentController.text;
+                });
+              },
               icon: const Icon(
                 Icons.send,
                 color: Color.fromARGB(255, 4, 31, 56),
@@ -178,17 +192,48 @@ class _DetailcommunityState extends State<Detailcommunity> {
     commentController.clear();
   }
 
-  deleteAction() async{
-    var url = Uri.parse('http://localhost:8080/Flutter/sell_car/deleteboard.jsp?pnum=${widget.pnum}');
-    var response = await http.get(url);
-    
-    setState(() {
-     var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-     result = dataConvertedJSON['result'];
-    });
+  _commentBox() {
+    return Container(
+      height: 150,
+      child: ListView.builder(
+        itemCount: commentList.length,
+        itemBuilder: (context, index) => Card(
+          child: ListTile(
+            leading: CircleAvatar(backgroundColor: Colors.grey),
+            title: commentList[index]['nickname'],
+            subtitle: commentList[index]['content'],
+          ),
+        ),
+      ),
+    );
   }
 
+  commentMain() async {
+    var url = Uri.parse(
+        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum');
+    var response = await http.get(url);
+    setState(() {
+       if(response.body.isNotEmpty){
+      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+      List result = dataConvertedJSON['results'];
+      commentList.addAll(result);
+      }
+    });
+    return true;
+  }
 
+  addComment() async {}
+
+  deleteAction() async {
+    var url = Uri.parse(
+        'http://localhost:8080/Flutter/sell_car/deleteboard.jsp?pnum=${widget.pnum}');
+    var response = await http.get(url);
+
+    setState(() {
+      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+      result = dataConvertedJSON['result'];
+    });
+  }
 
   _showDialog(BuildContext context) {
     showDialog(
@@ -196,7 +241,8 @@ class _DetailcommunityState extends State<Detailcommunity> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text('ARE YOU SURE YOU WANT TO DELETE THIS POST? '),
-            content: const Text('IF YOU DELETE THE POST, YOU CAN''T GET IT BACK. '),
+            content:
+                const Text('IF YOU DELETE THE POST, YOU CAN' 'T GET IT BACK. '),
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -214,9 +260,10 @@ class _DetailcommunityState extends State<Detailcommunity> {
                   ),
                   TextButton(
                     onPressed: () {
-                     Navigator.of(context).pop();
+                      Navigator.of(context).pop();
                     },
-                    child: const Text('NO',style: TextStyle(color: Colors.red)),
+                    child:
+                        const Text('NO', style: TextStyle(color: Colors.red)),
                   ),
                 ],
               ),
