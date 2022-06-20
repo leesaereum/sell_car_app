@@ -34,15 +34,10 @@ class _CheckBrandState extends State<CheckBrand> {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 20),
-            const Text(
-              'CHOOSE BRAND',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
             Expanded(
               child: Container(
-                width: 400,
                 child: VerticalCardPager(
+                  align: ALIGN.CENTER,
                   initialPage: 2,
                   titles: titles,
                   images: [

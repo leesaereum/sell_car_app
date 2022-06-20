@@ -21,6 +21,7 @@ class _CheckModelState extends State<CheckModel> {
         carName.add('A3');
         carName.add('A4');
         carName.add('Q3');
+
         carImg.add("images/Audi_A3.png");
         carImg.add("images/Audi_A4.png");
         carImg.add("images/Audi_Q3.png");
@@ -37,6 +38,7 @@ class _CheckModelState extends State<CheckModel> {
         carName.add('GOLF');
         carName.add('POLO');
         carName.add('TIGUAN');
+
         carImg.add('images/vw_golf.png');
         carImg.add('images/vw_polo.png');
         carImg.add('images/vw_tiguan.png');
@@ -44,7 +46,6 @@ class _CheckModelState extends State<CheckModel> {
       case 'Benz':
         carName.add('A CLASS');
         carName.add('C CLASS');
-        carName.add('E CLASS');
         carImg.add('images/benz_Aclass.png');
         carImg.add('images/benz_Cclass.png');
         carImg.add('images/benz_Eclass.png');
@@ -53,6 +54,7 @@ class _CheckModelState extends State<CheckModel> {
         carName.add('1 SERIES');
         carName.add('2 SERIES');
         carName.add('3 SERIES');
+
         carImg.add('images/bmw_1series.png');
         carImg.add('images/bmw_2series.png');
         carImg.add('images/bmw_3series.png');
@@ -67,24 +69,15 @@ class _CheckModelState extends State<CheckModel> {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              'CHOOSE MODEL',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              Static.brand.toUpperCase(),
-              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
             Expanded(
               child: Container(
                 child: VerticalCardPager(
+                  align: ALIGN.CENTER,
                   initialPage: 1,
                   textStyle: const TextStyle(
+                    //fontSize: 20,
                     fontFamily: "Bevan",
-                    color: Colors.white,
+                    color: Colors.amber,
                     fontWeight: FontWeight.bold,
                   ),
                   titles: carName,
@@ -94,7 +87,7 @@ class _CheckModelState extends State<CheckModel> {
                       child: Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                                color: Static.model == carName[0]
+                                color: Static.model == carName[0].toLowerCase()
                                     ? Colors.amber
                                     : Colors.grey,
                                 width: 2),
@@ -110,7 +103,7 @@ class _CheckModelState extends State<CheckModel> {
                       child: Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                                color: Static.model == carName[1]
+                                color: Static.model == carName[1].toLowerCase()
                                     ? Colors.amber
                                     : Colors.grey,
                                 width: 2),
@@ -126,7 +119,7 @@ class _CheckModelState extends State<CheckModel> {
                       child: Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                                color: Static.model == carName[2]
+                                color: Static.model == carName[2].toLowerCase()
                                     ? Colors.amber
                                     : Colors.grey,
                                 width: 2),
@@ -141,13 +134,13 @@ class _CheckModelState extends State<CheckModel> {
                   onPageChanged: (page) {},
                   onSelectedItem: (index) {
                     setState(() {
-                      Static.model = carName[index];
+                      Static.model = carName[index].toLowerCase();
                     });
                   },
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            //const SizedBox(height: 10),
             PrimaryButton(
               onPressed: Static.model != '' ? widget.onNext : nomodel(),
               text: 'NEXT',
