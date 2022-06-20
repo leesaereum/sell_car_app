@@ -1,9 +1,11 @@
 import 'dart:convert';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:sell_car_app/pages/communityList.dart';
 import 'package:sell_car_app/pages/modifycommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
@@ -15,7 +17,6 @@ class Detailcommunity extends StatefulWidget {
   final String title;
   final String content;
   final String createAt;
-  //final String deleteAt;
   final String nickname;
   const Detailcommunity({
     Key? key,
@@ -23,7 +24,6 @@ class Detailcommunity extends StatefulWidget {
     required this.title,
     required this.content,
     required this.createAt,
-    //required this.deleteAt,
     required this.nickname,
   }) : super(key: key);
 
@@ -42,7 +42,6 @@ class _DetailcommunityState extends State<Detailcommunity> {
   void initState() {
     commentList = [];
     commentController = TextEditingController();
-    commentMain();
     super.initState();
   }
 
@@ -192,37 +191,44 @@ class _DetailcommunityState extends State<Detailcommunity> {
     commentController.clear();
   }
 
-  _commentBox() {
-    return Container(
+  Widget _commentBox() {
+    return SizedBox(
       height: 150,
       child: ListView.builder(
         itemCount: commentList.length,
         itemBuilder: (context, index) => Card(
-          child: ListTile(
-            leading: CircleAvatar(backgroundColor: Colors.grey),
-            title: commentList[index]['nickname'],
-            subtitle: commentList[index]['content'],
+          child: Row(
+            children: <Widget>[
+              Flexible(
+                child: ListTile(
+                  title: commentList[index]['nickname'],
+                  subtitle: commentList[index]['comment'],
+                  trailing: TextButton(
+                    onPressed: (() {
+                      //
+                    }), 
+                    child: const Text("REPLY"),
+                    ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 
-  commentMain() async {
+  _commentLists() async{
     var url = Uri.parse(
-        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum');
+        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}');
     var response = await http.get(url);
+
     setState(() {
-       if(response.body.isNotEmpty){
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
       List result = dataConvertedJSON['results'];
       commentList.addAll(result);
-      }
     });
-    return true;
   }
-
-  addComment() async {}
 
   deleteAction() async {
     var url = Uri.parse(

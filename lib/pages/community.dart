@@ -15,6 +15,7 @@ class Community extends StatefulWidget {
 
 class _CommunityState extends State<Community> {
   late List comList;
+  //late List commentList;
 
   @override
   void initState() {
@@ -49,7 +50,6 @@ class _CommunityState extends State<Community> {
                                     title: comList[index]['title'],
                                     content: comList[index]['content'],
                                     createAt: comList[index]['createAt'],
-                                    //deleteAt: comList[index]['deleteAt'],
                                     nickname: comList[index]['nickname'],
                                 ))).then((value) => rebuildData());
                       },
