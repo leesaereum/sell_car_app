@@ -15,7 +15,7 @@ class _CommunityState extends State<Community> {
         child: Column(
           children: [
             const Text(
-              'COMMINITY',
+              'COMMUNITY',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
           ],

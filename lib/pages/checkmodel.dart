@@ -46,6 +46,7 @@ class _CheckModelState extends State<CheckModel> {
       case 'Benz':
         carName.add('A CLASS');
         carName.add('C CLASS');
+        carName.add('E CLASS');
         carImg.add('images/benz_Aclass.png');
         carImg.add('images/benz_Cclass.png');
         carImg.add('images/benz_Eclass.png');

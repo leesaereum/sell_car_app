@@ -87,7 +87,7 @@ class _MylistState extends State<Mylist> {
                                         Text(mylist[index]['list_createAt'],
                                             style: const TextStyle(
                                                 color: Colors.grey)),
-                                        SizedBox(width: 130),
+                                        SizedBox(width: 120),
                                         IconButton(
                                             onPressed: () {
                                               showDialog(
