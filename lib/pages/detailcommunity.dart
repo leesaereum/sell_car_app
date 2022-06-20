@@ -14,14 +14,17 @@ class Detailcommunity extends StatefulWidget {
   final String title;
   final String content;
   final String createAt;
+  //final String deleteAt;
   final String nickname;
   const Detailcommunity({Key? key,
       required this.pnum,
       required this.title,
       required this.content,
       required this.createAt,
+      //required this.deleteAt,
       required this.nickname,
   }) : super(key: key);
+
 
   @override
   State<Detailcommunity> createState() => _DetailcommunityState();
@@ -30,7 +33,7 @@ class Detailcommunity extends StatefulWidget {
 class _DetailcommunityState extends State<Detailcommunity> {
   late TextEditingController commentController;
   late String result;
-
+ 
   @override
   void initState() {
     commentController = TextEditingController();
@@ -102,7 +105,13 @@ class _DetailcommunityState extends State<Detailcommunity> {
                 children: [
                   TextButton(
                     onPressed: (() {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Modifycommunity(),));
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => Modifycommunity(
+                          pnum: widget.pnum,
+                          nickname: widget.nickname,
+                          title: widget.title,
+                          content: widget.content,
+                        ),));
                     }), 
                     child: const Text("MODIFY")
                     ),

@@ -5,4 +5,6 @@ class Static {
   static String content = "";
   static String title = "";
   static String createDate = "";
+  static String deleteDate = "";
+  static int pnum = 1;
 }

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/addcommunity.dart';
-import 'package:sell_car_app/pages/communityList.dart';
 import 'package:sell_car_app/pages/detailcommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
@@ -41,6 +40,7 @@ class _CommunityState extends State<Community> {
                         Static.nickname = comList[index]['nickname'];
                         Static.title = comList[index]['title'];
                         Static.createDate = comList[index]['createAt'].toString(); 
+                        //Static.deleteDate = comList[index]['deleteAt'].toString(); 
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -49,6 +49,7 @@ class _CommunityState extends State<Community> {
                                     title: comList[index]['title'],
                                     content: comList[index]['content'],
                                     createAt: comList[index]['createAt'],
+                                    //deleteAt: comList[index]['deleteAt'],
                                     nickname: comList[index]['nickname'],
                                 ))).then((value) => rebuildData());
                       },
@@ -56,6 +57,7 @@ class _CommunityState extends State<Community> {
                         color: Colors.grey[350],
                         child: Row(
                           children: [
+                            //if(comList[index]['deleteAt'].isEmpty)
                             Column(
                               children: [
                                 Padding(
@@ -128,9 +130,11 @@ class _CommunityState extends State<Community> {
         Uri.parse('http://localhost:8080/Flutter/sell_car/boardmain.jsp');
     var response = await http.get(url);
     setState(() {
+      if(response.body.isNotEmpty){
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
       List result = dataConvertedJSON['results'];
       comList.addAll(result);
+      }
     });
 
     return true;
