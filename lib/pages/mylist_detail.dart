@@ -228,11 +228,11 @@ class _Mylist_DetailState extends State<Mylist_Detail> {
       title = mylist[0]['list_title'];
       brand = mylist[0]['list_brand'];
       model = mylist[0]['list_model'];
-      price1 = (double.parse(mylist[0]['list_price']) -
-              double.parse(mylist[0]['list_error']))
+      price1 = (int.parse(mylist[0]['list_price']) -
+              int.parse(mylist[0]['list_error']))
           .toString();
-      price2 = (double.parse(mylist[0]['list_price']) +
-              double.parse(mylist[0]['list_error']))
+      price2 = (int.parse(mylist[0]['list_price']) +
+              int.parse(mylist[0]['list_error']))
           .toString();
       mileage = mylist[0]['list_mileage'];
       mpg = mylist[0]['list_mpg'];

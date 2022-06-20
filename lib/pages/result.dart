@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:sell_car_app/main.dart';
 import 'package:sell_car_app/pages/chart.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/mylist.dart';
@@ -109,8 +108,6 @@ class _ResultState extends State<Result> {
                         builder: (context) => Chart(
                             inputAge: widget.inputAge,
                             inputMileage: widget.inputMileage,
-                            //inputMpg: widget.inputMpg,
-                            //inputEngineSize: widget.inputEngineSize,
                             inputFueltype: widget.inputFueltype,
                             inputTransmission: widget.inputTransmission),
                       ));
@@ -141,14 +138,14 @@ class _ResultState extends State<Result> {
     switch (Static.model) {
       // audi
       case 'a3':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -158,14 +155,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputFueltype=${fueltype}&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'a4':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -175,14 +172,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputFueltype=${fueltype}&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'q3':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -193,16 +190,16 @@ class _ResultState extends State<Result> {
         break;
       // vw
       case 'golf':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           petrol = '1';
-        } else if (widget.inputFueltype == 'diesel') {
+        } else if (widget.inputFueltype == 'Diesel') {
           diesel = '1';
         } else {
           hybrid = '1';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -212,14 +209,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputPetrol=$petrol&inputDiesel=$diesel&inputHybrid=$hybrid&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'polo':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -229,14 +226,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputFueltype=${fueltype}&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'tiguan':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -247,14 +244,14 @@ class _ResultState extends State<Result> {
         break;
       // ford
       case 'fiesta':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -264,14 +261,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputFueltype=${fueltype}&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'focus':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -281,14 +278,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputFueltype=${fueltype}&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'kuga':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -299,14 +296,14 @@ class _ResultState extends State<Result> {
         break;
       // benz
       case 'a class':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           petrol = '1';
         } else {
           diesel = '1';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -316,16 +313,16 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputPetrol=$petrol&inputDiesel=$diesel&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'c class':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           petrol = '1';
-        } else if (widget.inputFueltype == 'diesel') {
+        } else if (widget.inputFueltype == 'Diesel') {
           diesel = '1';
         } else {
           hybrid = '1';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -335,16 +332,16 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputPetrol=$petrol&inputDiesel=$diesel&inputHybrid=$hybrid&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case 'e class':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           petrol = '1';
-        } else if (widget.inputFueltype == 'diesel') {
+        } else if (widget.inputFueltype == 'Diesel') {
           diesel = '1';
         } else {
           hybrid = '1';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -356,14 +353,14 @@ class _ResultState extends State<Result> {
       // bmw
       case '1 series':
         print('bmw1');
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -373,14 +370,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputFueltype=${fueltype}&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case '2 series':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -390,14 +387,14 @@ class _ResultState extends State<Result> {
                 "${widget.inputEngineSize}&inputFueltype=${fueltype}&inputAutomatic=$automatic&inputManual=$manual&inputSemiAuto=$semi_auto");
         break;
       case '3 series':
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -409,14 +406,14 @@ class _ResultState extends State<Result> {
 
       //default
       default:
-        if (widget.inputFueltype == 'petrol') {
+        if (widget.inputFueltype == 'Petrol') {
           fueltype = '1';
         } else {
           fueltype = '0';
         }
-        if (widget.inputTransmission == 'automatic') {
+        if (widget.inputTransmission == 'Automatic') {
           automatic = '1';
-        } else if (widget.inputTransmission == 'semi-auto') {
+        } else if (widget.inputTransmission == 'Semi_Auto') {
           semi_auto = '1';
         } else {
           manual = '1';
@@ -588,5 +585,3 @@ class _ResultState extends State<Result> {
     );
   }
 } // end
-
-
