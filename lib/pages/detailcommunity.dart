@@ -1,11 +1,6 @@
 import 'dart:convert';
-//import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:sell_car_app/pages/communityList.dart';
 import 'package:sell_car_app/pages/modifycommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
