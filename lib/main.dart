@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sell_car_app/pages/addcommunity.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/community.dart';
 import 'package:sell_car_app/pages/login.dart';
@@ -9,6 +10,7 @@ import 'package:sell_car_app/pages/mypage.dart';
 import 'package:sell_car_app/pages/tips.dart';
 import 'package:sell_car_app/provider/google_sign_in.dart';
 import 'package:sell_car_app/static.dart';
+import 'package:sell_car_app/tab.dart';
 
 
   Future main() async {
@@ -26,15 +28,18 @@ class MyApp extends StatelessWidget {
       create: (context) => GoogleSignInProvider(),
       child: MaterialApp(
         title: 'Flutter Demo',
+        routes: {
+        '/Addcommunity': (context) => const Addcommunity(),
+        },
         theme: ThemeData(
           primaryColor: const Color.fromARGB(255, 4, 31, 56),
           backgroundColor: const Color.fromARGB(255, 4, 31, 56),
         ),
         debugShowCheckedModeBanner: false,
-        home: const Home(),
+        home: const Tabs(),
       ),
-    );
-  }
+  );
+}
 
 
 class Home extends StatefulWidget {
@@ -48,10 +53,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset("images/sellcar.png",width: 180,),
-        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +79,7 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CheckHome(),
+                        builder: (context) => CheckHome(),
                       ));
                 }
               },
