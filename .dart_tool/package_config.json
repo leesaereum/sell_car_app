@@ -80,6 +80,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "horizontal_card_pager",
+      "rootUri": "file:///Users/tj/Documents/Development/flutter/.pub-cache/hosted/pub.dartlang.org/horizontal_card_pager-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "http",
       "rootUri": "file:///Users/tj/Documents/Development/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4",
       "packageUri": "lib/",
@@ -194,6 +200,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "vertical_card_pager",
+      "rootUri": "file:///Users/tj/Documents/Development/flutter/.pub-cache/hosted/pub.dartlang.org/vertical_card_pager-1.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "webview_flutter",
       "rootUri": "file:///Users/tj/Documents/Development/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-3.0.4",
       "packageUri": "lib/",
@@ -224,7 +236,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-20T01:05:09.648638Z",
+  "generated": "2022-06-20T11:07:16.664252Z",
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }

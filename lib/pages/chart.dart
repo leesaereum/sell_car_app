@@ -53,6 +53,7 @@ class _ChartState extends State<Chart> {
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     jsonData = [];
     pricedata = [];
@@ -65,16 +66,12 @@ class _ChartState extends State<Chart> {
     buildChart(selectedValue);
   }
 
-// 화면 그림
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 4, 31, 56),
-          title: Image.asset(
-            "images/sellcar.png",
-            width: 180,
-          )),
+        title: const Text("Bar Chart"),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(

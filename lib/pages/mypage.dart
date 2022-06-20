@@ -1,10 +1,10 @@
+import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
+import 'package:http/http.dart' as http;
 
 class Mypage extends StatefulWidget {
   const Mypage({Key? key}) : super(key: key);
@@ -82,9 +82,11 @@ class _MypageState extends State<Mypage> {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary: Color.fromARGB(255, 4, 31, 56)),
-                        onPressed: () {},
+                        onPressed: () {
+                          modifyAlert();
+                        },
                         child: const Text(
-                          'REVISE',
+                          'MODIFY',
                           style: TextStyle(fontSize: 20),
                         )),
                     const SizedBox(width: 50),
@@ -153,15 +155,7 @@ class _MypageState extends State<Mypage> {
                 children: [
                   TextButton(
                     onPressed: () {
-                      //DB 연동하기
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('COMPLETE TO DELETE YOUR ACCOUNT'),
-                        duration: Duration(seconds: 2),
-                        backgroundColor: Colors.red,
-                      ));
+                      deleteAccount();
                     },
                     child: const Text(
                       'YES',
@@ -185,5 +179,128 @@ class _MypageState extends State<Mypage> {
             ],
           );
         });
+  }
+
+  modifyAlert() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('MODIFY INFORMATION'),
+            content: const Text('DO YOU WANT TO MODIFY YOUR INFORMATION?'),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      modify();
+                    },
+                    child: const Text(
+                      'YES',
+                      style: TextStyle(
+                          fontSize: 20, color: Color.fromARGB(255, 4, 31, 56)),
+                    ),
+                  ),
+                  const SizedBox(width: 40),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      'NO',
+                      style: TextStyle(
+                          fontSize: 20, color: Color.fromARGB(255, 4, 31, 56)),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+        });
+  }
+
+  modify() async {
+    var url = Uri.parse(
+        "http://localhost:8080/Flutter/sell_car/mypagemodify.jsp?id=${Static.id}&nick=${nickname.text}&pw=${password.text}");
+    var response = await http.get(url);
+    String result = "";
+
+    setState(() {
+      var JSON = json.decode(utf8.decode(response.bodyBytes));
+      result = JSON['result'];
+    });
+
+    if (result == "OK") {
+      _showdialog(context);
+    } else {
+      errorSnackbar(context);
+    }
+  }
+
+  _showdialog(BuildContext context) {
+    setState(() {
+      Static.nickname = nickname.text;
+    });
+    Navigator.pop(context);
+    Navigator.pop(context);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Tabs(),
+        ));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text('COMPLETE TO MODIFY YOUR INFORMATION'),
+      duration: Duration(seconds: 2),
+      backgroundColor: Color.fromARGB(255, 4, 31, 56),
+    ));
+  }
+
+  errorSnackbar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text("SORRY, CAN'T MODIFY YOUR INFORMATION :(\nTRY ONE TIME"),
+      duration: Duration(seconds: 1),
+      backgroundColor: Colors.red,
+    ));
+  }
+
+  deleteAccount() async {
+    print(Static.id);
+    var url = Uri.parse(
+        "http://localhost:8080/Flutter/sell_car/deleteaccount.jsp?id=${Static.id}");
+    var response = await http.get(url);
+    String result = "";
+
+    setState(() {
+      var JSON = json.decode(utf8.decode(response.bodyBytes));
+      result = JSON['result'];
+    });
+
+    if (result == "OK") {
+      setState(() {
+        Static.id = "";
+        Static.nickname = "";
+      });
+      Navigator.pop(context);
+      Navigator.pop(context);
+      Navigator.pop(context);
+      Navigator.pop(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Tabs(),
+          ));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('COMPLETE TO DELETE YOUR ACCOUNT'),
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.red,
+      ));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("SORRY, CAN'T DELETE YOUR ACCOUNT :(\nTRY ONE TIME"),
+        duration: Duration(seconds: 1),
+        backgroundColor: Colors.red,
+      ));
+    }
   }
 }
