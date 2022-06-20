@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:sell_car_app/main.dart';
 import 'package:sell_car_app/pages/chart.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
+import 'package:sell_car_app/tab.dart';
 
 class Result extends StatefulWidget {
   final int inputAge;
@@ -475,13 +477,13 @@ class _ResultState extends State<Result> {
                       decoration: InputDecoration(
                         labelText: 'INPUT TITLE',
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              width: 3, color: Color.fromARGB(255, 4, 31, 56)),
+                          borderSide:
+                              const BorderSide(width: 2, color: Colors.grey),
                           borderRadius: BorderRadius.circular(15),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(width: 3, color: Colors.red),
+                          borderSide: const BorderSide(
+                              width: 2, color: Color.fromARGB(255, 4, 31, 56)),
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
@@ -544,8 +546,12 @@ class _ResultState extends State<Result> {
                     onPressed: () {
                       Navigator.of(ctx).pop();
                       Navigator.of(ctx).pop();
+                      Navigator.of(ctx).pop();
+                      Navigator.of(ctx).pop();
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (ctx) => Mylist()));
+                          MaterialPageRoute(builder: (ctx) => const Tabs()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (ctx) => const Mylist()));
                     },
                     style: ElevatedButton.styleFrom(
                         fixedSize: const Size(100, 10),
