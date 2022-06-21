@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/pages/chechinfo.dart';
 import 'package:sell_car_app/pages/checkbrand.dart';
 import 'package:sell_car_app/pages/checkmodel.dart';

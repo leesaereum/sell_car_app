@@ -86,7 +86,7 @@ class _CheckInfoState extends State<CheckInfo> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Result(),
+                            builder: (context) => const Result(),
                           ));
                     },
                     child: const Text(

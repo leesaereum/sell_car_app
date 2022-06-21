@@ -14,7 +14,7 @@ import 'package:sell_car_app/static.dart';
   Future main() async {
   //firebase google login 
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  //await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
