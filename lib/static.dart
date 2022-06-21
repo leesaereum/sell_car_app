@@ -1,6 +1,6 @@
 class Static {
-  static String id = "test";
-  static String nickname = "Guest";
+  static String id = "esther";
+  static String nickname = "esther94";
   static String brand = "";
   static String model = "";
   static bool action = false;
