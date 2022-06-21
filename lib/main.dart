@@ -1,16 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/community.dart';
-import 'package:sell_car_app/pages/home.dart';
+import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/pages/mypage.dart';
 import 'package:sell_car_app/pages/tips.dart';
 import 'package:sell_car_app/provider/google_sign_in.dart';
 import 'package:sell_car_app/static.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-Future main() async {
+
+  Future main() async {
   //firebase google login 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

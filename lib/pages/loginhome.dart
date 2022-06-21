@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sell_car_app/pages/home.dart';
+import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/pages/mypage.dart';
 
 class LoginHome extends StatelessWidget {
