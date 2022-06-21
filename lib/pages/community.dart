@@ -11,13 +11,14 @@ class _CommunityState extends State<Community> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SELL CAR'),
-        backgroundColor: const Color.fromARGB(255, 4, 31, 56),
-      ),
       body: Center(
         child: Column(
-          children: [],
+          children: [
+            const Text(
+              'COMMUNITY',
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );

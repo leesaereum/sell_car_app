@@ -157,3 +157,10 @@ $RECYCLE.BIN/
 .dart_tool/version
 .flutter-plugins
 .flutter-plugins-dependencies
+android/build.gradle
+android/app/google-services.json
+android/app/build.gradle
+.flutter-plugins-dependencies
+.flutter-plugins
+.dart_tool/package_config_subset
+.dart_tool/package_config.json
