@@ -6,15 +6,13 @@ import 'package:sell_car_app/pages/modifycommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
 
-// import 'package:comment_box/comment/comment.dart';
-
 class Detailcommunity extends StatefulWidget {
   final int pnum;
   final String title;
   final String content;
   final String createAt;
   final String nickname;
-  Detailcommunity({
+  const Detailcommunity({
     Key? key,
     required this.pnum,
     required this.title,
@@ -29,6 +27,7 @@ class Detailcommunity extends StatefulWidget {
 
 class _DetailcommunityState extends State<Detailcommunity> {
   late TextEditingController commentController;
+  late TextEditingController subcontroller;
   late String result;
 
   late List commentList;
@@ -39,6 +38,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
     commentList = [];
     _commentLists();
     commentController = TextEditingController();
+    subcontroller = TextEditingController();
     super.initState();
   }
 
@@ -132,7 +132,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
               const SizedBox(
                 height: 20,
               ),
-              //_commentBox(),
+              _commentBox(),
               _builTextComposer()
             ],
           ),
@@ -142,46 +142,44 @@ class _DetailcommunityState extends State<Detailcommunity> {
   }
 
   Widget _builTextComposer() {
-    return Container(
-      child: Row(
-        children: <Widget>[
-          Flexible(
-            child: TextField(
-              controller: commentController,
-              keyboardType: TextInputType.text,
-              onSubmitted: _handleSumitted,
-              decoration: InputDecoration(
-                labelText: "Input comment",
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 3, color: Colors.blue),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 3,
-                      color: Colors.red,
-                    ),
-                    borderRadius: BorderRadius.circular(15)),
+    return Row(
+      children: <Widget>[
+        Flexible(
+          child: TextField(
+            controller: commentController,
+            keyboardType: TextInputType.text,
+            onSubmitted: _handleSumitted,
+            decoration: InputDecoration(
+              labelText: "Input comment",
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 3, color: Colors.blue),
+                borderRadius: BorderRadius.circular(15),
               ),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    width: 3,
+                    color: Colors.red,
+                  ),
+                  borderRadius: BorderRadius.circular(15)),
             ),
           ),
-          Container(
-            child: IconButton(
-              onPressed: () {
-                _handleSumitted(commentController.text);
-                setState(() {
-                  Static.comment = commentController.text;
-                  _addcomment();
-                });
-              },
-              icon: const Icon(
-                Icons.send,
-                color: Color.fromARGB(255, 4, 31, 56),
-              ),
+        ),
+        Container(
+          child: IconButton(
+            onPressed: () {
+              _handleSumitted(commentController.text);
+              setState(() {
+                Static.comment = commentController.text;
+                _addcomment();
+              });
+            },
+            icon: const Icon(
+              Icons.send,
+              color: Color.fromARGB(255, 4, 31, 56),
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 
@@ -193,47 +191,52 @@ class _DetailcommunityState extends State<Detailcommunity> {
     return SizedBox(
       height: 150,
       child: ListView.builder(
-        itemCount: commentList.length,
-        itemBuilder: (context, index) { 
-          return GestureDetector(
-            onTap: () {
-              Static.cnickname = commentList[index]['nickname'];
-              Static.comment = commentList[index]['comment'];
-              Static.ccreateAt = commentList[index]['createAt'];
-            },
-          child: Card(
-            child: Row(
-              children: <Widget>[
-                Flexible(
-                  child: ListTile(
-                    title: commentList[index]['nickname'],
-                    subtitle: commentList[index]['comment'],
-                    trailing: TextButton(
-                      onPressed: (() {
-                        //
-                      }),
-                      child: const Text("REPLY"),
+          itemCount: commentList.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                _commentLists();
+                Static.cnickname = commentList[index]['nickname'];
+                Static.cnum = commentList[index]['cnum'];
+              },
+              child: Card(
+                child: Row(
+                  children: <Widget>[
+                    Flexible(
+                      child: ListTile(
+                        title: Text('${commentList[index]['nickname']}'
+                            .toString()
+                            .substring(0)),
+                        subtitle: Text('${commentList[index]['comment']}'
+                            .toString()
+                            .substring(0)),
+                        trailing: TextButton(
+                          onPressed: (() {
+                            Static.comment = commentController.text;
+                            _addcomment();
+                          }),
+                          child: const Text("REPLY"),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        );
-       }
-      ),
+              ),
+            );
+          }),
     );
   }
 
+
   _commentLists() async {
     var url = Uri.parse(
-        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}');
+        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}&pnum=${widget.pnum}');
     var response = await http.get(url);
 
     setState(() {
-      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-      List result = dataConvertedJSON['results'];
-      commentList.addAll(result);
+        var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+        List result = dataConvertedJSON['results'];
+        commentList.addAll(result);
     });
   }
 
@@ -248,9 +251,9 @@ class _DetailcommunityState extends State<Detailcommunity> {
     });
   }
 
-  _addcomment() async{
-     var url = Uri.parse(
-        'http://localhost:8080/Flutter/sell_car/addcomment.jsp?cnum=${Static.cnum}');
+  _addcomment() async {
+    var url = Uri.parse(
+        'http://localhost:8080/Flutter/sell_car/addcomment.jsp?posing_num=${widget.pnum}&comment_user=${Static.id}&comment=${commentController.text}');
     var response = await http.get(url);
 
     setState(() {
