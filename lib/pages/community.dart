@@ -15,12 +15,14 @@ class Community extends StatefulWidget {
 
 class _CommunityState extends State<Community> {
   late List comList;
-  //late List commentList;
+  late List commentList;
 
   @override
   void initState() {
     comList = [];
+    //commentList = [];
     getJSONData();
+    //_commentLists();
     super.initState();
   }
 
@@ -42,6 +44,10 @@ class _CommunityState extends State<Community> {
                         Static.title = comList[index]['title'];
                         Static.createDate =
                             comList[index]['createAt'].toString();
+                        // Static.cnickname = commentList[index]['nickname'];
+                        // Static.comment = commentList[index]['comment'];
+                        // Static.ccreateAt = commentList[index]['creteAt'];
+                        // Static.cnum = commentList[index]['cnum'];
                         //Static.deleteDate = comList[index]['deleteAt'].toString();
                         Navigator.push(
                             context,
@@ -52,6 +58,10 @@ class _CommunityState extends State<Community> {
                                       content: comList[index]['content'],
                                       createAt: comList[index]['createAt'],
                                       nickname: comList[index]['nickname'],
+                                      // cnum: commentList[index]['cnum'],
+                                      // cnickname: commentList[index]['nickname'],
+                                      // comment: commentList[index]['comment'],
+                                      // ccreateAt: commentList[index]['createAt'],
                                     ))).then((value) => rebuildData());
                       },
                       child: Card(
@@ -144,6 +154,18 @@ class _CommunityState extends State<Community> {
     });
 
     return true;
+  }
+
+  _commentLists() async {
+    var url = Uri.parse(
+        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}');
+    var response = await http.get(url);
+
+    setState(() {
+      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+      List result = dataConvertedJSON['results'];
+      commentList.addAll(result);
+    });
   }
 
   rebuildData() {

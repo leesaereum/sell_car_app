@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:sell_car_app/pages/community.dart';
 import 'package:sell_car_app/pages/modifycommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
@@ -13,13 +14,21 @@ class Detailcommunity extends StatefulWidget {
   final String content;
   final String createAt;
   final String nickname;
-  const Detailcommunity({
+  // final int cnum;
+  // final String cnickname;
+  // final String comment;
+  // final String ccreateAt;
+  Detailcommunity({
     Key? key,
     required this.pnum,
     required this.title,
     required this.content,
     required this.createAt,
     required this.nickname,
+    // required this.cnum,
+    // required this.cnickname,
+    // required this.comment,
+    // required this.ccreateAt,
   }) : super(key: key);
 
   @override
@@ -36,6 +45,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
   @override
   void initState() {
     commentList = [];
+    _commentLists();
     commentController = TextEditingController();
     super.initState();
   }
@@ -130,7 +140,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
               const SizedBox(
                 height: 20,
               ),
-              _commentBox(),
+              //_commentBox(),
               _builTextComposer()
             ],
           ),
@@ -169,6 +179,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
                 _handleSumitted(commentController.text);
                 setState(() {
                   Static.comment = commentController.text;
+                  _addcomment();
                 });
               },
               icon: const Icon(
@@ -191,24 +202,33 @@ class _DetailcommunityState extends State<Detailcommunity> {
       height: 150,
       child: ListView.builder(
         itemCount: commentList.length,
-        itemBuilder: (context, index) => Card(
-          child: Row(
-            children: <Widget>[
-              Flexible(
-                child: ListTile(
-                  title: commentList[index]['nickname'],
-                  subtitle: commentList[index]['comment'],
-                  trailing: TextButton(
-                    onPressed: (() {
-                      //
-                    }),
-                    child: const Text("REPLY"),
+        itemBuilder: (context, index) { 
+          return GestureDetector(
+            onTap: () {
+              Static.cnickname = commentList[index]['nickname'];
+              Static.comment = commentList[index]['comment'];
+              Static.ccreateAt = commentList[index]['createAt'];
+            },
+          child: Card(
+            child: Row(
+              children: <Widget>[
+                Flexible(
+                  child: ListTile(
+                    title: commentList[index]['nickname'],
+                    subtitle: commentList[index]['comment'],
+                    trailing: TextButton(
+                      onPressed: (() {
+                        //
+                      }),
+                      child: const Text("REPLY"),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        );
+       }
       ),
     );
   }
@@ -228,6 +248,17 @@ class _DetailcommunityState extends State<Detailcommunity> {
   deleteAction() async {
     var url = Uri.parse(
         'http://localhost:8080/Flutter/sell_car/deleteboard.jsp?pnum=${widget.pnum}');
+    var response = await http.get(url);
+
+    setState(() {
+      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+      result = dataConvertedJSON['result'];
+    });
+  }
+
+  _addcomment() async{
+     var url = Uri.parse(
+        'http://localhost:8080/Flutter/sell_car/addcomment.jsp?cnum=${Static.cnum}');
     var response = await http.get(url);
 
     setState(() {
