@@ -134,7 +134,7 @@ class _AddcommunityState extends State<Addcommunity> {
   _errorSnackBar(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('HAVA A PROBLEM ON ADDING NEW DATAS'),
+        content: Text('HAVE A PROBLEM ON ADDING NEW DATAS'),
         duration: Duration(seconds: 2),
         backgroundColor: Colors.red,
       ),

@@ -184,4 +184,7 @@ ios/Podfile.lock
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
+<<<<<<< HEAD
 .flutter-plugins-dependencies
+=======
+>>>>>>> jinyoung

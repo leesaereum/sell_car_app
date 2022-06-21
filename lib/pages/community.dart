@@ -57,10 +57,8 @@ class _CommunityState extends State<Community> {
                                     ))).then((value) => rebuildData());
                       },
                       child: Card(
-                        //color: Colors.grey[350],
                         child: Row(
                           children: [
-                            //if(comList[index]['deleteAt'].isEmpty)
                             Column(
                               children: [
                                 Padding(

@@ -60,73 +60,76 @@ class _ResultState extends State<Result> {
         title: const Text('SELL CAR'),
         backgroundColor: Color.fromARGB(255, 4, 31, 56),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 50),
-            const Text(
-              'RESULT',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                'THE PRICE OF YOUR CAR IS PREDICTED TO BE $range. ARE YOU GOING BACK TO MAIN?',
-                style: const TextStyle(fontSize: 20),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              const Text(
+                'RESULT',
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(200, 50),
-                    primary: const Color.fromARGB(255, 4, 31, 56)),
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CheckHome(),
-                      ));
-                },
-                child: const Text('CHECK AGAIN')),
-            const SizedBox(
-              height: 30,
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(200, 50),
-                    primary: const Color.fromARGB(255, 4, 31, 56)),
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Chart(
-                            inputAge: widget.inputAge,
-                            inputMileage: widget.inputMileage,
-                            inputFueltype: widget.inputFueltype,
-                            inputTransmission: widget.inputTransmission,
-                            predictedprice: predicted,),
-                      ));
-                },
-                child: const Text('SEE CHARTS')),
-            const SizedBox(
-              height: 30,
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(200, 50),
-                    primary: const Color.fromARGB(255, 4, 31, 56)),
-                onPressed: () {
-                  _showDialog(context);
-                },
-                child: const Text(' ADD TO LIST ')),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                  'THE PRICE OF YOUR CAR IS PREDICTED TO BE \n $range. \n ARE YOU GOING BACK TO MAIN?',
+                  style: const TextStyle(fontSize: 20),
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(200, 50),
+                      primary: const Color.fromARGB(255, 4, 31, 56)),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CheckHome(),
+                        ));
+                  },
+                  child: const Text('CHECK AGAIN')),
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(200, 50),
+                      primary: const Color.fromARGB(255, 4, 31, 56)),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Chart(
+                              inputAge: widget.inputAge,
+                              inputMileage: widget.inputMileage,
+                              inputFueltype: widget.inputFueltype,
+                              inputTransmission: widget.inputTransmission,
+                              predictedprice: predicted,),
+                        ));
+                  },
+                  child: const Text('SEE CHARTS')),
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(200, 50),
+                      primary: const Color.fromARGB(255, 4, 31, 56)),
+                  onPressed: () {
+                    _showDialog(context);
+                  },
+                  child: const Text(' ADD TO LIST ')),
+            ],
+          ),
         ),
       ),
     );
@@ -537,7 +540,7 @@ class _ResultState extends State<Result> {
           return AlertDialog(
             title: const Text('ALERT'),
             content: const Text(
-                'LIST HAS BEEN ADDED. DO YOU WANT TO GO TO THE MYLIST?'),
+                'LIST HAS BEEN ADDED. DO YOU WANT TO GO TO MYLIST?'),
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
