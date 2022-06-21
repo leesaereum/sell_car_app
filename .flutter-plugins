@@ -1,12 +1,12 @@
 # This is a generated file; do not edit or check into version control.
-firebase_auth=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.19/
-firebase_auth_web=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.16/
-firebase_core=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.18.0/
-firebase_core_web=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.5/
-google_sign_in=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-5.3.3/
-google_sign_in_android=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_android-5.2.8/
-google_sign_in_ios=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_ios-5.3.1/
-google_sign_in_web=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.10.1+3/
-webview_flutter=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-3.0.4/
-webview_flutter_android=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_android-2.8.11/
-webview_flutter_wkwebview=/Volumes/Data/jiyeah/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_wkwebview-2.8.1/
+firebase_auth=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.19/
+firebase_auth_web=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.16/
+firebase_core=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.18.0/
+firebase_core_web=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.5/
+google_sign_in=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-5.3.3/
+google_sign_in_android=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_android-5.2.8/
+google_sign_in_ios=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_ios-5.3.1/
+google_sign_in_web=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.10.1+3/
+webview_flutter=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-3.0.4/
+webview_flutter_android=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_android-2.8.11/
+webview_flutter_wkwebview=/Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter_wkwebview-2.8.1/

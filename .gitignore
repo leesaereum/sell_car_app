@@ -152,3 +152,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/flutter,macos,windows,java
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.dart_tool/version
+.flutter-plugins
+.flutter-plugins-dependencies
