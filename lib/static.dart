@@ -1,6 +1,9 @@
 class Static {
   static String id = "test";
-  static String nickname = "Guest";
+  static String pw = "";
+  static String nickname = "test";
+  static String signinday = "";
+  static String leaveday = "";
   static String brand = "";
   static String model = "";
   static bool action = false;

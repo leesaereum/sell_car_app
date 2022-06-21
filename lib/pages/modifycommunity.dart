@@ -66,22 +66,6 @@ class _ModifycommunityState extends State<Modifycommunity> {
                       ],
                     ),
                   ),
-                  // TextField(
-                  //   controller: nickController,
-                  //   readOnly: true,
-                  //   decoration: InputDecoration(
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide:
-                  //           const BorderSide(width: 2, color: Colors.grey),
-                  //       borderRadius: BorderRadius.circular(15),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: const BorderSide(
-                  //           width: 2, color: Color.fromARGB(255, 4, 31, 56)),
-                  //       borderRadius: BorderRadius.circular(15),
-                  //     ),
-                  //   ),
-                  // ),
                   const SizedBox(
                     height: 20,
                   ),
