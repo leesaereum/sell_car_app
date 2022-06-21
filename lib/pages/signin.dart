@@ -2,10 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/check.dart';
-<<<<<<< HEAD
-import 'package:sell_car_app/pages/checkbrand.dart';
-=======
->>>>>>> jinyoung
 import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/static.dart';
 
@@ -64,7 +60,9 @@ class _SigninState extends State<Signin> {
                       height: 120,
                       padding: const EdgeInsets.all(20),
                       child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
                         controller: id,
+                        autofocus: true,
                         //유효성검사
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -137,6 +135,7 @@ class _SigninState extends State<Signin> {
                       height: 120,
                       padding: const EdgeInsets.all(20),
                       child: TextFormField(
+                        keyboardType: TextInputType.name,
                         controller: nickname,
                         // 유효성 검사
                         validator: (value) {
@@ -210,6 +209,7 @@ class _SigninState extends State<Signin> {
                       padding: const EdgeInsets.all(20),
                       child: TextFormField(
                         controller: password,
+                        keyboardType: TextInputType.text,
                         //아이콘 누르면 비번 보이게 ,누르기 전 안보임
                         obscureText: _pwState,
                         // 유효성 검사
@@ -297,6 +297,7 @@ class _SigninState extends State<Signin> {
                       height: 120,
                       padding: const EdgeInsets.all(20),
                       child: TextFormField(
+                        keyboardType: TextInputType.text,
                         controller: checkpassword,
                         //아이콘 누르면 비번 보이게 ,누르기 전 안보임
                         obscureText: _pwagainState,
@@ -513,13 +514,9 @@ class _SigninState extends State<Signin> {
   cantSignin() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('해당 아이디(탈퇴 아이디)로는 회원가입을 할 수 없습니다.'),
+        content: Text("Can't Sign In in this Email(signout email)"),
         backgroundColor: Colors.grey,
       ),
     );
   }
-<<<<<<< HEAD
 } //end
-=======
-} //end
->>>>>>> jinyoung

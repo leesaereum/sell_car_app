@@ -1,13 +1,7 @@
 class Static {
-<<<<<<< HEAD
-  static String id = "test";
-  static String pw = "";
-  static String nickname = "test";
-=======
   static String id = "";
   static String pw = "";
   static String nickname = "";
->>>>>>> jinyoung
   static String signinday = "";
   static String leaveday = "";
   static String brand = "";
