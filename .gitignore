@@ -179,3 +179,8 @@ macos/Runner.xcworkspace/contents.xcworkspacedata
 .packages
 build/ios/Debug-iphonesimulator/Runner.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
 ios/Podfile.lock
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages

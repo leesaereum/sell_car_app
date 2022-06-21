@@ -34,18 +34,17 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-<<<<<<< HEAD
   charts_flutter: ^0.12.0
-  http: ^0.13.4
   vertical_card_pager: ^1.5.0
   horizontal_card_pager: ^0.3.0
-<<<<<<< HEAD
-=======
-=======
   http: ^0.13.4
-  # comment_box: ^0.0.17
->>>>>>> yejin
->>>>>>> parent of 03bead4 (commit)
+  #firebase_auth: ^3.3.19
+  #firebase_core: ^1.18.0
+  google_sign_in: ^5.3.3
+  simple_gesture_detector: ^0.2.0
+  provider: ^6.0.3
+
+
 
 dev_dependencies:
   flutter_test:
