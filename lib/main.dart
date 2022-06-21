@@ -4,7 +4,7 @@ import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
 
-main() {
+void main() {
   //WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
