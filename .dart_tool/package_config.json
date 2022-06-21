@@ -338,7 +338,11 @@
       "languageVersion": "2.17"
     }
   ],
+<<<<<<< HEAD
   "generated": "2022-06-21T02:12:18.936709Z",
+=======
+  "generated": "2022-06-20T12:20:47.655807Z",
+>>>>>>> parent of 03bead4 (commit)
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }
