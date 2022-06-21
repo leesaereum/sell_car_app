@@ -195,9 +195,8 @@ class _DetailcommunityState extends State<Detailcommunity> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                // _commentLists();
-                Static.cnickname = commentList[index]['nickname'];
-                Static.cnum = commentList[index]['cnum'];
+                //Static.cnickname = commentList[index]['nickname'];
+                //Static.cnum = commentList[index]['cnum'];
                 
               },
               child: Card(
