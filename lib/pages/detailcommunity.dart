@@ -14,10 +14,6 @@ class Detailcommunity extends StatefulWidget {
   final String content;
   final String createAt;
   final String nickname;
-  // final int cnum;
-  // final String cnickname;
-  // final String comment;
-  // final String ccreateAt;
   Detailcommunity({
     Key? key,
     required this.pnum,
@@ -25,10 +21,6 @@ class Detailcommunity extends StatefulWidget {
     required this.content,
     required this.createAt,
     required this.nickname,
-    // required this.cnum,
-    // required this.cnickname,
-    // required this.comment,
-    // required this.ccreateAt,
   }) : super(key: key);
 
   @override

@@ -44,10 +44,6 @@ class _CommunityState extends State<Community> {
                         Static.title = comList[index]['title'];
                         Static.createDate =
                             comList[index]['createAt'].toString();
-                        // Static.cnickname = commentList[index]['nickname'];
-                        // Static.comment = commentList[index]['comment'];
-                        // Static.ccreateAt = commentList[index]['creteAt'];
-                        // Static.cnum = commentList[index]['cnum'];
                         //Static.deleteDate = comList[index]['deleteAt'].toString();
                         Navigator.push(
                             context,
@@ -58,10 +54,6 @@ class _CommunityState extends State<Community> {
                                       content: comList[index]['content'],
                                       createAt: comList[index]['createAt'],
                                       nickname: comList[index]['nickname'],
-                                      // cnum: commentList[index]['cnum'],
-                                      // cnickname: commentList[index]['nickname'],
-                                      // comment: commentList[index]['comment'],
-                                      // ccreateAt: commentList[index]['createAt'],
                                     ))).then((value) => rebuildData());
                       },
                       child: Card(
