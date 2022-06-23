@@ -2,10 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/check.dart';
-<<<<<<< HEAD
-import 'package:sell_car_app/pages/checkbrand.dart';
-=======
->>>>>>> jinyoung
 import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/static.dart';
 
@@ -518,8 +514,5 @@ class _SigninState extends State<Signin> {
       ),
     );
   }
-<<<<<<< HEAD
 } //end
-=======
-} //end
->>>>>>> jinyoung
+

@@ -19,27 +19,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-<<<<<<< HEAD
-  //Future<UserCredential> signInWithGoogle() async {
-  // Trigger the authentication flow
-  //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-  //   // Obtain the auth details from the request
-  //   final GoogleSignInAuthentication? googleAuth =
-  //       await googleUser?.authentication;
-  //   // Create a new credential
-  //   final credential = GoogleAuthProvider.credential(
-  //     accessToken: googleAuth?.accessToken,
-  //     idToken: googleAuth?.idToken,
-  //   );
-
-  //   // Once signed in, return the UserCredential
-  //   return await FirebaseAuth.instance.signInWithCredential(credential);
-  // }
-=======
-  
->>>>>>> jinyoung
-
   //password
   // 비번 visible= 안보임이 초기상태
   bool _pwState = true;
@@ -300,30 +279,6 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-<<<<<<< HEAD
-                  ElevatedButton.icon(
-                      onPressed: () {
-                        // final provider = Provider.of<GoogleSignInProvider>(
-                        //     context,
-                        //     listen: false);
-                        // provider.googleLogin();
-                      },
-                      icon: Image.asset(
-                        "images/googlelogo.png",
-                        height: 32.0,
-                      ),
-                      label: const Text(
-                        "Sign Up with Google",
-                        style: TextStyle(fontSize: 19),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 4, 31, 56),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        minimumSize: const Size(250, 45),
-                      )),
-=======
                   // ElevatedButton.icon(
                   //     onPressed: () {
                   //       // final provider = Provider.of<GoogleSignInProvider>(
@@ -346,7 +301,6 @@ class _LoginState extends State<Login> {
                   //       ),
                   //       minimumSize: const Size(250, 45),
                   //     )),
->>>>>>> jinyoung
                 ],
               ),
             ),
@@ -388,11 +342,7 @@ class _LoginState extends State<Login> {
     if (pwController.text.isNotEmpty && idController.text.isNotEmpty) {
       setState(() {
         //error unicode
-<<<<<<< HEAD
-        Hint = "\u26A0 There is no infromation entered Email, password";
-=======
         Hint = "\u26A0 There is no infromation \n entered Email, password";
->>>>>>> jinyoung
       });
     } else {
       setState(() {
@@ -415,9 +365,5 @@ class _LoginState extends State<Login> {
       });
     }
   }
-<<<<<<< HEAD
-} //END
-=======
 } 
 //END
->>>>>>> jinyoung
