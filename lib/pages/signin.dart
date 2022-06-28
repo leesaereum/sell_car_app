@@ -62,6 +62,7 @@ class _SigninState extends State<Signin> {
                       child: TextFormField(
                         keyboardType: TextInputType.emailAddress,
                         controller: id,
+                        //화면에 들어와서 먼저 포커싱 
                         autofocus: true,
                         //유효성검사
                         validator: (value) {
