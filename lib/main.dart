@@ -4,11 +4,21 @@ import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  //WidgetsFlutterBinding.ensureInitialized();
+//after
+Future main() async {
+  //firebase google login 
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
+
+//before
+// void main() {
+//   //WidgetsFlutterBinding.ensureInitialized();
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
