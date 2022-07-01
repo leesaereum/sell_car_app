@@ -33,6 +33,19 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	<!--google sign in section -->
+	<key>CFBundleURLTypes</key>
+<array>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>com.googleusercontent.apps.18561815664-7jj7f47h99ucgpf2gnkbnkc9npcql0dl</string>
+		</array>
+	</dict>
+</array>
+ <!-- end of google sign in section-->
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
