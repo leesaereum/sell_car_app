@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +19,24 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  Future<UserCredential> signInWithGoogle() async {
+  // Trigger the authentication flow
+  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+  // Obtain the auth details from the request
+  final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+  // Create a new credential
+  final credential = GoogleAuthProvider.credential(
+    accessToken: googleAuth?.accessToken,
+    idToken: googleAuth?.idToken,
+  );
+
+  // Once signed in, return the UserCredential
+  return await FirebaseAuth.instance.signInWithCredential(credential);
+}
+
+
   //password
   // 비번 visible= 안보임이 초기상태
   bool _pwState = true;
@@ -66,6 +84,8 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.all(20),
                     child: TextFormField(
                       controller: idController,
+                      //화면에 들어와서 먼저 포커싱 
+                      autofocus: true,
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         //빈 값 입력
@@ -80,7 +100,7 @@ class _LoginState extends State<Login> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          hintText: "\u26A0 Please enter your email",
+                          hintText: "Please enter your email",
                           labelText: 'EMAIL',
                           labelStyle: const TextStyle(
                               color: Color.fromARGB(255, 4, 31, 56)),
@@ -279,28 +299,28 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  // ElevatedButton.icon(
-                  //     onPressed: () {
-                  //       // final provider = Provider.of<GoogleSignInProvider>(
-                  //       //     context,
-                  //       //     listen: false);
-                  //       // provider.googleLogin();
-                  //     },
-                  //     icon: Image.asset(
-                  //       "images/googlelogo.png",
-                  //       height: 32.0,
-                  //     ),
-                  //     label: const Text(
-                  //       "Sign Up with Google",
-                  //       style: TextStyle(fontSize: 19),
-                  //     ),
-                  //     style: ElevatedButton.styleFrom(
-                  //       primary: const Color.fromARGB(255, 4, 31, 56),
-                  //       shape: RoundedRectangleBorder(
-                  //         borderRadius: BorderRadius.circular(20),
-                  //       ),
-                  //       minimumSize: const Size(250, 45),
-                  //     )),
+                  ElevatedButton.icon(
+                      onPressed: () {
+                        final provider = Provider.of<GoogleSignInProvider>(
+                            context,
+                            listen: false);
+                        provider.googleLogin();
+                      },
+                      icon: Image.asset(
+                        "images/googlelogo.png",
+                        height: 32.0,
+                      ),
+                      label: const Text(
+                        "Sign Up with Google",
+                        style: TextStyle(fontSize: 19),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color.fromARGB(255, 4, 31, 56),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        minimumSize: const Size(250, 45),
+                      )),
                 ],
               ),
             ),
