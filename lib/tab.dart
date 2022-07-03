@@ -72,9 +72,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          height: 50,
-                        ),
+                        SizedBox(height: 50),
                         Text(
                           'WELCOMT TO SELL CAR :)\n'
                           'PLEASE LOG IN!',
