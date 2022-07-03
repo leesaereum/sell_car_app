@@ -175,4 +175,49 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/firebase,flutter,jupyternotebooks,macos,windows,dart
+=======
+# End of https://www.toptal.com/developers/gitignore/api/flutter,macos,windows,java
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.dart_tool/version
+.flutter-plugins
+.flutter-plugins-dependencies
+android/build.gradle
+android/app/google-services.json
+android/app/build.gradle
+<<<<<<< HEAD
+.flutter-plugins-dependencies
+.flutter-plugins
+.dart_tool/package_config_subset
+.dart_tool/package_config.json
+=======
+android/app/src/main/AndroidManifest.xml
+build/ios/Debug-iphonesimulator/Runner.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+ios/Runner/Info.plist
+macos/Podfile.lock
+macos/Runner.xcodeproj/project.pbxproj
+macos/Runner.xcworkspace/contents.xcworkspacedata
+>>>>>>> parent of 03bead4 (commit)
+.dart_tool/package_config.json
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/ios/Debug-iphonesimulator/Runner.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+ios/Podfile.lock
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+<<<<<<< HEAD
+.flutter-plugins-dependencies
+=======
+>>>>>>> jinyoung
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+>>>>>>> parent of e81047d (commit)
