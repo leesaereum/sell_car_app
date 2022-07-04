@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/checkbrand.dart';
 import 'package:sell_car_app/pages/signin.dart';
-import 'package:sell_car_app/provider/google_sign_in.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
 
