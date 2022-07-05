@@ -6,7 +6,6 @@ import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
 
 void main() {
-  //WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
