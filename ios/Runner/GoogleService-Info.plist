@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>18561815664-7jj7f47h99ucgpf2gnkbnkc9npcql0dl.apps.googleusercontent.com</string>
+	<string>18561815664-j7q72j1023gon1m9dgpp22mgkdi2v1p0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.18561815664-7jj7f47h99ucgpf2gnkbnkc9npcql0dl</string>
+	<string>com.googleusercontent.apps.18561815664-j7q72j1023gon1m9dgpp22mgkdi2v1p0</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>18561815664-qekknl9evllsgdi5a60aaqml9tbckeso.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCoWf0ad5Pnz6jYAFfM3vEQUZ6GwHlCwx4</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.sellcarapp</string>
+	<string>com.example.sellCarApp</string>
 	<key>PROJECT_ID</key>
 	<string>sell-car-85c73</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:18561815664:ios:490659247c9dfb8a78d0b5</string>
+	<string>1:18561815664:ios:303815cf8532996f78d0b5</string>
 </dict>
 </plist>

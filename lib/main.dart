@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sell_car_app/pages/addcommunity.dart';
 import 'package:sell_car_app/pages/check.dart';
@@ -6,17 +7,17 @@ import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
 
 //after
-// Future main() async {
-//   //firebase google login 
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(const MyApp());
-// }
-
-//before
-void main() {
+Future main() async {
+  //firebase google login 
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
+
+//before
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
