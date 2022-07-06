@@ -13,7 +13,6 @@ Future main() async {
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
-
 //before
 // void main() {
 //   runApp(const MyApp());
