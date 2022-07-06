@@ -163,7 +163,7 @@ class _ChartState extends State<Chart> {
             feature: int.parse(jsonData[i]['age']),
             target: int.parse(jsonData[i]['price']),
             chartColor: (int.parse(jsonData[i]['age']) ==
-                    widget.inputAge) //컬러 재설정 해야함!!!
+                    widget.inputAge)
                 ? charts.ColorUtil.fromDartColor(Colors.red)
                 : charts.ColorUtil.fromDartColor(Colors.blue),
           ),
@@ -173,7 +173,7 @@ class _ChartState extends State<Chart> {
             feature: jsonData[i]['age'],
             target: int.parse(jsonData[i]['count']),
             chartColor: (int.parse(jsonData[i]['age']) ==
-                    widget.inputAge) //컬러 재설정 해야함!!!
+                    widget.inputAge) 
                 ? charts.ColorUtil.fromDartColor(Colors.red)
                 : charts.ColorUtil.fromDartColor(Colors.grey),
           ),

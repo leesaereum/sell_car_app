@@ -63,7 +63,7 @@ class _SigninState extends State<Signin> {
                         controller: id,
                         //화면에 들어오면 autofocus
                         autofocus: true,
-                        //유효성 검사
+                        //이메일 유효성 검사
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "\u26A0 The Email is required";
@@ -210,7 +210,7 @@ class _SigninState extends State<Signin> {
                         controller: password,
                         //아이콘 누르면 비번 보이게 ,누르기 전 안보임
                         obscureText: _pwState,
-                        // 유효성 검사
+                        // 비밀번호 유효성 검사
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "\u26A0 The password is required";
