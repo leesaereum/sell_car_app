@@ -17,7 +17,7 @@ class _SigninState extends State<Signin> {
   // password visible= 안보임이 초기상태
   bool _pwState = true;
   bool _pwagainState = true;
-  late String Hint = "";
+  late String hint = "";
   TextEditingController id = TextEditingController();
   TextEditingController nickname = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -39,7 +39,7 @@ class _SigninState extends State<Signin> {
         child: Scaffold(
           appBar: AppBar(
             title: const Text('SELL CAR'),
-            backgroundColor: Color.fromARGB(255, 4, 31, 56),
+            backgroundColor: const Color.fromARGB(255, 4, 31, 56),
           ),
           body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -61,7 +61,9 @@ class _SigninState extends State<Signin> {
                       padding: const EdgeInsets.all(20),
                       child: TextFormField(
                         controller: id,
-                        //유효성검사
+                        //화면에 들어오면 autofocus
+                        autofocus: true,
+                        //유효성 검사
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "\u26A0 The Email is required";
@@ -80,7 +82,7 @@ class _SigninState extends State<Signin> {
                                 color: Color.fromARGB(255, 4, 31, 56)),
                             // 배경색  채우기
                             filled: true,
-                            fillColor: Color.fromARGB(255, 224, 229, 252),
+                            fillColor: const Color.fromARGB(255, 224, 229, 252),
                             //에러 스타일 - 클릭 안할시
                             errorBorder: const OutlineInputBorder(
                                 borderRadius:
@@ -151,7 +153,7 @@ class _SigninState extends State<Signin> {
                                 color: Color.fromARGB(255, 4, 31, 56)),
                             // 배경색  채우기
                             filled: true,
-                            fillColor: Color.fromARGB(255, 224, 229, 252),
+                            fillColor: const Color.fromARGB(255, 224, 229, 252),
                             //에러 스타일 - 클릭 안할시
                             errorBorder: const OutlineInputBorder(
                                 borderRadius:
@@ -202,7 +204,7 @@ class _SigninState extends State<Signin> {
                     ),
                     //pw
                     Container(
-                      height: 120,
+                      height: 130,
                       padding: const EdgeInsets.all(20),
                       child: TextFormField(
                         controller: password,
@@ -212,7 +214,7 @@ class _SigninState extends State<Signin> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "\u26A0 The password is required";
-                          } //영어대소문자, 숫자, 특수문자 1자 이상 포함 6자 이상 1자 이내
+                          } //영어대소문자, 숫자, 특수문자 1자 이상 포함 6자 이상 15자 이내
                           if (!RegExp(
                                   r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?~^<>,.&+=])[A-Za-z\d$@$!%*#?~^<>,.&+=]{6,15}$')
                               .hasMatch(value)) {
@@ -227,7 +229,7 @@ class _SigninState extends State<Signin> {
                               color: Color.fromARGB(255, 4, 31, 56)),
                           // 배경색  채우기
                           filled: true,
-                          fillColor: Color.fromARGB(255, 224, 229, 252),
+                          fillColor: const Color.fromARGB(255, 224, 229, 252),
                           //에러 스타일 - 클릭 안할시
                           errorBorder: const OutlineInputBorder(
                               borderRadius:
@@ -289,6 +291,7 @@ class _SigninState extends State<Signin> {
                         ),
                       ),
                     ),
+                    //check - password 
                     Container(
                       height: 120,
                       padding: const EdgeInsets.all(20),
@@ -313,7 +316,7 @@ class _SigninState extends State<Signin> {
                               color: Color.fromARGB(255, 4, 31, 56)),
                           // 배경색  채우기
                           filled: true,
-                          fillColor: Color.fromARGB(255, 224, 229, 252),
+                          fillColor: const Color.fromARGB(255, 224, 229, 252),
                           //에러 스타일 - 클릭 안할시
                           errorBorder: const OutlineInputBorder(
                               borderRadius:
@@ -379,7 +382,7 @@ class _SigninState extends State<Signin> {
                       height: 20,
                       padding: const EdgeInsets.all(2),
                       child: Text(
-                        Hint,
+                        hint,
                         style: TextStyle(color: Colors.red[300]),
                       ),
                     ),
@@ -388,8 +391,8 @@ class _SigninState extends State<Signin> {
                         height: 20.0,
                         padding: const EdgeInsets.all(20),
                         child: Text(
-                          Hint,
-                          style: TextStyle(color: Colors.red),
+                          hint,
+                          style: const TextStyle(color: Colors.red),
                         )),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -425,12 +428,14 @@ class _SigninState extends State<Signin> {
       // db와 같은 아이디가 있으면
       if (ids == id.text) {
         sameEmail();
-        if (Static.leaveday.isNotEmpty) {
+  
+      //leaveday 가 있으면 
+      if (Static.leaveday.isNotEmpty) {
           cantSignin();
         }
-      } else {
+      }else {
         setState(() {
-          Hint = "";
+          hint = "";
         });
         join();
       }
@@ -492,27 +497,28 @@ class _SigninState extends State<Signin> {
   // hint
   sameEmail() {
     //아이디 입력 후
-    //if(id.text.isNotEmpty) {
+    if(id.text.isNotEmpty) {
     setState(() {
-      Hint = "\u26A0 Email is duplicated. Please write another Email";
+      hint = "\u26A0 Email is duplicated. Please write another Email";
     });
 
-    // }
+     }
   }
 
   failJoin() {
     setState(() {
-      Hint = "\u26A0 Please check the information you entered again";
+      hint = "\u26A0 Please check the information you entered again";
     });
   }
 
   cantSignin() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('해당 아이디(탈퇴 아이디)로는 회원가입을 할 수 없습니다.'),
+        content: Text("Can't Sign up with this email(signout email)"),
         backgroundColor: Colors.grey,
       ),
     );
   }
-} //end
+}
+
 

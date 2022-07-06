@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CheckHome(),
+                        builder: (context) => const CheckHome(),
                       ));
                 }
               },
