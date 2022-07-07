@@ -332,7 +332,7 @@ class _LoginState extends State<Login> {
       setState(() {
         //error unicode
         hint =
-            "\u26A0 Can't Log In in this Email.\nPlease check again.";
+            "\u26A0 Can't Log In in this Email(signout)\nPlease check again.";
       });
     } else {
       setState(() {
