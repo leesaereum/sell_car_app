@@ -227,7 +227,6 @@ class _DetailcommunityState extends State<Detailcommunity> {
     );
   }
 
-
   _commentLists() async {
     var url = Uri.parse(
         'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}&pnum=${widget.pnum}');

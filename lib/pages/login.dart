@@ -19,8 +19,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  
-
   //password
   // 비번 visible= 안보임이 초기상태
   bool _pwState = true;
