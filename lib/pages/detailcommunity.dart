@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:sell_car_app/pages/community.dart';
 import 'package:sell_car_app/pages/modifycommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
@@ -195,6 +196,8 @@ class _DetailcommunityState extends State<Detailcommunity> {
             return GestureDetector(
               onTap: () {
                 _commentLists();
+                Static.cnickname = commentList[index]['nickname'];
+                Static.cnum = commentList[index]['cnum'];
               },
               child: Card(
                 child: Row(
@@ -227,13 +230,13 @@ class _DetailcommunityState extends State<Detailcommunity> {
 
   _commentLists() async {
     var url = Uri.parse(
-        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}&pnum=${Static.pnum}');
+        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}&pnum=${widget.pnum}');
     var response = await http.get(url);
 
     setState(() {
-      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-      List result = dataConvertedJSON['results'];
-      commentList.addAll(result);
+        var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
+        List result = dataConvertedJSON['results'];
+        commentList.addAll(result);
     });
   }
 

@@ -1,7 +1,7 @@
 class Static {
-  static String id = "test";
+  static String id = "jinyoung";
   static String pw = "";
-  static String nickname = "test";
+  static String nickname = "zzangjin";
   static String signinday = "";
   static String leaveday = "";
   static String brand = "";
@@ -12,7 +12,8 @@ class Static {
   static String createDate = "";
   static String deleteDate = "";
   static int pnum = 1;
-  static int phNum = 1;
   static String comment = "";
   static int cnum = 1;
+  static String cnickname="";
+  static String ccreateAt="";
 }
