@@ -34,12 +34,15 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('images/sellcar.png', width: 180),
+        title: Image.asset(
+          'images/sellcar.png',
+          width: 180,
+        ),
         backgroundColor: const Color.fromARGB(255, 4, 31, 56),
       ),
       body: TabBarView(
         controller: tabcontroller,
-        children: [Home(), Community()],
+        children: const [Home(), Community()],
       ),
       bottomNavigationBar: TabBar(
         controller: tabcontroller,
@@ -122,7 +125,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              padding: const EdgeInsets.all(10.0),
               child: ListTile(
                 onTap: () {
                   Navigator.push(

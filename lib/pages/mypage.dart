@@ -127,11 +127,7 @@ class _MypageState extends State<Mypage> {
                               MaterialPageRoute(
                                 builder: (context) => const Tabs(),
                               ));
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Login(),
-                              ));
+                          
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(
                             content: Text('COMPLETE TO LOGOUT'),
@@ -140,7 +136,7 @@ class _MypageState extends State<Mypage> {
                           ));
                         },
                         child: const Text(
-                          'RESIGN',
+                          'LOGOUT',
                           style: TextStyle(fontSize: 20),
                         )),
                   ],

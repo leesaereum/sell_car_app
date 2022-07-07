@@ -195,9 +195,9 @@ class _DetailcommunityState extends State<Detailcommunity> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                //Static.cnickname = commentList[index]['nickname'];
-                //Static.cnum = commentList[index]['cnum'];
-                
+                _commentLists();
+                Static.cnickname = commentList[index]['nickname'];
+                Static.cnum = commentList[index]['cnum'];
               },
               child: Card(
                 child: Row(
@@ -213,6 +213,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
                         trailing: TextButton(
                           onPressed: (() {
                             Static.comment = commentController.text;
+                            _addcomment();
                           }),
                           child: const Text("REPLY"),
                         ),
@@ -229,7 +230,7 @@ class _DetailcommunityState extends State<Detailcommunity> {
 
   _commentLists() async {
     var url = Uri.parse(
-        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?user=${Static.id}&pnum=${widget.pnum}');
+        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}&pnum=${widget.pnum}');
     var response = await http.get(url);
 
     setState(() {
