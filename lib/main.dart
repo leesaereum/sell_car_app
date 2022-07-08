@@ -6,7 +6,6 @@ import 'package:sell_car_app/static.dart';
 import 'package:sell_car_app/tab.dart';
 
 void main() {
-  //WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -66,7 +65,7 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CheckHome(),
+                        builder: (context) => const CheckHome(),
                       ));
                 }
               },

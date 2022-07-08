@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 //import 'package:google_sign_in/google_sign_in.dart';
 //import 'package:provider/provider.dart';
+=======
+>>>>>>> 2040ececf2369272d2900a97ab248581a537f9a9
 import 'package:sell_car_app/pages/check.dart';
-import 'package:sell_car_app/pages/checkbrand.dart';
 import 'package:sell_car_app/pages/signin.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +22,7 @@ class _LoginState extends State<Login> {
   //password
   // 비번 visible= 안보임이 초기상태
   bool _pwState = true;
-  String Hint = "";
+  String hint = "";
   TextEditingController idController = TextEditingController();
   TextEditingController pwController = TextEditingController();
   //유효성 검사
@@ -65,6 +66,8 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.all(20),
                     child: TextFormField(
                       controller: idController,
+                      //화면에 들어오면 autofocus
+                      autofocus: true,
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         //빈 값 입력
@@ -79,13 +82,13 @@ class _LoginState extends State<Login> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          hintText: "\u26A0 Please enter your email",
+                          hintText: "Fill your email",
                           labelText: 'EMAIL',
                           labelStyle: const TextStyle(
                               color: Color.fromARGB(255, 4, 31, 56)),
-                          // 배경색  채우기
+                          // 배경색  채우기ƒ
                           filled: true,
-                          fillColor: Color.fromARGB(255, 224, 229, 252),
+                          fillColor: const Color.fromARGB(255, 224, 229, 252),
                           //에러 스타일 - 클릭 안할시
                           errorBorder: const OutlineInputBorder(
                               borderRadius:
@@ -119,7 +122,7 @@ class _LoginState extends State<Login> {
                             color: Color.fromARGB(255, 4, 31, 56),
                           ),
                           //텍스트필드 뒤에 아이콘
-                          //clear
+                          //이메일 내용 한꺼번에 지우기 
                           suffixIcon: IconButton(
                               onPressed: () {
                                 setState(() {
@@ -151,13 +154,13 @@ class _LoginState extends State<Login> {
                         return null;
                       },
                       decoration: InputDecoration(
-                        hintText: "Please enter your password",
+                        hintText: "Fill your password",
                         labelText: 'PASSWORD',
                         labelStyle: const TextStyle(
                             color: Color.fromARGB(255, 4, 31, 56)),
                         // 배경색  채우기
                         filled: true,
-                        fillColor: Color.fromARGB(255, 224, 229, 252),
+                        fillColor: const Color.fromARGB(255, 224, 229, 252),
                         //에러 스타일 - 클릭 안할시
                         errorBorder: const OutlineInputBorder(
                             borderRadius:
@@ -226,7 +229,7 @@ class _LoginState extends State<Login> {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text(Hint,
+                          Text(hint,
                               style: TextStyle(
                                   fontSize: 16.0, color: Colors.red[300]))
                         ],
@@ -241,12 +244,12 @@ class _LoginState extends State<Login> {
                         _login();
                       }
                     },
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color.fromARGB(255, 4, 31, 56),
+                    ),
                     child: const Text(
                       "Log In",
                       style: TextStyle(fontSize: 19),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 4, 31, 56),
                     ),
                   ),
                   const SizedBox(
@@ -278,28 +281,6 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  // ElevatedButton.icon(
-                  //     onPressed: () {
-                  //       // final provider = Provider.of<GoogleSignInProvider>(
-                  //       //     context,
-                  //       //     listen: false);
-                  //       // provider.googleLogin();
-                  //     },
-                  //     icon: Image.asset(
-                  //       "images/googlelogo.png",
-                  //       height: 32.0,
-                  //     ),
-                  //     label: const Text(
-                  //       "Sign Up with Google",
-                  //       style: TextStyle(fontSize: 19),
-                  //     ),
-                  //     style: ElevatedButton.styleFrom(
-                  //       primary: const Color.fromARGB(255, 4, 31, 56),
-                  //       shape: RoundedRectangleBorder(
-                  //         borderRadius: BorderRadius.circular(20),
-                  //       ),
-                  //       minimumSize: const Size(250, 45),
-                  //     )),
                 ],
               ),
             ),
@@ -320,7 +301,7 @@ class _LoginState extends State<Login> {
       var jSON = json.decode(utf8.decode(response.bodyBytes));
       var result = jSON['result'];
       if (result[0]['id'] == 'fail') {
-        login_fail();
+        loginFail();
       } else if (result[0]['leaveday'] != null) {
         //탈퇴회원
         cantLogin();
@@ -337,15 +318,15 @@ class _LoginState extends State<Login> {
   }
 
   //로그인 실패
-  login_fail() {
+  loginFail() {
     if (pwController.text.isNotEmpty && idController.text.isNotEmpty) {
       setState(() {
         //error unicode
-        Hint = "\u26A0 There is no infromation \n entered Email, password";
+        hint = "\u26A0 There is no infomation \n entered Email, password";
       });
     } else {
       setState(() {
-        Hint = "";
+        hint = "";
       });
     }
   }
@@ -355,12 +336,12 @@ class _LoginState extends State<Login> {
     if (pwController.text.isNotEmpty && idController.text.isNotEmpty) {
       setState(() {
         //error unicode
-        Hint =
-            "\u26A0 Can't Log In in this Email(signout Email)\nPlease check again.";
+        hint =
+            "\u26A0 Can't Log In in this Email(signout)\nPlease check again.";
       });
     } else {
       setState(() {
-        Hint = "";
+        hint = "";
       });
     }
   }

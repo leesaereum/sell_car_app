@@ -3,7 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/main.dart';
 import 'package:sell_car_app/pages/community.dart';
-import 'package:sell_car_app/pages/loginhome.dart';
+import 'package:sell_car_app/pages/login.dart';
 import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/pages/mypage.dart';
 import 'package:sell_car_app/pages/tips.dart';
@@ -92,7 +92,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginHome(),
+                              builder: (context) => Login(),
                             ));
                       },
                       leading: const CircleAvatar(
