@@ -200,12 +200,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "simple_gesture_detector",
-      "rootUri": "file:///Users/reum/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "sky_engine",
       "rootUri": "file:///Users/reum/Documents/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -296,7 +290,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-07-08T08:03:55.390887Z",
+  "generated": "2022-07-08T08:13:30.012405Z",
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }
