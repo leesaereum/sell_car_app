@@ -1,15 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 //import 'package:google_sign_in/google_sign_in.dart';
 //import 'package:provider/provider.dart';
-=======
->>>>>>> 2040ececf2369272d2900a97ab248581a537f9a9
 import 'package:sell_car_app/pages/check.dart';
 import 'package:sell_car_app/pages/signin.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
+import 'package:sell_car_app/tab.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -19,8 +17,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  
-
   //password
   // 비번 visible= 안보임이 초기상태
   bool _pwState = true;
@@ -124,7 +120,7 @@ class _LoginState extends State<Login> {
                             color: Color.fromARGB(255, 4, 31, 56),
                           ),
                           //텍스트필드 뒤에 아이콘
-                          //이메일 내용 한꺼번에 지우기 
+                          //이메일 내용 한꺼번에 지우기
                           suffixIcon: IconButton(
                               onPressed: () {
                                 setState(() {
@@ -310,11 +306,19 @@ class _LoginState extends State<Login> {
       } else {
         Static.id = result[0]['id'];
         Static.pw = pwController.text;
+        Static.nickname = result[0]['nickname'];
+        Navigator.pop(context);
+        Navigator.pop(context);
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const CheckHome(),
+              builder: (context) => const Tabs(),
             ));
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //       builder: (context) => const CheckHome(),
+        //     ));
       }
     });
   }
@@ -347,5 +351,5 @@ class _LoginState extends State<Login> {
       });
     }
   }
-} 
+}
 //END

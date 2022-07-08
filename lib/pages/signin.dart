@@ -291,7 +291,7 @@ class _SigninState extends State<Signin> {
                         ),
                       ),
                     ),
-                    //check - password 
+                    //check - password
                     Container(
                       height: 120,
                       padding: const EdgeInsets.all(20),
@@ -428,12 +428,12 @@ class _SigninState extends State<Signin> {
       // db와 같은 아이디가 있으면
       if (ids == id.text) {
         sameEmail();
-  
-      //leaveday 가 있으면 
-      if (Static.leaveday.isNotEmpty) {
+
+        //leaveday 가 있으면
+        if (Static.leaveday.isNotEmpty) {
           cantSignin();
         }
-      }else {
+      } else {
         setState(() {
           hint = "";
         });
@@ -497,12 +497,11 @@ class _SigninState extends State<Signin> {
   // hint
   sameEmail() {
     //아이디 입력 후
-    if(id.text.isNotEmpty) {
-    setState(() {
-      hint = "\u26A0 Email is duplicated. Please write another Email";
-    });
-
-     }
+    if (id.text.isNotEmpty) {
+      setState(() {
+        hint = "\u26A0 Email is duplicated. Please write another Email";
+      });
+    }
   }
 
   failJoin() {
@@ -519,10 +518,4 @@ class _SigninState extends State<Signin> {
       ),
     );
   }
-<<<<<<< HEAD
 }
-
-
-=======
-} //end
->>>>>>> jinyoung

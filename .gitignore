@@ -240,3 +240,5 @@ lib/static.dart
 .dart_tool/package_config.json
 =======
 >>>>>>> parent of e81047d (commit)
+.flutter-plugins-dependencies
+ios/Podfile.lock
