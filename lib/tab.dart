@@ -3,7 +3,10 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sell_car_app/main.dart';
 import 'package:sell_car_app/pages/community.dart';
+<<<<<<< HEAD
 import 'package:sell_car_app/pages/login.dart';
+=======
+>>>>>>> jinyoung
 import 'package:sell_car_app/pages/mylist.dart';
 import 'package:sell_car_app/pages/mypage.dart';
 import 'package:sell_car_app/pages/tips.dart';
@@ -63,10 +66,15 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
         ],
       ),
       drawer: Drawer(
-        child: Static.id.isEmpty
-            ? ListView(
-                padding: EdgeInsets.zero,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Container(
+              color: Color.fromARGB(255, 2, 26, 48),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+<<<<<<< HEAD
                   Container(
                     color: Color.fromARGB(255, 2, 26, 48),
                     child: Column(
@@ -208,9 +216,84 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                       ),
                       title: const Text('TIPS'),
                     ),
+=======
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Text(
+                    'Hello [${Static.nickname}]!',
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+>>>>>>> jinyoung
                   ),
                 ],
               ),
+              height: 160,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Mypage(),
+                      ));
+                },
+                leading: const CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
+                ),
+                title: const Text('MYPAGE'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Mylist(),
+                      ));
+                },
+                leading: const CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
+                  child: Icon(
+                    Icons.list,
+                    color: Colors.white,
+                  ),
+                ),
+                title: const Text('MYLIST'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Tips(),
+                      ));
+                },
+                leading: const CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 4, 31, 56),
+                  child: Icon(
+                    Icons.lightbulb,
+                    color: Colors.white,
+                  ),
+                ),
+                title: const Text('TIPS'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -20,9 +20,7 @@ class _CommunityState extends State<Community> {
   @override
   void initState() {
     comList = [];
-    //commentList = [];
     getJSONData();
-    //_commentLists();
     super.initState();
   }
 
@@ -144,18 +142,6 @@ class _CommunityState extends State<Community> {
     });
 
     return true;
-  }
-
-  _commentLists() async {
-    var url = Uri.parse(
-        'http://localhost:8080/Flutter/sell_car/commentmain.jsp?cnum=${Static.cnum}');
-    var response = await http.get(url);
-
-    setState(() {
-      var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-      List result = dataConvertedJSON['results'];
-      commentList.addAll(result);
-    });
   }
 
   rebuildData() {
