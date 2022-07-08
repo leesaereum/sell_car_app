@@ -221,3 +221,9 @@ ios/Podfile.lock
 .flutter-plugins-dependencies
 .packages
 >>>>>>> parent of e81047d (commit)
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+ios/Podfile.lock

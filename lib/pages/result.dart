@@ -109,11 +109,12 @@ class _ResultState extends State<Result> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => Chart(
-                              inputAge: widget.inputAge,
-                              inputMileage: widget.inputMileage,
-                              inputFueltype: widget.inputFueltype,
-                              inputTransmission: widget.inputTransmission,
-                              predictedprice: predicted,),
+                            inputAge: widget.inputAge,
+                            inputMileage: widget.inputMileage,
+                            inputFueltype: widget.inputFueltype,
+                            inputTransmission: widget.inputTransmission,
+                            predictedprice: predicted,
+                          ),
                         ));
                   },
                   child: const Text('SEE CHARTS')),
@@ -447,10 +448,12 @@ class _ResultState extends State<Result> {
   Future<bool> addlist() async {
     bool error = true;
 
-    var url = Uri.parse(
-        "http://localhost:8080/Flutter/sell_car/sellcar_mylist_insert.jsp?inputId=${Static.id}&inputTitle=${title.text}&inputPrice=${price.round()}&inputBrand=" +
-            "${Static.brand}&inputModel=${Static.model}&inputAge=${widget.inputAge}&inputMileage=${widget.inputMileage}&inputMpg=${widget.inputMpg}&inputEngineSize=" +
-            "${widget.inputEngineSize}&inputFueltype=${widget.inputFueltype}&inputTransmission=${widget.inputTransmission}&inputError=${widget.errorValue}");
+    var url = Uri.parse("http://localhost:8080/Flutter/sell_car/sellcar_mylist_insert.jsp?" +
+        "inputId=${Static.id}&inputTitle=${title.text}&inputPrice=${price.round()}&inputBrand=" +
+        "${Static.brand}&inputModel=${Static.model}&inputAge=${widget.inputAge}" +
+        "&inputMileage=${widget.inputMileage}&inputMpg=${widget.inputMpg}&inputEngineSize=" +
+        "${widget.inputEngineSize}&inputFueltype=${widget.inputFueltype}" +
+        "&inputTransmission=${widget.inputTransmission}&inputError=${widget.errorValue}");
     var response = await http.get(url);
 
     setState(() {
@@ -539,8 +542,8 @@ class _ResultState extends State<Result> {
         builder: (BuildContext ctx) {
           return AlertDialog(
             title: const Text('ALERT'),
-            content: const Text(
-                'LIST HAS BEEN ADDED. DO YOU WANT TO GO TO MYLIST?'),
+            content:
+                const Text('LIST HAS BEEN ADDED. DO YOU WANT TO GO TO MYLIST?'),
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
