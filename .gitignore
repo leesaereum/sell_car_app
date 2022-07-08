@@ -227,3 +227,13 @@ ios/Podfile.lock
 .flutter-plugins-dependencies
 .packages
 ios/Podfile.lock
+pubspec.yaml
+pubspec.lock
+lib/tab.dart
+lib/static.dart
+.packages
+.flutter-plugins-dependencies
+.flutter-plugins
+.dart_tool/version
+.dart_tool/package_config_subset
+.dart_tool/package_config.json
