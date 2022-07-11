@@ -37,9 +37,9 @@ dependencies:
   charts_flutter: ^0.12.0
   vertical_card_pager: ^1.5.0
   http: ^0.13.4
-  google_sign_in: ^5.3.3
-  #simple_gesture_detector: ^0.2.0
+  simple_gesture_detector: ^0.2.0
   provider: ^6.0.3
+  #google_sign_in: ^5.3.3
   #firebase_auth: ^3.3.19
   #firebase_core: ^1.18.0
 
