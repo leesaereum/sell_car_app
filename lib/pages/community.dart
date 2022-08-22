@@ -84,7 +84,7 @@ class _CommunityState extends State<Community> {
                                           text: comList[index]['title'],
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 20,
+                                            fontSize: 30,
                                           ),
                                         ),
                                       ),
@@ -131,7 +131,7 @@ class _CommunityState extends State<Community> {
 
   // Functions
   getJSONData() async {
-    var url = Uri.parse('http://localhost:8080/Flutter/sell_car/boardmain.jsp?user=${Static.id}');
+    var url = Uri.parse('http://192.168.0.4:8080/Flutter/sell_car/boardmain.jsp');
     var response = await http.get(url);
     setState(() {
       if (response.body.isNotEmpty) {
@@ -140,7 +140,6 @@ class _CommunityState extends State<Community> {
         comList.addAll(result);
       }
     });
-
     return true;
   }
 

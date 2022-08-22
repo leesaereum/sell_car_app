@@ -1,8 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:sell_car_app/main.dart';
-import 'package:sell_car_app/pages/community.dart';
-import 'package:sell_car_app/pages/detailcommunity.dart';
 import 'package:sell_car_app/static.dart';
 import 'package:http/http.dart' as http;
 
@@ -193,14 +190,6 @@ class _ModifycommunityState extends State<Modifycommunity> {
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => Detailcommunity(
-                        pnum: widget.pnum,
-                        nickname: widget.nickname,
-                        title: titleController.text,
-                        content: contentController.text,
-                        createAt: Static.createDate,
-                        )));
                   },
                   child: const Text('To Community')),
             ],
